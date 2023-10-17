@@ -1,12 +1,6 @@
 import Root from '../Layouts/Root/Root';
-import BookedEvents from '../Pages/BookedEvents';
-import Home from '../Pages/Home';
-import Login from '../Pages/Login';
-import PricingCard from '../Pages/Pricing';
-import ServiceDetails from '../Pages/ServiceDetails';
-import SignUp from '../Pages/SignUp';
-import PrivateRoute from './PrivateRoute/PrivateRoute';
 import Error from '../Pages/Error/Error';
+import Home from '../Pages/Home/Home';
 
 const routes = [
   {
@@ -14,11 +8,10 @@ const routes = [
     element: <Root />,
     errorElement: <Error />,
     children: [
-      // {
-      //   path: '/',
-      //   loader: () => fetch('/services.json'),
-      //   element: <Home />,
-      // },
+      {
+        path: '/',
+        element: <Home />,
+      },
       // {
       //   path: '/login',
       //   element: <Login />,

@@ -1,19 +1,17 @@
 nav a.active {
-  padding: 5px 15px;
-  border-radius: 6px;
+  background-color: white;
+  border-radius: 80px;
+  padding: 4px 20px;
+  padding-right: 100px;
   position: relative;
-  font-weight: bold;
 }
 /* custom underline */
 nav a.active::after {
-  content: "";
+  content: '+';
   position: absolute;
-  left: 50%;
-  bottom: -5px;
-  transform: translateX(-50%);
-  width: 50%;
-  height: 2px;
-  background-color: #15E1F2;
+  right: 10px;
+  top: -6px;
   transition: all 0.5s ease-in;
+  font-size: 24px;
+  transition: all 0.5s linear;
 }
-
