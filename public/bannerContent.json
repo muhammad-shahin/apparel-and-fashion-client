@@ -1,0 +1,45 @@
+[
+    {
+      "title": "Discover the Latest Adidas Hoodies",
+      "productName": "Adidas Hoodies Collection",
+      "bannerImage": "https://i.ibb.co/wCNKX54/banner-adidas-hoddie.jpg",
+      "startingPrice": "From $1,500",
+      "brandLogo": "https://i.ibb.co/XSccpC8/Adidas-logo.png"
+    },
+    {
+      "title": "Experience the Luxury of Gucci Perfumes",
+      "productName": "Gucci Perfume Collection",
+      "bannerImage": "https://i.ibb.co/3pg6gHw/banner-gucci-perfume.jpg",
+      "startingPrice": "From $1,500",
+      "brandLogo": "https://i.ibb.co/h9s85mT/gucci-logo.png"
+    },
+    {
+      "title": "Upgrade Your Style with H&M Men's Clothing",
+      "productName": "H&M Men's Clothing",
+      "bannerImage": "https://i.ibb.co/sjJtSQW/banner-h-m-mens-clothing.jpg",
+      "startingPrice": "From $150",
+      "brandLogo": "https://i.ibb.co/SPvTcFM/H-M-Logo.png"
+    },
+    {
+      "title": "Explore the Essence of J Perfume",
+      "productName": "J Perfume Collection",
+      "bannerImage": "https://i.ibb.co/b54jLd4/banner-j-perfume.webp",
+      "startingPrice": "From $540",
+      "brandLogo": "https://i.ibb.co/kS0Fzc5/j-logo.webp"
+    },
+    {
+      "title": "Run in Style with Nike Running Shoes",
+      "productName": "Nike Running Shoes",
+      "bannerImage": "https://i.ibb.co/cJCL6qW/banner-nike-running-shoe.jpg",
+      "startingPrice": "From $100",
+      "brandLogo": "https://i.ibb.co/NjQ168n/Nike-Logo.png"
+    },
+    {
+      "title": "Step Out with Zara Men's Boots",
+      "productName": "Zara Men's Boots Collection",
+      "bannerImage": "https://i.ibb.co/5jHXTGF/banner-zara-mens-boot.jpg",
+      "startingPrice": "From $500",
+      "brandLogo": "https://i.ibb.co/GTf7b7h/zara-logo.png"
+    }
+  ]
+  
