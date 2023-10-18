@@ -35,7 +35,7 @@ const Navbar = () => {
         <ul
           className={` lg:static fixed top-[85px] ${
             isOpen ? 'right-0' : 'right-[-100%]'
-          } lg:h-auto h-screen lg:w-auto w-[50%] flex lg:flex-row flex-col bg-gray-200 opacity-[0.7] backdrop-blur-lg lg:px-5 py-2 justify-start lg:justify-center items-center lg:gap-10 gap-8 duration-700 z-[100] lg:rounded-full lg:pt-2 pt-10`}
+          } lg:h-auto h-screen lg:w-auto w-[50%] flex lg:flex-row flex-col bg-gray-200 lg:opacity-[0.7] backdrop-blur-[25px] lg:px-5 py-2 justify-start lg:justify-center items-center lg:gap-10 gap-8 duration-700 z-[100] lg:rounded-full lg:pt-2 pt-10`}
         >
           <li
             className='text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
