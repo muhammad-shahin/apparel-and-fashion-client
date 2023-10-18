@@ -1,11 +1,19 @@
 import Tilt from 'react-parallax-tilt';
 import PropTypes from 'prop-types';
+import GlassedLogo from '../GlassedLogo/GlassedLogo';
+import { useNavigate } from 'react-router-dom';
 
 const BrandCard = ({ brand }) => {
   const { brandName, brandLogo, brandImage, tagLine } = brand;
+  const navigate = useNavigate();
   console.log(brand);
   return (
-    <div className='w-96 rounded-lg'>
+    <div
+      className='w-96 rounded-lg'
+      onClick={() => {
+        navigate(`/brand/${brandName}`);
+      }}
+    >
       <Tilt
         className=''
         perspective={1100}
@@ -25,17 +33,20 @@ const BrandCard = ({ brand }) => {
           <div className='overlay rounded'></div>
           <div className='flex justify-center items-center flex-col h-full'>
             <p
-              className='relative md:text-[48px] text-[28px] uppercase text-center  text-white'
+              className='relative md:text-[48px] text-[28px] uppercase text-center text-white mt-auto'
               style={{ fontFamily: 'DreamAvenue' }}
             >
               {brandName}
             </p>
             <p
-              className='relative md:text-[18px] text-[18px] uppercase text-center text-white'
+              className='relative md:text-[18px] text-[18px] uppercase text-center text-white flex'
               style={{ fontFamily: 'Quicksand' }}
             >
               {tagLine}
             </p>
+            <div className='stay-loy flex-shrink mt-auto mb-[20px]'>
+              <GlassedLogo logo={brandLogo} />
+            </div>
           </div>
         </div>
       </Tilt>

@@ -1,4 +1,5 @@
 import Root from '../Layouts/Root/Root';
+import BrandDetails from '../Pages/BrandDetails/BrandDetails';
 import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home';
 
@@ -11,6 +12,10 @@ const routes = [
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/brand/:brandName',
+        element: <BrandDetails />,
       },
       // {
       //   path: '/login',

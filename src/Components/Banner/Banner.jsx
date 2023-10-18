@@ -3,7 +3,6 @@ import bgVideo from '../../assets/video/bgVideo.mp4';
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [bannerData, setBannerData] = useState([]);
-  const [selectedBanner, setSelectedBanner] = useState(null);
   const handleBrandBtnClick = (index) => {
     setCurrentSlide(index);
   };

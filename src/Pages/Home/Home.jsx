@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Banner from '../../Components/Banner/Banner';
 import BrandCard from '../../Components/BrandCard/BrandCard';
 import Heading from '../../Components/Heading/Heading';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [cardData, setCardData] = useState([]);
@@ -12,6 +13,7 @@ const Home = () => {
         setCardData(data);
       });
   }, []);
+  const navigate = useNavigate();
   return (
     <div>
       <Banner />
