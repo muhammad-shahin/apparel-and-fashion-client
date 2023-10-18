@@ -1,0 +1,249 @@
+[
+  {
+    "productId": 1,
+    "productName": "Gucci Men's Loafer",
+    "productImages": [
+      "https://i.ibb.co/MnyPQ4y/gucci-mens-loafer2.jpg",
+      "https://i.ibb.co/qRZQkXx/gucci-mens-loafer.jpg"
+    ],
+    "productPrice": "199.50",
+    "productVariant": true,
+    "productColors": ["#000000", "#FF0000", "#00FF00"],
+    "productSize": "S",
+    "productCategory": "Men's Footwear"
+  },
+  {
+    "productId": 2,
+    "productName": "H&M Regular Fit Corduroy Shirt",
+    "productImages": [
+      "https://i.ibb.co/10jkLcc/h-m-Regular-Fit-Corduroy-shirt.webp",
+      "https://i.ibb.co/Ht4mVr3/h-m-Regular-Fit-Corduroy-shirt2.webp"
+    ],
+    "productPrice": "49.99",
+    "productVariant": true,
+    "productColors": ["#336699", "#FF6600", "#99CC33"],
+    "productSize": "M",
+    "productCategory": "Men's Shirts"
+  },
+  {
+    "productId": 3,
+    "productName": "H&M Wool-Blend Overshirt",
+    "productImages": [
+      "https://i.ibb.co/J53bG4c/h-m-Wool-blend-overshirt.jpg",
+      "https://i.ibb.co/0X1sLQx/h-m-Wool-blend-overshirt2.webp"
+    ],
+    "productPrice": "79.99",
+    "productVariant": true,
+    "productColors": ["#333333", "#990000", "#0066CC"],
+    "productSize": "L",
+    "productCategory": "Men's Shirts"
+  },
+  {
+    "productId": 4,
+    "productName": "J. BLACK BLENDED KAMEEZ SHALWAR",
+    "productImages": [
+      "https://i.ibb.co/2gn3tKD/j-BLACK-BLENDED-KAMEEZ-SHALWAR.webp",
+      "https://i.ibb.co/87sgFtJ/j-BLACK-BLENDED-KAMEEZ-SHALWAR2.webp"
+    ],
+    "productPrice": "59.99",
+    "productVariant": true,
+    "productColors": ["#000000", "#000066"],
+    "productSize": "XL",
+    "productCategory": "Men's Ethnic Wear"
+  },
+  {
+    "productId": 5,
+    "productName": "J. BLESS Perfume for Men",
+    "productImages": [
+      "https://i.ibb.co/qpYXVYs/j-bless-perfume-men.webp",
+      "https://i.ibb.co/cg2PPYM/j-bless-perfume-men2.webp"
+    ],
+    "productPrice": "69.99",
+    "productVariant": true,
+    "productColors": ["#000000"],
+    "productSize": "XXL",
+    "productCategory": "Men's Ethnic Wear"
+  },
+  {
+    "productId": 6,
+    "productName": "J. BLACK KAMEEZ SHALWAR",
+    "productImages": [
+      "https://i.ibb.co/mvw7r8f/j-panjabi.webp",
+      "https://i.ibb.co/H2WHhvV/j-panjabi2.webp"
+    ],
+    "productPrice": "29.99",
+    "productVariant": true,
+    "productColors": ["#336699", "#CC6600", "#009933"],
+    "productSize": "M",
+    "productCategory": "Men's Fragrance"
+  },
+  {
+    "productId": 7,
+    "productName": "J. UROOSA Perfume for Women",
+    "productImages": [
+      "https://i.ibb.co/4wbjBR6/j-UROOSA-perfume-women.webp",
+      "https://i.ibb.co/2qxL2Xb/j-UROOSA-perfume-women2.webp"
+    ],
+    "productPrice": "39.99",
+    "productVariant": true,
+    "productColors": ["#FF99CC", "#FF66CC"],
+    "productSize": "S",
+    "productCategory": "Women's Fragrance"
+  },
+  {
+    "productId": 8,
+    "productName": "J. Women's Blue Lawn Kurta",
+    "productImages": [
+      "https://i.ibb.co/h7qx4TW/j-women-BLUE-LAWN-KURTI.webp",
+      "https://i.ibb.co/bzZn2Zg/j-women-BLUE-LAWN-KURTI2.webp"
+    ],
+    "productPrice": "29.99",
+    "productVariant": true,
+    "productColors": ["#336699", "#009900"],
+    "productSize": "M",
+    "productCategory": "Women's Ethnic Wear"
+  },
+  {
+    "productId": 9,
+    "productName": "J. Women's Orange Lawn Unstitched ",
+    "productImages": [
+      "https://i.ibb.co/yVVsdMR/j-women-ORANGE-LAWN-UNSTITCHED-3-PC.webp",
+      "https://i.ibb.co/xXVvjdt/j-women-ORANGE-LAWN-UNSTITCHED-3-PC2.webp"
+    ],
+    "productPrice": "49.99",
+    "productVariant": true,
+    "productColors": ["#FF9900", "#FF9933"],
+    "productSize": "L",
+    "productCategory": "Women's Ethnic Wear"
+  },
+  {
+    "productId": 10,
+    "productName": "J. Women's Purple Poly-Cotton 3-Piece Stitched Suit",
+    "productImages": [
+      "https://i.ibb.co/FX04qPB/j-women-PURPLE-POLY-COTTON-3-PC-STITCHED.webp",
+      "https://i.ibb.co/sbb6xvw/j-women-PURPLE-POLY-COTTON-3-PC-STITCHED2.webp"
+    ],
+    "productPrice": "59.99",
+    "productVariant": true,
+    "productColors": ["#660066", "#990099"],
+    "productSize": "S",
+    "productCategory": "Women's Ethnic Wear"
+  },
+  {
+    "productId": 11,
+    "productName": "J. Women's Red Khaddar 3-Piece Stitched Suit",
+    "productImages": [
+      "https://i.ibb.co/HzZsJfL/j-women-RED-KHADDAR-3-PC-STITCHED.webp",
+      "https://i.ibb.co/M5x0jwm/j-women-RED-KHADDAR-3-PC-STITCHED2.webp"
+    ],
+    "productPrice": "69.99",
+    "productVariant": true,
+    "productColors": ["#CC0000", "#FF3333"],
+    "productSize": "M",
+    "productCategory": "Women's Ethnic Wear"
+  },
+  {
+    "productId": 12,
+    "productName": "J. Women's Yellow Lawn Kurta",
+    "productImages": [
+      "https://i.ibb.co/71DfqX8/j-women-Yellow-LAWN-KURTI.webp",
+      "https://i.ibb.co/H7tVd2G/j-women-Yellow-LAWN-KURTI2.webp"
+    ],
+    "productPrice": "29.99",
+    "productVariant": true,
+    "productColors": ["#FFFF00", "#FFCC00"],
+    "productSize": "L",
+    "productCategory": "Women's Ethnic Wear"
+  },
+  {
+    "productId": 13,
+    "productName": "J. Women's Yellow Lawn Unstitched ",
+    "productImages": [
+      "https://i.ibb.co/j3dfDLG/j-women-YELLOW-LAWN-UNSTITCHED-3-PC.webp",
+      "https://i.ibb.co/3mwLB8b/j-women-YELLOW-LAWN-UNSTITCHED-3-PC2.webp"
+    ],
+    "productPrice": "49.99",
+    "productVariant": true,
+    "productColors": ["#FFFF00", "#FFCC00"],
+    "productSize": "S",
+    "productCategory": "Women's Ethnic Wear"
+  },
+  {
+    "productId": 14,
+    "productName": "K Perfume for Men - GREAT SUMMIT",
+    "productImages": [
+      "https://i.ibb.co/r6Z3nSF/k-perfume-men-GREAT-SUMMIT.webp",
+      "https://i.ibb.co/5GQnvfR/k-perfume-men-GREAT-SUMMIT2.webp"
+    ],
+    "productPrice": "39.99",
+    "productVariant": true,
+    "productColors": ["#336699", "#009933", "#660000"],
+    "productSize": "XL",
+    "productCategory": "Men's Fragrance"
+  },
+  {
+    "productId": 15,
+    "productName": "Nike Cap",
+    "productImages": [
+      "https://i.ibb.co/n3H1rs4/nike-cap.webp",
+      "https://i.ibb.co/3kQp6yM/nike-cap-2.webp"
+    ],
+    "productPrice": "19.99",
+    "productVariant": true,
+    "productColors": ["#000000", "#0000FF", "#00FF00"],
+    "productSize": "S",
+    "productCategory": "Accessories"
+  },
+  {
+    "productId": 16,
+    "productName": "Nike Sneakers - Luka",
+    "productImages": [
+      "https://i.ibb.co/pWWQS04/nike-sneakers-luka2.webp",
+      "https://i.ibb.co/5Y6cgCr/nike-sneakers-luka2-2.webp"
+    ],
+    "productPrice": "99.99",
+    "productVariant": true,
+    "productColors": ["#000000", "#0000FF", "#00FF00"],
+    "productSize": "M",
+    "productCategory": "Footwear"
+  },
+  {
+    "productId": 17,
+    "productName": "Adidas Hoodie and Joggers Set",
+    "productImages": [
+      "https://i.ibb.co/W5YRR9b/addidas-hoddie-joggers.jpg",
+      "https://i.ibb.co/CHWzFj2/addidas-hoddie-joggers2.jpg"
+    ],
+    "productPrice": "79.99",
+    "productVariant": true,
+    "productColors": ["#000000", "#0000FF", "#00FF00"],
+    "productSize": "L",
+    "productCategory": "Men's Sportswear"
+  },
+  {
+    "productId": 18,
+    "productName": "Adidas T-Shirt and Joggers Set",
+    "productImages": [
+      "https://i.ibb.co/LvsQCJY/addidas-tshirt-joggers.jpg",
+      "https://i.ibb.co/pKmM8PV/addidas-tshirt-joggers2.jpg"
+    ],
+    "productPrice": "69.99",
+    "productVariant": true,
+    "productColors": ["#000000", "#0000FF", "#00FF00"],
+    "productSize": "XL",
+    "productCategory": "Men's Sportswear"
+  },
+  {
+    "productId": 19,
+    "productName": "Gucci Maxi Duffle Bag",
+    "productImages": [
+      "https://i.ibb.co/9g4M2Cc/gucci-MAXI-DUFFLE-bag.jpg",
+      "https://i.ibb.co/wcVb0F4/gucci-MAXI-DUFFLE-bag2.jpg"
+    ],
+    "productPrice": "299.99",
+    "productVariant": true,
+    "productColors": ["#000000", "#FF0000"],
+    "productSize": "S",
+    "productCategory": "Accessories"
+  }
+]

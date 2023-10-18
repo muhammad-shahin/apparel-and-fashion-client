@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import Banner from '../../Components/Banner/Banner';
 import BrandCard from '../../Components/BrandCard/BrandCard';
 import Heading from '../../Components/Heading/Heading';
-import { useNavigate } from 'react-router-dom';
+import FeaturedProducts from '../../Components/FeaturedProducts/FeaturedProducts';
 
 const Home = () => {
   const [cardData, setCardData] = useState([]);
+  const [featuredProduct, setFeaturedProduct] = useState([]);
   useEffect(() => {
     fetch('/brandCard.json')
       .then((res) => res.json())
@@ -13,11 +14,21 @@ const Home = () => {
         setCardData(data);
       });
   }, []);
-  const navigate = useNavigate();
+
+  // for featured products
+  useEffect(() => {
+    fetch('/featuredProducts.json')
+      .then((res) => res.json())
+      .then((data) => {
+        setFeaturedProduct(data);
+      });
+  }, []);
   return (
     <div>
+      {/* banner section */}
       <Banner />
-      <div className='px-[5%] container mx-auto'>
+      {/* brands section */}
+      <div className='px-[5%] container mx-auto my-6'>
         <Heading
           title={'Our Brands'}
           subTitle={'Top Brands We Work With'}
@@ -30,6 +41,11 @@ const Home = () => {
             />
           ))}
         </div>
+      </div>
+
+      {/* featured Product section */}
+      <div className='px-[5%] container mx-auto my-6'>
+        <FeaturedProducts products={featuredProduct} />
       </div>
     </div>
   );

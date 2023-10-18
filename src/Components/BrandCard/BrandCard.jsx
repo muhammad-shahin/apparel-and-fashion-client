@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 const BrandCard = ({ brand }) => {
   const { brandName, brandLogo, brandImage, tagLine } = brand;
   const navigate = useNavigate();
-  console.log(brand);
   return (
     <div
       className='w-96 rounded-lg'
