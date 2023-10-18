@@ -4,21 +4,13 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 import GlassButton from '../GlassButton/GlassButton';
 
 const ProductCard = ({ product }) => {
-  const {
-    productName,
-    productImages,
-    productPrice,
-    productVariant,
-    productColors,
-    productSize,
-    productCategory,
-  } = product;
+  const { productName, productImages, productColors, productSize } = product;
   const image1 = productImages?.[0];
   const image2 = productImages?.[1];
   const [visibleButtons, setVisibleButtons] = useState(false);
   return (
     <div
-      className='w-[18.75rem] h-[36rem] overflow-hidden relative border-2 border-blue-300 rounded-lg'
+      className='w-[18.75rem] h-[36rem] overflow-hidden relative border-[4px] border-blue-200 border-opacity-[1.50] rounded-lg'
       onMouseEnter={() => {
         setVisibleButtons(true);
       }}
@@ -49,9 +41,14 @@ const ProductCard = ({ product }) => {
           />
           <GlassButton text='Buy Now' />
           <div className='flex gap-4 justify-center items-center'>
-            <p className='text-[14px] font-medium text-white bg-gray-500 bg-opacity-[0.49] backdrop-blur-[25px] rounded-full p-2 w-[22px] h-[22px] flex justify-center items-center'>
-              {productSize}
-            </p>
+            {productSize.map((size, index) => (
+              <p
+                key={index}
+                className='text-[14px] font-medium text-white bg-gray-500 bg-opacity-[0.49] backdrop-blur-[25px] rounded-full p-2 w-[22px] h-[22px] flex justify-center items-center'
+              >
+                {size}
+              </p>
+            ))}
           </div>
         </div>
       </div>
@@ -61,7 +58,7 @@ const ProductCard = ({ product }) => {
           className='md:text-[26px] text-[22px] font-medium uppercase'
           style={{ fontFamily: 'Quicksand' }}
         >
-          {productName.slice(0, 30)}
+          {productName.slice(0, 25)}
         </p>
         <div
           className='text-[16px] flex justify-center items-center gap-3'

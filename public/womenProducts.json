@@ -9,7 +9,7 @@
     "productPrice": "29.99",
     "productVariant": true,
     "productColors": ["#336699", "#009900"],
-    "productSize": "M",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
   },
   {
@@ -22,7 +22,7 @@
     "productPrice": "49.99",
     "productVariant": true,
     "productColors": ["#FF9900", "#FF9933"],
-    "productSize": "L",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
   },
   {
@@ -35,7 +35,7 @@
     "productPrice": "59.99",
     "productVariant": true,
     "productColors": ["#660066", "#990099"],
-    "productSize": "S",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
   },
   {
@@ -48,7 +48,7 @@
     "productPrice": "69.99",
     "productVariant": true,
     "productColors": ["#CC0000", "#FF3333"],
-    "productSize": "M",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
   },
   {
@@ -61,7 +61,7 @@
     "productPrice": "29.99",
     "productVariant": true,
     "productColors": ["#FFFF00", "#FFCC00"],
-    "productSize": "L",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
   },
   {
@@ -74,7 +74,7 @@
     "productPrice": "49.99",
     "productVariant": true,
     "productColors": ["#FFFF00", "#FFCC00"],
-    "productSize": "S",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
   }
 ]

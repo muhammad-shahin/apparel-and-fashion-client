@@ -24,7 +24,7 @@ const BrandCard = ({ brand }) => {
         glarePosition='all'
         glareBorderRadius='8px'
       >
-        <div className='rounded-lg h-[550px] bg-blue-500 backdrop-blur-[25px] bg-opacity-[0.5] cursor-pointer border-[4px] border-blue-200 border-opacity-[1.50] relative text-[#fff]'>
+        <div className='rounded-lg h-[550px] bg-blue-500 backdrop-blur-[25px] bg-opacity-[0.5] cursor-pointer border-[4px] border-blue-200 border-opacity-[1.50] relative'>
           <img
             src={brandImage}
             className='absolute top-0 left-0 w-full h-full object-cover rounded-lg z-[-100]'

@@ -9,7 +9,7 @@
     "productPrice": "199.50",
     "productVariant": true,
     "productColors": ["#000000", "#FF0000", "#00FF00"],
-    "productSize": "S",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Footwear"
   },
   {
@@ -22,7 +22,7 @@
     "productPrice": "49.99",
     "productVariant": true,
     "productColors": ["#336699", "#FF6600", "#99CC33"],
-    "productSize": "M",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Shirts"
   },
   {
@@ -35,7 +35,7 @@
     "productPrice": "79.99",
     "productVariant": true,
     "productColors": ["#333333", "#990000", "#0066CC"],
-    "productSize": "L",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Shirts"
   },
   {
@@ -48,7 +48,7 @@
     "productPrice": "59.99",
     "productVariant": true,
     "productColors": ["#000000", "#000066"],
-    "productSize": "XL",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Ethnic Wear"
   },
   {
@@ -61,7 +61,7 @@
     "productPrice": "69.99",
     "productVariant": true,
     "productColors": ["#000000"],
-    "productSize": "XXL",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Ethnic Wear"
   },
   {
@@ -74,7 +74,7 @@
     "productPrice": "29.99",
     "productVariant": true,
     "productColors": ["#336699", "#CC6600", "#009933"],
-    "productSize": "M",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Fragrance"
   },
   {
@@ -87,7 +87,7 @@
     "productPrice": "39.99",
     "productVariant": true,
     "productColors": ["#FF99CC", "#FF66CC"],
-    "productSize": "S",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Fragrance"
   },
   {
@@ -100,7 +100,7 @@
     "productPrice": "29.99",
     "productVariant": true,
     "productColors": ["#336699", "#009900"],
-    "productSize": "M",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
   },
   {
@@ -113,7 +113,7 @@
     "productPrice": "49.99",
     "productVariant": true,
     "productColors": ["#FF9900", "#FF9933"],
-    "productSize": "L",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
   },
   {
@@ -126,7 +126,7 @@
     "productPrice": "59.99",
     "productVariant": true,
     "productColors": ["#660066", "#990099"],
-    "productSize": "S",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
   },
   {
@@ -139,7 +139,7 @@
     "productPrice": "69.99",
     "productVariant": true,
     "productColors": ["#CC0000", "#FF3333"],
-    "productSize": "M",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
   },
   {
@@ -152,7 +152,7 @@
     "productPrice": "29.99",
     "productVariant": true,
     "productColors": ["#FFFF00", "#FFCC00"],
-    "productSize": "L",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
   },
   {
@@ -165,7 +165,7 @@
     "productPrice": "49.99",
     "productVariant": true,
     "productColors": ["#FFFF00", "#FFCC00"],
-    "productSize": "S",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
   },
   {
@@ -178,7 +178,7 @@
     "productPrice": "39.99",
     "productVariant": true,
     "productColors": ["#336699", "#009933", "#660000"],
-    "productSize": "XL",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Fragrance"
   },
   {
@@ -191,7 +191,7 @@
     "productPrice": "19.99",
     "productVariant": true,
     "productColors": ["#000000", "#0000FF", "#00FF00"],
-    "productSize": "S",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Accessories"
   },
   {
@@ -204,7 +204,7 @@
     "productPrice": "99.99",
     "productVariant": true,
     "productColors": ["#000000", "#0000FF", "#00FF00"],
-    "productSize": "M",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Footwear"
   },
   {
@@ -217,7 +217,7 @@
     "productPrice": "79.99",
     "productVariant": true,
     "productColors": ["#000000", "#0000FF", "#00FF00"],
-    "productSize": "L",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Sportswear"
   },
   {
@@ -230,7 +230,7 @@
     "productPrice": "69.99",
     "productVariant": true,
     "productColors": ["#000000", "#0000FF", "#00FF00"],
-    "productSize": "XL",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Sportswear"
   },
   {
@@ -243,7 +243,7 @@
     "productPrice": "299.99",
     "productVariant": true,
     "productColors": ["#000000", "#FF0000"],
-    "productSize": "S",
+    "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Accessories"
   }
 ]
