@@ -1,4 +1,3 @@
-import Form from '../Components/Form/Form';
 import Root from '../Layouts/Root/Root';
 import BrandDetails from '../Pages/BrandDetails/BrandDetails';
 import Error from '../Pages/Error/Error';
@@ -17,16 +16,20 @@ const routes = [
         element: <Home />,
       },
       {
-        path: '/brand/:brandName',
-        element: <BrandDetails />,
-      },
-      {
         path: '/sign-up',
         element: <SignUp />,
       },
       {
         path: '/login',
         element: <Login />,
+      },
+      {
+        path: '/addProduct',
+        element: <BrandDetails />,
+      },
+      {
+        path: '/brand/:brandName',
+        element: <BrandDetails />,
       },
     ],
   },

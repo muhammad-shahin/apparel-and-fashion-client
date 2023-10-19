@@ -71,7 +71,7 @@ const Login = () => {
         inputFields={loginFields}
         submitText={'Create Account'}
         lottieAnimation={loginAnim}
-        handleSignUp={handleLogin}
+        handleFormSubmit={handleLogin}
         loginSignUpForm={true}
         bottomText={"Don't Have An Account?"}
         bottomLinkText={'Create Account'}

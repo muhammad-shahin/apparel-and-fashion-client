@@ -109,14 +109,14 @@ const SignUp = () => {
     <section className=''>
       <Form
         title='Create Your Account'
-        inputFields={signUpInputFields} // Pass the array here
+        inputFields={signUpInputFields}
         submitText={'Create Account'}
         lottieAnimation={signUpAnim}
-        handleSignUp={handleSignUp}
+        handleFormSubmit={handleSignUp}
         loginSignUpForm={true}
-        bottomText={"Already Have An Account?"}
-        bottomLinkText={"Login"}
-        bottomLink={"/login"}
+        bottomText={'Already Have An Account?'}
+        bottomLinkText={'Login'}
+        bottomLink={'/login'}
       />
       <Modal
         title='Loading'

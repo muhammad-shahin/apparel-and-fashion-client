@@ -9,7 +9,7 @@ const Form = ({
   inputFields,
   submitText,
   lottieAnimation,
-  handleSignUp,
+  handleFormSubmit,
   loginSignUpForm,
   bottomText,
   bottomLinkText,
@@ -29,7 +29,7 @@ const Form = ({
           </h1>
           <form
             className='flex flex-col justify-center items-start gap-4 lg:gap-10'
-            onSubmit={handleSignUp}
+            onSubmit={handleFormSubmit}
           >
             {inputFields.map((fields, index) => (
               <Input
@@ -86,7 +86,7 @@ Form.propTypes = {
   inputFields: PropTypes.array.isRequired,
   lottieAnimation: PropTypes.any,
   submitText: PropTypes.string,
-  handleSignUp: PropTypes.func,
+  handleFormSubmit: PropTypes.func,
   loginSignUpForm: PropTypes.bool.isRequired,
   bottomText: PropTypes.string,
   bottomLinkText: PropTypes.string,
