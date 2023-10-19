@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="50" viewBox="0 0 200 50">
+  <path d="M10,30 L60,30 L60,10 L10,10 Z" fill="black"/>
+  <text x="20" y="30" font-family="Arial" font-size="24" fill="white">Create Account</text>
+</svg>
+

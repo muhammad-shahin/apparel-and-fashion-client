@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 import bgVideo from '../../assets/video/bgVideo.mp4';
 const Banner = () => {
@@ -33,6 +34,7 @@ const Banner = () => {
     return () => {
       clearTimeout(slideTimer);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentSlide, bannerData]);
 
   return (
