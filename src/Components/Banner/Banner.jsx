@@ -21,6 +21,20 @@ const Banner = () => {
     setCurrentSlide(Math.min(currentSlide + 1, bannerData.length));
   };
 
+  // move to next banner after 10s
+  const moveToNextSlide = () => {
+    const nextSlideIndex = (currentSlide + 1) % bannerData.length;
+    setCurrentSlide(nextSlideIndex);
+  };
+
+  useEffect(() => {
+    const slideTimer = setTimeout(moveToNextSlide, 10000);
+
+    return () => {
+      clearTimeout(slideTimer);
+    };
+  }, [currentSlide, bannerData]);
+
   return (
     <section className=''>
       {/* slider for banner */}
@@ -171,20 +185,6 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      <button
-        onClick={() => {
-          nextSlide();
-        }}
-      >
-        Next
-      </button>
-      <button
-        onClick={() => {
-          prevSlide();
-        }}
-      >
-        Previous
-      </button>
     </section>
   );
 };
