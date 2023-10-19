@@ -14,16 +14,17 @@ const Form = ({
   bottomText,
   bottomLinkText,
   bottomLink,
+  extraButtonText,
+  extraButtonOnClick,
 }) => {
-  console.log(inputFields);
   return (
     <div
-      className=' bg-blue-300 backdrop-blur-[50px] bg-opacity-[0.49] font-medium text-[18px] text- uppercase w-[100%] min-h-[90vh] flex justify-center items-center px-[5%] '
+      className=' bg-blue-300 backdrop-blur-[50px] bg-opacity-[0.49] font-medium text-[18px] text- uppercase w-[100%] min-h-[90vh] flex justify-center items-center px-[5%] rounded'
       style={{ fontFamily: 'Quicksand' }}
     >
-      <div className=' container mx-auto w-fit grid lg:grid-cols-2 grid-cols-1 shadow-sm shadow-black'>
+      <div className=' container mx-auto w-fit grid lg:grid-cols-2 grid-cols-1 shadow-sm shadow-blue-500 my-8'>
         {/* left side content */}
-        <div className='w-full lg: px-8 lg:px-28 py-10 bg-white rounded-l'>
+        <div className='w-full lg: px-8 lg:px-28 py-10 bg-white rounded lg:rounded-l'>
           <h1 className='lg:text-[32px] text-[24px] font-medium uppercase lg:mb-10 mb-3'>
             {title}
           </h1>
@@ -38,11 +39,18 @@ const Form = ({
                 type={fields.type}
                 placeholder={fields.placeholder}
                 onChange={fields.onChange}
+                onBlur={fields.onBlur}
                 errorMessage={fields.errorMessage}
                 labelText={fields.labelText}
               />
             ))}
 
+            <button
+              className='px-5 py-2 bg-gray-500 backdrop-blur-[25px] bg-opacity-[0.69] font-medium text-[18px] text-white uppercase w-full h-full cursor-pointer rounded hover:bg-transparent border-2 border-transparent hover:text-gray-500 hover:border-gray-500 duration-500'
+              onClick={extraButtonOnClick}
+            >
+              {extraButtonText}
+            </button>
             <input
               className='px-5 py-2 bg-blue-500 backdrop-blur-[25px] bg-opacity-[0.69] font-medium text-[18px] text-white uppercase w-full h-full cursor-pointer rounded hover:bg-transparent border-2 border-transparent hover:text-blue-500 hover:border-blue-500 duration-500'
               type='submit'
@@ -88,6 +96,8 @@ Form.propTypes = {
   submitText: PropTypes.string,
   handleFormSubmit: PropTypes.func,
   loginSignUpForm: PropTypes.bool.isRequired,
+  extraButtonText: PropTypes.string,
+  extraButtonOnClick: PropTypes.func,
   bottomText: PropTypes.string,
   bottomLinkText: PropTypes.string,
   bottomLink: PropTypes.string,

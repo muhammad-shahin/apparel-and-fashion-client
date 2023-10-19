@@ -7,7 +7,6 @@
       "https://i.ibb.co/qRZQkXx/gucci-mens-loafer.jpg"
     ],
     "productPrice": "199.50",
-    "productVariant": true,
     "productColors": ["#000000", "#FF0000", "#00FF00"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Footwear"
@@ -20,7 +19,6 @@
       "https://i.ibb.co/Ht4mVr3/h-m-Regular-Fit-Corduroy-shirt2.webp"
     ],
     "productPrice": "49.99",
-    "productVariant": true,
     "productColors": ["#336699", "#FF6600", "#99CC33"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Shirts"
@@ -33,7 +31,6 @@
       "https://i.ibb.co/0X1sLQx/h-m-Wool-blend-overshirt2.webp"
     ],
     "productPrice": "79.99",
-    "productVariant": true,
     "productColors": ["#333333", "#990000", "#0066CC"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Shirts"
@@ -46,7 +43,6 @@
       "https://i.ibb.co/87sgFtJ/j-BLACK-BLENDED-KAMEEZ-SHALWAR2.webp"
     ],
     "productPrice": "59.99",
-    "productVariant": true,
     "productColors": ["#000000", "#000066"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Ethnic Wear"
@@ -59,7 +55,6 @@
       "https://i.ibb.co/cg2PPYM/j-bless-perfume-men2.webp"
     ],
     "productPrice": "69.99",
-    "productVariant": true,
     "productColors": ["#000000"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Ethnic Wear"
@@ -72,7 +67,6 @@
       "https://i.ibb.co/H2WHhvV/j-panjabi2.webp"
     ],
     "productPrice": "29.99",
-    "productVariant": true,
     "productColors": ["#336699", "#CC6600", "#009933"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Fragrance"
@@ -85,7 +79,6 @@
       "https://i.ibb.co/2qxL2Xb/j-UROOSA-perfume-women2.webp"
     ],
     "productPrice": "39.99",
-    "productVariant": true,
     "productColors": ["#FF99CC", "#FF66CC"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Fragrance"
@@ -98,7 +91,6 @@
       "https://i.ibb.co/bzZn2Zg/j-women-BLUE-LAWN-KURTI2.webp"
     ],
     "productPrice": "29.99",
-    "productVariant": true,
     "productColors": ["#336699", "#009900"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
@@ -111,7 +103,6 @@
       "https://i.ibb.co/xXVvjdt/j-women-ORANGE-LAWN-UNSTITCHED-3-PC2.webp"
     ],
     "productPrice": "49.99",
-    "productVariant": true,
     "productColors": ["#FF9900", "#FF9933"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
@@ -124,7 +115,6 @@
       "https://i.ibb.co/sbb6xvw/j-women-PURPLE-POLY-COTTON-3-PC-STITCHED2.webp"
     ],
     "productPrice": "59.99",
-    "productVariant": true,
     "productColors": ["#660066", "#990099"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
@@ -137,7 +127,6 @@
       "https://i.ibb.co/M5x0jwm/j-women-RED-KHADDAR-3-PC-STITCHED2.webp"
     ],
     "productPrice": "69.99",
-    "productVariant": true,
     "productColors": ["#CC0000", "#FF3333"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
@@ -150,7 +139,6 @@
       "https://i.ibb.co/H7tVd2G/j-women-Yellow-LAWN-KURTI2.webp"
     ],
     "productPrice": "29.99",
-    "productVariant": true,
     "productColors": ["#FFFF00", "#FFCC00"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
@@ -163,7 +151,6 @@
       "https://i.ibb.co/3mwLB8b/j-women-YELLOW-LAWN-UNSTITCHED-3-PC2.webp"
     ],
     "productPrice": "49.99",
-    "productVariant": true,
     "productColors": ["#FFFF00", "#FFCC00"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Women's Ethnic Wear"
@@ -176,7 +163,6 @@
       "https://i.ibb.co/5GQnvfR/k-perfume-men-GREAT-SUMMIT2.webp"
     ],
     "productPrice": "39.99",
-    "productVariant": true,
     "productColors": ["#336699", "#009933", "#660000"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Fragrance"
@@ -189,7 +175,6 @@
       "https://i.ibb.co/3kQp6yM/nike-cap-2.webp"
     ],
     "productPrice": "19.99",
-    "productVariant": true,
     "productColors": ["#000000", "#0000FF", "#00FF00"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Accessories"
@@ -202,7 +187,6 @@
       "https://i.ibb.co/5Y6cgCr/nike-sneakers-luka2-2.webp"
     ],
     "productPrice": "99.99",
-    "productVariant": true,
     "productColors": ["#000000", "#0000FF", "#00FF00"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Footwear"
@@ -215,7 +199,6 @@
       "https://i.ibb.co/CHWzFj2/addidas-hoddie-joggers2.jpg"
     ],
     "productPrice": "79.99",
-    "productVariant": true,
     "productColors": ["#000000", "#0000FF", "#00FF00"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Sportswear"
@@ -228,7 +211,6 @@
       "https://i.ibb.co/pKmM8PV/addidas-tshirt-joggers2.jpg"
     ],
     "productPrice": "69.99",
-    "productVariant": true,
     "productColors": ["#000000", "#0000FF", "#00FF00"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Men's Sportswear"
@@ -241,7 +223,6 @@
       "https://i.ibb.co/wcVb0F4/gucci-MAXI-DUFFLE-bag2.jpg"
     ],
     "productPrice": "299.99",
-    "productVariant": true,
     "productColors": ["#000000", "#FF0000"],
     "productSize": ["S", "M", "L", "XL"],
     "productCategory": "Accessories"

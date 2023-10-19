@@ -8,6 +8,7 @@ const Input = ({
   onChange,
   errorMessage,
   labelText,
+  onBlur,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   return (
@@ -17,11 +18,12 @@ const Input = ({
         {labelText && <span className='text-red-600 text-[18px]'>*</span>}{' '}
       </label>
       <input
-        className='w-[100%] border-2 border-gray-200 px-5 py-2 text-[18px] font-medium text-[#000] placeholder:text-[#2a2828] rounded outline-2 outline-blue-300'
+        className='w-[100%] border-2 border-gray-200 px-5 py-2 text-[18px] font-medium text-[#000] placeholder:text-[#959292] placeholder:text-[16px] rounded outline-2 outline-blue-300'
         type={showPassword ? 'text' : type}
         name={name}
         placeholder={placeholder}
         onChange={onChange}
+        onBlur={onBlur}
         required
       />
       {type === 'password' && (
@@ -47,7 +49,9 @@ Input.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string,
   errorMessage: PropTypes.string,
+  labelText: PropTypes.string,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
 };
 
 export default Input;

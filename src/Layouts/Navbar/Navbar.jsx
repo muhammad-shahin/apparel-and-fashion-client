@@ -33,7 +33,7 @@ const Navbar = () => {
         </div>
         {/* nav items */}
         <ul
-          className={` xl:static fixed top-[85px] ${
+          className={` xl:static fixed top-[75px] ${
             isOpen ? 'right-0' : 'right-[-100%]'
           } xl:h-auto h-screen xl:w-auto w-[50%] flex xl:flex-row flex-col bg-gray-200 xl:opacity-[0.7] backdrop-blur-[25px] xl:px-5 py-2 justify-start xl:justify-center items-center xl:gap-10 gap-8 duration-700 z-[100] xl:rounded-full xl:pt-2 pt-10`}
         >
@@ -59,7 +59,7 @@ const Navbar = () => {
               setOpen(false);
             }}
           >
-            <NavLink to='/a'>Add Product</NavLink>
+            <NavLink to='/addProduct'>Add Product</NavLink>
           </li>
           <li
             className='text-black font-medium text-[16px] hover:scale-[1.1] duration-500'

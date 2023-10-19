@@ -76,7 +76,7 @@ const SignUp = () => {
   };
   const signUpInputFields = [
     {
-      name: 'name',
+      name: 'text',
       type: 'name',
       placeholder: 'Enter Full Name',
       labelText: 'Enter Full Name',

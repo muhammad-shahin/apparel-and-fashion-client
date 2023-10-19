@@ -1,4 +1,5 @@
 import Root from '../Layouts/Root/Root';
+import AddProduct from '../Pages/AddProduct/AddProduct';
 import BrandDetails from '../Pages/BrandDetails/BrandDetails';
 import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home';
@@ -25,7 +26,7 @@ const routes = [
       },
       {
         path: '/addProduct',
-        element: <BrandDetails />,
+        element: <AddProduct />,
       },
       {
         path: '/brand/:brandName',
