@@ -34,14 +34,14 @@ const UserProfile = () => {
       <div className='flex flex-col gap-2 mt-3'>
         <NavLink
           className=' font-medium text-[18px] flex justify-center items-center gap-3'
-          to='/take-quiz'
+          to='/addProduct'
         >
           <RiDashboardFill />
           Add New Product
         </NavLink>
         <NavLink
           className=' font-medium text-[18px] flex justify-center items-center gap-3'
-          to='/submitted-quiz'
+          to='/cart'
         >
           <AiOutlineShoppingCart />
           View Cart

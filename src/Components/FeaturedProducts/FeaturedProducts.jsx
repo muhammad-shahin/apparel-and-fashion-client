@@ -21,10 +21,10 @@ const FeaturedProducts = ({ products }) => {
   }
 
   // Randomly select 8 products for "Best Seller Products"
-  const bestSellers = getRandomSubset(originalData, 8);
+  const bestSellers = getRandomSubset(originalData, 4);
 
   // Randomly select 8 products for "Trending Products"
-  const trendingProducts = getRandomSubset(originalData, 8);
+  const trendingProducts = getRandomSubset(originalData, 4);
 
   return (
     <div>
@@ -47,7 +47,7 @@ const FeaturedProducts = ({ products }) => {
         subTitle={'Trending Products Of The Day'}
       />
       <div className='flex flex-wrap justify-center items-center gap-8 duration-500 text-center'>
-        {bestSellers.map((product) => (
+        {trendingProducts.map((product) => (
           <ProductCard
             key={product.productId}
             product={product}
@@ -60,7 +60,7 @@ const FeaturedProducts = ({ products }) => {
         subTitle={'Latest Girls Collections'}
       />
       <div className='flex flex-wrap justify-center items-center gap-8 duration-500 text-center'>
-        {womenProducts.map((product) => (
+        {womenProducts.slice(0, 4).map((product) => (
           <ProductCard
             key={product.productId}
             product={product}

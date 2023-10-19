@@ -118,7 +118,7 @@ const AddProduct = () => {
       const sizeField = {
         name: 'productSize',
         type: 'text',
-        placeholder: 'Add Product Size eg. "S"',
+        placeholder: 'Add Product Size (Example : S)',
         labelText: 'Product Size',
         onBlur: handleFieldBlur,
       };
@@ -129,7 +129,7 @@ const AddProduct = () => {
       const colorField = {
         name: 'productColors',
         type: 'text',
-        placeholder: 'Add Product Color',
+        placeholder: 'Add Product Color  (Example : #FFFFFF)',
         labelText: 'Product Color',
         onBlur: handleFieldBlur,
       };
@@ -195,12 +195,6 @@ const AddProduct = () => {
           extraButtonOnClick={handleAdditionInfo}
         />
         <div className='absolute bottom-0'>
-          <button
-            className='px-5 py-2 bg-[#5500ff] backdrop-blur-[25px] bg-opacity-[0.69] font-medium text-[18px] text-white uppercase w-full h-full cursor-pointer rounded hover:bg-transparent border-2 border-transparent hover:text-blue-500 hover:border-blue-500 duration-500'
-            onClick={handleAdditionInfo}
-          >
-            Add More Info
-          </button>
         </div>
       </div>
       {/* additional info */}

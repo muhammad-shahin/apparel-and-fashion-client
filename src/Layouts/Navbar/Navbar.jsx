@@ -4,8 +4,7 @@ import { useContext, useState } from 'react';
 import './Navbar.css';
 import UserProfile from '../../Components/UserProfile/UserProfile';
 import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { FiSearch } from 'react-icons/fi';
+import { AiOutlineShoppingCart, AiOutlineFolderAdd } from 'react-icons/ai';
 import { VscAccount } from 'react-icons/vsc';
 
 const Navbar = () => {
@@ -17,7 +16,12 @@ const Navbar = () => {
     <header className=''>
       <nav className='py-3 container mx-auto flex justify-between items-center w-[90%] xl:w-auto relative'>
         {/* text logo */}
-        <div className='text-center'>
+        <div
+          className='text-center cursor-pointer'
+          onClick={() => {
+            navigate('/');
+          }}
+        >
           <p
             className='lg:text-[58px] text-[38px] leading-none font- text-black'
             style={{ fontFamily: 'DreamAvenue' }}
@@ -94,7 +98,11 @@ const Navbar = () => {
             />
           )} */}
           {user?.photoURL === null && (
-            <VscAccount className='text-[32px] text-sky-500 cursor-pointer' />
+            <VscAccount
+              className={`text-[32px] text-sky-500 cursor-pointer rounded-full ${
+                showProfile && 'bg-blue-500 text-white'
+              }`}
+            />
           )}
           {user && showProfile ? (
             <div className='absolute lg:top-[100px] top-[90px] right-0'>
@@ -107,17 +115,17 @@ const Navbar = () => {
           {/* cart icons */}
           <div className='flex justify-center items-center gap-5'>
             <div
-              className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-[#5555f7] hover:text-white'
+              className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-blue-500 hover:bg-opacity-[0.39] hover:text-white'
               onClick={() => {
-                navigate('/');
+                navigate('/addProduct');
               }}
             >
-              <FiSearch className='text-[22px]' />
+              <AiOutlineFolderAdd className='text-[22px]' />
             </div>
             <div
-              className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-[#5555f7] hover:text-white'
+              className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-blue-500 hover:bg-opacity-[0.39] hover:text-white'
               onClick={() => {
-                navigate('/');
+                navigate('/cart');
               }}
             >
               <AiOutlineShoppingCart className='text-[22px]' />
