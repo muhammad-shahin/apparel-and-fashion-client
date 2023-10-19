@@ -30,15 +30,13 @@ const Modal = ({ modalStatus, title, message }) => {
           <div className='w-fit mx-auto'>
             <InfinitySpin
               width='200'
-              color='#F9A51A'
+              color='#6FA3F8'
             />
           </div>
 
           <div className='p-5 text-center space-y-4'>
             <h2 className='text-3xl'>{title}</h2>
-            <p className='font-normal text-[18px] max-w-[350px]'>
-              {message}
-            </p>
+            <p className='font-normal text-[18px] max-w-[350px]'>{message}</p>
           </div>
         </div>
       </div>

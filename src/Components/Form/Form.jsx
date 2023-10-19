@@ -55,7 +55,7 @@ const Form = ({
                 {bottomText}{' '}
                 <Link
                   to={bottomLink}
-                  className='text-[#F9A51A] underline'
+                  className='text-blue-500 underline'
                 >
                   {bottomLinkText}
                 </Link>

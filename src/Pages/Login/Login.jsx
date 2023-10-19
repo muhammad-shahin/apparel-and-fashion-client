@@ -67,9 +67,9 @@ const Login = () => {
     <section>
       <div className='max-w-[70vw]'></div>
       <Form
-        title='Create Your Account'
+        title='Login To Your Account'
         inputFields={loginFields}
-        submitText={'Create Account'}
+        submitText={'Login'}
         lottieAnimation={loginAnim}
         handleFormSubmit={handleLogin}
         loginSignUpForm={true}

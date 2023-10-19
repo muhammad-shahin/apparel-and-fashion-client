@@ -19,13 +19,13 @@ const Navbar = () => {
         {/* text logo */}
         <div className='text-center'>
           <p
-            className='lg:text-[58px] text-[48px] leading-none font- text-black'
+            className='lg:text-[58px] text-[38px] leading-none font- text-black'
             style={{ fontFamily: 'DreamAvenue' }}
           >
             F&A
           </p>
           <p
-            className='lg:text-[18px] text-[14px] leading-none font- text-black'
+            className='lg:text-[18px] text-[12px] leading-none font- text-black'
             style={{ fontFamily: 'Quicksand, sans-serif' }}
           >
             FASHION & APPAREL
@@ -33,9 +33,9 @@ const Navbar = () => {
         </div>
         {/* nav items */}
         <ul
-          className={` lg:static fixed top-[85px] ${
+          className={` xl:static fixed top-[85px] ${
             isOpen ? 'right-0' : 'right-[-100%]'
-          } lg:h-auto h-screen lg:w-auto w-[50%] flex lg:flex-row flex-col bg-gray-200 lg:opacity-[0.7] backdrop-blur-[25px] lg:px-5 py-2 justify-start lg:justify-center items-center lg:gap-10 gap-8 duration-700 z-[100] lg:rounded-full lg:pt-2 pt-10`}
+          } xl:h-auto h-screen xl:w-auto w-[50%] flex xl:flex-row flex-col bg-gray-200 xl:opacity-[0.7] backdrop-blur-[25px] xl:px-5 py-2 justify-start xl:justify-center items-center xl:gap-10 gap-8 duration-700 z-[100] xl:rounded-full xl:pt-2 pt-10`}
         >
           <li
             className='text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
@@ -94,10 +94,10 @@ const Navbar = () => {
             />
           )} */}
           {user?.photoURL === null && (
-            <VscAccount className='text-[48px] text-sky-500 cursor-pointer' />
+            <VscAccount className='text-[32px] text-sky-500 cursor-pointer' />
           )}
           {user && showProfile ? (
-            <div className='absolute top-[90px] right-0'>
+            <div className='absolute lg:top-[100px] top-[90px] right-0'>
               <UserProfile />
             </div>
           ) : (
@@ -126,7 +126,7 @@ const Navbar = () => {
 
           {/* hamburger menu */}
         </div>
-        <div className='lg:hidden'>
+        <div className='xl:hidden'>
           <Hamburger
             color='#000'
             toggled={isOpen}

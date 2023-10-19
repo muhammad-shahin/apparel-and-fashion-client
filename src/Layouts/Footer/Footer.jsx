@@ -2,7 +2,7 @@ import SocialIcons from '../../Components/SocialICons/SocialIcons';
 
 const Footer = () => {
   return (
-    <footer className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1'>
+    <footer className='grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1'>
       {/* map */}
       <div className='w-full lg:h-[650px]'>
         <iframe
@@ -70,7 +70,7 @@ const Footer = () => {
       </div>
 
       {/* Have a question */}
-      <div className='w-full lg:h-[650px] bg-black bg-opacity-[0.79] backdrop-blur-[25px] text-center px-6 py-8 text-white space-y-6'>
+      <div className='w-full lg:h-[650px] bg-black bg-opacity-[0.79] backdrop-blur-[25px] text-center px-6 py-8 text-white space-y-6 xl:col-span-1 col-span-2'>
         <h2
           className='md:text-[48px] text-[32px] font-medium uppercase'
           style={{ fontFamily: 'DreamAvenue' }}
