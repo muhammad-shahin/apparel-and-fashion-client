@@ -20,7 +20,7 @@ const BrandCard = ({ brand }) => {
         glareMaxOpacity={0.9}
         scale={1.02}
         tiltEnable={true}
-        glareColor='rgba(255, 90, 115, 0.526)'
+        glareColor='#58b6f9'
         glarePosition='all'
         glareBorderRadius='8px'
       >
@@ -43,7 +43,7 @@ const BrandCard = ({ brand }) => {
             >
               {tagLine}
             </p>
-            <div className='stay-loy flex-shrink mt-auto mb-[20px]'>
+            <div className='stay-loy flex-shrink mt-auto mb-[40px]'>
               <GlassedLogo logo={brandLogo} />
             </div>
           </div>

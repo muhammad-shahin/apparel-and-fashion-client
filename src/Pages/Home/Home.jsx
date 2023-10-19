@@ -3,6 +3,7 @@ import Banner from '../../Components/Banner/Banner';
 import BrandCard from '../../Components/BrandCard/BrandCard';
 import Heading from '../../Components/Heading/Heading';
 import FeaturedProducts from '../../Components/FeaturedProducts/FeaturedProducts';
+import Footer from '../../Layouts/Footer/Footer';
 
 const Home = () => {
   const [cardData, setCardData] = useState([]);
@@ -47,6 +48,7 @@ const Home = () => {
       <div className='px-[5%] container mx-auto my-6'>
         <FeaturedProducts products={featuredProduct} />
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 /**
- * className='text-[48px] font-medium'
+ * className='text-[48px] font-medium uppercase'
  * style={{ fontFamily: 'DreamAvenue' }}
  * style={{ fontFamily: 'Quicksand' }}
  * className='flex justify-center items-center
