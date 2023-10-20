@@ -55,7 +55,7 @@ const Navbar = () => {
               setOpen(false);
             }}
           >
-            <NavLink to='/my'>My Cart</NavLink>
+            <NavLink to='/myCart'>My Cart</NavLink>
           </li>
           <li
             className='text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
@@ -82,7 +82,33 @@ const Navbar = () => {
             <NavLink to='/a'>Home</NavLink>
           </li>
         </ul>
-
+        {/* cart icons */}
+        <div className='flex justify-center items-center gap-5'>
+          <div
+            title='Add New Product'
+            className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-blue-500 hover:bg-opacity-[0.39] hover:text-white'
+          >
+            <AiOutlineFolderAdd
+              onClick={() => {
+                navigate('/addProduct');
+              }}
+              className='text-[22px]'
+            />
+          </div>
+          <div className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-blue-500 hover:bg-opacity-[0.39] hover:text-white relative'>
+            <AiOutlineShoppingCart
+              onClick={() => {
+                navigate('/myCart');
+              }}
+              className='text-[22px]'
+            />
+            {user && (
+              <p className='bg-red-600 rounded-full text-[8px] p-1 flex justify-center items-center absolute top-0 right-0 w-[15px] h-[15px] text-white'>
+                0
+              </p>
+            )}
+          </div>
+        </div>
         {/* Profile Icon */}
         <div
           id='profile-icon'
@@ -111,29 +137,9 @@ const Navbar = () => {
           ) : (
             ''
           )}
-
-          {/* cart icons */}
-          <div className='flex justify-center items-center gap-5'>
-            <div className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-blue-500 hover:bg-opacity-[0.39] hover:text-white'>
-              <AiOutlineFolderAdd
-                onClick={() => {
-                  navigate('/addProduct');
-                }}
-                className='text-[22px]'
-              />
-            </div>
-            <div className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-blue-500 hover:bg-opacity-[0.39] hover:text-white'>
-              <AiOutlineShoppingCart
-                onClick={() => {
-                  navigate('/myCart');
-                }}
-                className='text-[22px]'
-              />
-            </div>
-          </div>
-
-          {/* hamburger menu */}
         </div>
+
+        {/* hamburger menu */}
         <div className='xl:hidden'>
           <Hamburger
             color='#000'

@@ -3,12 +3,10 @@ import Form from '../../Components/Form/Form';
 import updateProductAnim from '../../assets/Animation/updateAnimation.json';
 import Modal from '../../Services/Utility/Modal';
 import Swal from 'sweetalert2';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 const UpdateProduct = () => {
   const { brandName, productId } = useParams();
   const [showModal, setShowModal] = useState(false);
-  const previousData = useLoaderData();
-  const [buttonModalStatus, setButtonModalStatus] = useState(false);
   const [formData, setFormData] = useState({
     productName: '',
     productImages: [],
