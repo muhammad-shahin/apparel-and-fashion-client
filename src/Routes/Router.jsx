@@ -1,12 +1,13 @@
 import BrandProducts from '../Components/BrandProducts/BrandProducts';
 import Root from '../Layouts/Root/Root';
 import AddProduct from '../Pages/AddProduct/AddProduct';
-import BrandDetails from '../Pages/AddAdvertisement/AddAdvertisement';
+import AddAdvertisement from '../Pages/AddAdvertisement/AddAdvertisement';
 import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
 import SignUp from '../Pages/SignUp/SignUp';
 import ProductDetails from '../Pages/ProductDetails/ProductDetails';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const routes = [
   {
@@ -28,22 +29,37 @@ const routes = [
       },
       {
         path: '/addProduct',
-        element: <AddProduct />,
+        element: (
+          <PrivateRoute>
+            <AddProduct />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/brand/:brandName',
-        element: <BrandProducts />,
+        element: (
+          <PrivateRoute>
+            <BrandProducts />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/brandAdvertisement/${params.brandName}`),
       },
       {
         path: '/addAdvertisement',
-        element: <BrandDetails />,
-        loader: () => fetch('/'),
+        element: (
+          <PrivateRoute>
+            <AddAdvertisement />
+          </PrivateRoute>
+        ),
       },
       {
         path: `/productDetails/:brandName/:productId`,
-        element: <ProductDetails />,
+        element: (
+          <PrivateRoute>
+            <ProductDetails />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(
             `http://localhost:5000/products/${params.brandName}/${params.productId}`
