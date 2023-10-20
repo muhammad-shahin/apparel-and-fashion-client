@@ -10,39 +10,26 @@ const ProductDetails = () => {
   const handleAddToCartClick = (id) => {};
   return (
     <section className='container mx-auto my-12 px-[5%]'>
-      <div className='flex justify-center items- lg:gap-28 gap-8 flex-col lg:flex-row'>
+      <div className='flex justify-center lg:gap-28 gap-8 flex-col lg:flex-row'>
         {/* left side */}
         <div className=''>
           {/* main image */}
           <div className='max-w-[500px]'>
             <img
               className='lg:max-w-[500px] rounded-lg'
-              src='https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/daf92155-a767-4bb7-babb-7dd1ffcfe9bc/sportswear-club-mens-puffer-jacket-1p1LL5.png'
+              src={product.productImages[0]}
               alt=''
             />
             {/* sub image */}
             <div className='flex justify-center items-center gap-3 my-5'>
-              <div>
-                <img
-                  className='w-[60px] h-[60px] object-cover object-top rounded-lg'
-                  src='https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/daf92155-a767-4bb7-babb-7dd1ffcfe9bc/sportswear-club-mens-puffer-jacket-1p1LL5.png'
-                  alt=''
-                />
-              </div>
-              <div>
-                <img
-                  className='w-[60px] h-[60px] object-cover object-top rounded-lg'
-                  src='https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/daf92155-a767-4bb7-babb-7dd1ffcfe9bc/sportswear-club-mens-puffer-jacket-1p1LL5.png'
-                  alt=''
-                />
-              </div>
-              <div>
-                <img
-                  className='w-[60px] h-[60px] object-cover object-top rounded-lg'
-                  src='https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/daf92155-a767-4bb7-babb-7dd1ffcfe9bc/sportswear-club-mens-puffer-jacket-1p1LL5.png'
-                  alt=''
-                />
-              </div>
+              {product.productImages.map((image, index) => (
+                <div key={index}>
+                  <img
+                    className='w-[60px] h-[60px] object-cover object-top rounded-lg'
+                    src={image}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
