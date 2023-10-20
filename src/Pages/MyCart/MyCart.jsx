@@ -1,95 +1,149 @@
-import SizeDropdown from '../../Components/SizeDropdown/SizeDropdown';
-import { AiOutlineHeart } from 'react-icons/ai';
-import { RiDeleteBin6Line } from 'react-icons/ri';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
+import ShowCart from '../../Components/ShowCart/ShowCart';
 import GlassButton from '../../Components/GlassButton/GlassButton';
+import Swal from 'sweetalert2';
 
 const MyCart = () => {
-  const handleDeleteCart = () => {
-    console.log('delete');
+  const { user, setCartCount } = useContext(AuthContext);
+  const [cartData, setCartData] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalDeliveryCharge, setTotalDeliveryCharge] = useState(0);
+  const [totalDiscount, setTotalDiscount] = useState(0);
+  const [totalTax, setTotalTax] = useState(0);
+  useEffect(() => {
+    fetch(`http://localhost:5000/addedCart/${user?.uid}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCartCount(data.length);
+        setCartData(data);
+      });
+  }, [user]);
+  const handleDeleteCart = (cartId) => {
+    console.log(user?.uid, cartId);
+    Swal.fire({
+      title: 'Are You Sure Want to Delete This Product From Cart?',
+      showCancelButton: true,
+      confirmButtonText: 'Yes Delete!',
+      cancelButtonText: 'Cancel',
+      cancelButtonColor: '#f30101',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/addedCart/${user?.uid}/${cartId}`, {
+          method: 'DELETE',
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data.deletedCount);
+            if (data.deletedCount > 0) {
+                setCartData((prevCartData) =>
+                prevCartData.filter((cartItem) => cartItem._id !== cartId)
+              );
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Deleted Successfully',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          });
+      }
+    });
   };
-  return (
-    <section className='container mx-auto px-[5%] my-10'>
-      <h1
-        style={{ fontFamily: 'Quicksand' }}
-        className='text-[32px] font-bold uppercase'
-      >
-        Cart Items
-      </h1>
-      <div className='border-2 rounded border-blue-500 border-opacity-[0.49] backdrop-blur-[5px] flex justify-between items-start'>
-        {/* left side */}
-        <div className='flex justify-start items-start gap-4'>
-          <div className=''>
-            <img
-              className='max-w-[250px] min-h-[280px] object-cover rounded-l'
-              src='https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/e097434216b14106afbce6edd20b63e5_9366/Adicolor_Classics_SST_Track_Jacket_Blue_IL2493_23_hover_model.jpg'
-            />
-          </div>
-          <div className=' py-4'>
-            <p
-              style={{ fontFamily: 'Quicksand' }}
-              className='text-[22px] font-bold uppercase'
-            >
-              Product Name Here
-            </p>
-            <p className='text-[18px] font-medium capitalize text-gray-500 mt-2 mb-4'>
-              Product Type Here
-            </p>
-            <div className='flex justify-start items-start gap-4 mb-3 flex-col'>
-              {/* size  */}
-              <div className='flex justify-start items-center gap-3'>
-                <p className='text-[18px] font-medium capitalize text-gray-500'>
-                  Size :
-                </p>
-                <SizeDropdown sizes={['S', 'M', 'L']} />
-              </div>
-              {/* quantity */}
-              <div className='flex justify-start items-center gap-3'>
-                <p className='text-[18px] font-medium capitalize text-gray-500'>
-                  Quantity :
-                </p>
-                <input
-                  className='border border-gray-300 w-[60px] outline-none rounded text-center font-medium'
-                  defaultValue={1}
-                  type='number'
-                />
-              </div>
-            </div>
-            <div className='flex justify-start items-center gap-4'>
-              <AiOutlineHeart className='text-[28px] text-black cursor-pointer' />
-              <RiDeleteBin6Line
-                className='text-[28px] text-black cursor-pointer'
-                onClick={() => {
-                  handleDeleteCart('id');
-                }}
-              />
-            </div>
-          </div>
-        </div>
 
-        {/* right side */}
-        <div className='pr-6 py-4 min-w-[200px]'>
+  const calculateTotals = () => {
+    let totalPrice = 0;
+    let totalDeliveryCharge = 0;
+    let totalDiscount = 0;
+    let totalTax = 0;
+
+    cartData.forEach((data) => {
+      const productPrice = parseInt(data.product.productPrice);
+
+      totalPrice += productPrice;
+      totalDeliveryCharge += 0.1 * productPrice; // 10% of productPrice
+      totalDiscount += 0.3 * productPrice; // 30% of productPrice
+      totalTax += 0.12 * productPrice; // 12% of productPrice
+    });
+
+    setTotalPrice(totalPrice);
+    setTotalDeliveryCharge(totalDeliveryCharge);
+    setTotalDiscount(totalDiscount);
+    setTotalTax(totalTax);
+  };
+  useEffect(() => {
+    // Call calculateTotals when cartData changes
+    calculateTotals();
+  }, [cartData]);
+  return (
+    <section className='container mx-auto px-[5%] my-10 flex justify-between gap-10 lg:flex-row flex-col-reverse'>
+      <div className='w-full space-y-6'>
+        <h1
+          style={{ fontFamily: 'Quicksand' }}
+          className='text-[32px] font-bold uppercase'
+        >
+          Cart Items
+        </h1>
+        {cartData.map((cart, index) => (
+          <ShowCart
+            key={index}
+            cartData={cart.product}
+            handleDeleteCart={handleDeleteCart}
+            cartId={cart._id}
+          />
+        ))}
+      </div>
+      <div className='min-w-[35%] space-y-6'>
+        <h1
+          style={{ fontFamily: 'Quicksand' }}
+          className='text-[32px] font-bold uppercase'
+        >
+          Total Cart
+        </h1>
+        <div className='w-full rounded border-2 border-blue-500 border-opacity-[0.49] backdrop-blur-[5px] px-6 py-4'>
           <p
             style={{ fontFamily: 'Quicksand' }}
-            className='text-[22px] font-bold uppercase mb-3 text-right'
+            className='text-[22px] font-bold uppercase mb-3 text-center'
           >
-            Summery
+            ALL PRODUCT PRICE
           </p>
-          <div className='space-y-3'>
+          <div className='space-y-6'>
             <div className='flex justify-between items-center'>
-              <p className='text-[18px] font-medium'>Subtotal : </p>
-              <p className='text-[18px] font-medium'>$450.50</p>
+              <p className='text-[18px] font-medium'>
+                Total Product Quantity :{' '}
+              </p>
+              <p className='text-[18px] font-medium'>{cartData.length}</p>
             </div>
             <div className='flex justify-between items-center'>
-              <p className='text-[18px] font-medium'>Delivery : </p>
-              <p className='text-[18px] font-medium'>$4.00</p>
+              <p className='text-[18px] font-medium'>
+                Total Delivery Charge :{' '}
+              </p>
+              <p className='text-[18px] font-medium'>${totalDeliveryCharge}</p>
+            </div>
+            <div className='flex justify-between items-center'>
+              <p className='text-[18px] font-medium'>Total Discount : </p>
+              <p className='text-[18px] font-medium'>${totalDiscount}</p>
+            </div>
+            <div className='flex justify-between items-center'>
+              <p className='text-[18px] font-medium'>Total Tax : </p>
+              <p className='text-[18px] font-medium'>${totalTax}</p>
             </div>
             <hr className='w-full h-[2px] bg-gray-300' />
             <div className='flex justify-between items-center'>
-              <p className='text-[18px] font-medium'>Total : </p>
-              <p className='text-[18px] font-medium'>$4.00</p>
+              <p className='text-[18px] font-medium'>Total Price : </p>
+              <p className='text-[18px] font-medium'>
+                $
+                {totalPrice +
+                  totalDeliveryCharge +
+                  totalTax -
+                  totalDiscount.toFixed(2)}
+              </p>
             </div>
             <hr className='w-full h-[2px] bg-gray-300' />
-            <GlassButton text='Checkout' />
+            <div className='mx-auto w-fit'>
+              <GlassButton text='Checkout' />
+            </div>
           </div>
         </div>
       </div>
