@@ -9,6 +9,7 @@ import SignUp from '../Pages/SignUp/SignUp';
 import ProductDetails from '../Pages/ProductDetails/ProductDetails';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import UpdateProduct from '../Pages/UpdateProduct/UpdateProduct';
+import MyCart from '../Pages/MyCart/MyCart';
 
 const routes = [
   {
@@ -77,6 +78,14 @@ const routes = [
           fetch(
             `http://localhost:5000/products/${params.brandName}/${params.productId}`
           ),
+      },
+      {
+        path: `/myCart`,
+        element: (
+          <PrivateRoute>
+            <MyCart />
+          </PrivateRoute>
+        ),
       },
     ],
   },

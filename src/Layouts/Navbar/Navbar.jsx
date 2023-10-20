@@ -91,7 +91,7 @@ const Navbar = () => {
             setShowProfile(!showProfile);
           }}
         >
-          {user && (
+          {user && user.photoURL !== null && (
             <img
               src={user.photoURL}
               className='w-[48px] h-[48px] object-cover rounded-full cursor-pointer'
@@ -114,21 +114,21 @@ const Navbar = () => {
 
           {/* cart icons */}
           <div className='flex justify-center items-center gap-5'>
-            <div
-              className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-blue-500 hover:bg-opacity-[0.39] hover:text-white'
-              onClick={() => {
-                navigate('/addProduct');
-              }}
-            >
-              <AiOutlineFolderAdd className='text-[22px]' />
+            <div className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-blue-500 hover:bg-opacity-[0.39] hover:text-white'>
+              <AiOutlineFolderAdd
+                onClick={() => {
+                  navigate('/addProduct');
+                }}
+                className='text-[22px]'
+              />
             </div>
-            <div
-              className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-blue-500 hover:bg-opacity-[0.39] hover:text-white'
-              onClick={() => {
-                navigate('/cart');
-              }}
-            >
-              <AiOutlineShoppingCart className='text-[22px]' />
+            <div className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-blue-500 hover:bg-opacity-[0.39] hover:text-white'>
+              <AiOutlineShoppingCart
+                onClick={() => {
+                  navigate('/myCart');
+                }}
+                className='text-[22px]'
+              />
             </div>
           </div>
 

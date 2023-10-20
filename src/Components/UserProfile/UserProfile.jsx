@@ -4,18 +4,23 @@ import { RiDashboardFill } from 'react-icons/ri';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useContext } from 'react';
 import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
+import { VscAccount } from 'react-icons/vsc';
 
 const UserProfile = () => {
-  const { user, logoutUser } = useContext(AuthContext);
+  const { user, logoutUser, showProfile } = useContext(AuthContext);
 
   return (
     <div
-      className={`rounded bg-blue-400 backdrop-blur-[25px] bg-opacity-[0.69] p-5 text-center relative z-50`}
+      className={`rounded bg-blue-200 backdrop-blur-[25px] bg-opacity-[0.69] p-5 text-center relative z-50`}
     >
-      <img
+      {user?.photoURL !== null ? <img
         src={user?.photoURL}
         className='rounded-full w-[64px] object-cover mx-auto'
-      />
+      /> : <VscAccount
+      className={`text-[64px] text-sky-500 cursor-pointer rounded-full text-center mx-auto ${
+        showProfile && 'bg-blue-500 text-white'
+      }`}
+    />}
       <p className='font-medium text-[14px] mt-2'>Profile Status</p>
       <p
         className={`${
