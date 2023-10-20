@@ -11,6 +11,9 @@ const BrandProducts = () => {
   const handleProductDetailsClick = (id) => {
     navigate(`/productDetails/${brandName}/${id}`);
   };
+  const handleProductUpdateClick = (id) => {
+    navigate(`/updateProduct/${brandName}/${id}`);
+  };
   useEffect(() => {
     fetch(`http://localhost:5000/brandAdvertisement/${brandName}`)
       .then((res) => res.json())
@@ -36,6 +39,7 @@ const BrandProducts = () => {
             key={product._id}
             product={product}
             handleProductDetailsClick={handleProductDetailsClick}
+            handleProductUpdateClick={handleProductUpdateClick}
           />
         ))}
       </div>

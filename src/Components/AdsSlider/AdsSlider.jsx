@@ -47,12 +47,12 @@ const AdsSlider = ({ sliderData }) => {
             {sliderData.map((ads, index) => (
               <div
                 key={index}
-                className='slide-item w-full h-[40vh] md:h-[80vh] lg:h-[70vh] relative'
+                className='slide-item w-full h-[40vh] md:h-[80vh] lg:h-[60vh] relative'
               >
                 {/* background image/ video */}
                 <div className='absolute w-full h-full z-[-10]'>
                   <img
-                    className='w-full h-full object-cover'
+                    className='h-full object-cover w-full'
                     src={ads.advertisementImage}
                   ></img>
                   {/* overlay effects */}

@@ -91,12 +91,12 @@ const Navbar = () => {
             setShowProfile(!showProfile);
           }}
         >
-          {/* {user && (
+          {user && (
             <img
               src={user.photoURL}
               className='w-[48px] h-[48px] object-cover rounded-full cursor-pointer'
             />
-          )} */}
+          )}
           {user?.photoURL === null && (
             <VscAccount
               className={`text-[32px] text-sky-500 cursor-pointer rounded-full ${

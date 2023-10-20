@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 const StarRating = ({ initialRating }) => {
@@ -41,6 +42,9 @@ const StarRating = ({ initialRating }) => {
       </div> */}
     </div>
   );
+};
+StarRating.propTypes = {
+  initialRating: PropTypes.string,
 };
 
 export default StarRating;

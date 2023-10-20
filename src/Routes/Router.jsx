@@ -8,6 +8,7 @@ import Login from '../Pages/Login/Login';
 import SignUp from '../Pages/SignUp/SignUp';
 import ProductDetails from '../Pages/ProductDetails/ProductDetails';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import UpdateProduct from '../Pages/UpdateProduct/UpdateProduct';
 
 const routes = [
   {
@@ -58,6 +59,18 @@ const routes = [
         element: (
           <PrivateRoute>
             <ProductDetails />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/products/${params.brandName}/${params.productId}`
+          ),
+      },
+      {
+        path: `/updateProduct/:brandName/:productId`,
+        element: (
+          <PrivateRoute>
+            <UpdateProduct />
           </PrivateRoute>
         ),
         loader: ({ params }) =>

@@ -3,9 +3,12 @@ import { useState } from 'react';
 import { AiOutlineShoppingCart, AiOutlineEdit } from 'react-icons/ai';
 import GlassButton from '../GlassButton/GlassButton';
 import StarRating from '../StarRating/StarRating';
-import { useNavigate } from 'react-router-dom';
 
-const Card = ({ product, handleProductDetailsClick }) => {
+const Card = ({
+  product,
+  handleProductDetailsClick,
+  handleProductUpdateClick,
+}) => {
   const {
     productName,
     productImages,
@@ -52,7 +55,7 @@ const Card = ({ product, handleProductDetailsClick }) => {
           />
           <GlassButton text='Buy Now' />
           <div className='flex gap-4 justify-center items-center'>
-            {productSize.map((size, index) => (
+            {productSize?.map((size, index) => (
               <p
                 key={index}
                 className='text-[14px] font-medium text-white bg-gray-500 bg-opacity-[0.49] backdrop-blur-[25px] rounded-full p-2 w-[22px] h-[22px] flex justify-center items-center'
@@ -99,7 +102,7 @@ const Card = ({ product, handleProductDetailsClick }) => {
         </div>
         {/* product color */}
         <div className='flex gap-3 justify-center items-center mt-3'>
-          {productColors.map((color, index) => (
+          {productColors?.map((color, index) => (
             <button
               key={index}
               style={{ backgroundColor: `${color}` }}
@@ -107,7 +110,7 @@ const Card = ({ product, handleProductDetailsClick }) => {
             ></button>
           ))}
         </div>
-        <StarRating initialRating={4} />
+        <StarRating initialRating={product?.productRating} />
         {/* details & update buttons */}
         <div className='text-[16px] flex justify-center items-center gap-2 scale-[0.8]'>
           <GlassButton
@@ -120,6 +123,9 @@ const Card = ({ product, handleProductDetailsClick }) => {
           <GlassButton
             icon={<AiOutlineEdit className='text-[24px]' />}
             text='Update'
+            handleOnClick={() => {
+              handleProductUpdateClick(_id);
+            }}
           />
         </div>
       </div>
@@ -129,6 +135,8 @@ const Card = ({ product, handleProductDetailsClick }) => {
 
 Card.propTypes = {
   product: PropTypes.object,
+  handleProductDetailsClick: PropTypes.func,
+  handleProductUpdateClick: PropTypes.func,
 };
 
 export default Card;

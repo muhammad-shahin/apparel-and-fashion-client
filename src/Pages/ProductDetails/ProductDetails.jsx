@@ -1,16 +1,53 @@
-import PropTypes from 'prop-types';
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import StarRating from '../../Components/StarRating/StarRating';
 import GlassButton from '../../Components/GlassButton/GlassButton';
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
+import Modal from '../../Services/Utility/Modal';
 
 const ProductDetails = () => {
   const product = useLoaderData();
-  const navigate = useNavigate();
-  const handleAddToCartClick = (id) => {};
+  const [showModal, setShowModal] = useState(false);
+  const { user } = useContext(AuthContext);
+  const userId = user?.uid;
+
+  const handleAddToCartClick = () => {
+    const addToCart = { userId, product };
+    fetch('http://localhost:5000/addedCart', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(addToCart),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Cart Added Successfully',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          setShowModal(false);
+        } else {
+          Swal.fire({
+            position: 'error',
+            icon: 'success',
+            title: 'Failed To Add New In Cart',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
   return (
     <section className='container mx-auto my-12 px-[5%]'>
-      <div className='flex justify-center lg:gap-28 gap-8 flex-col lg:flex-row'>
+      <div className='flex justify-center items-center lg:items-start lg:gap-28 gap-8 flex-col lg:flex-row'>
         {/* left side */}
         <div className=''>
           {/* main image */}
@@ -56,16 +93,19 @@ const ProductDetails = () => {
                 ${product.productPrice - (product.productPrice * 30) / 100}.00
               </p>
             </div>
+            <div className='flex justify-start'>
+              <StarRating initialRating={product.productRating} />
+            </div>
           </div>
           {/* size */}
-          <p className='text-[18px] uppercase mt-6 mb-4'>Select Size</p>
+          <p className='text-[18px] uppercase mt-4 mb-4'>Select Size</p>
           <div className='flex justify-start items-center gap-3'>
             {product.productSize.map((size, index) => (
               <div
                 key={index}
                 className='rounded-lg flex justify-center items-center border-2 w-[48px] h-[48px] border-gray-300'
               >
-                <p className='text-[18px] font-medium uppercase'>S</p>
+                <p className='text-[18px] font-medium uppercase'>{size}</p>
               </div>
             ))}
           </div>
@@ -74,6 +114,7 @@ const ProductDetails = () => {
             <GlassButton
               text={'Add To Cart'}
               icon={<AiOutlineShoppingCart className='text-[22px]' />}
+              handleOnClick={handleAddToCartClick}
             />
             <GlassButton
               text={'Wishlist'}
@@ -88,10 +129,13 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+      <Modal
+        title='Adding Product To Cart'
+        message='Please Wait Uploading Product In Database'
+        modalStatus={showModal}
+      />
     </section>
   );
 };
-
-ProductDetails.propTypes = {};
 
 export default ProductDetails;
