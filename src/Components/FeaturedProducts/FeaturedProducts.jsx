@@ -72,7 +72,7 @@ const FeaturedProducts = ({ products }) => {
 };
 
 FeaturedProducts.propTypes = {
-  product: PropTypes.array,
+  products: PropTypes.array,
 };
 
 export default FeaturedProducts;

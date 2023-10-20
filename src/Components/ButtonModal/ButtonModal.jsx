@@ -60,6 +60,22 @@ const ButtonModal = ({
               >
                 Add Product Color
               </button>
+              <button
+                className='w-[250px] px-5 py-2 bg-blue-500 backdrop-blur-[25px] bg-opacity-[0.69] font-medium text-[18px] text-white uppercase cursor-pointer rounded hover:bg-transparent border-2 border-transparent hover:text-blue-500 hover:border-blue-500 duration-500'
+                onClick={() => {
+                  handleAddFieldsBtn('advertisement');
+                }}
+              >
+                Add Brand Advertisement
+              </button>
+              <button
+                className='w-[250px] px-5 py-2 bg-blue-500 backdrop-blur-[25px] bg-opacity-[0.69] font-medium text-[18px] text-white uppercase cursor-pointer rounded hover:bg-transparent border-2 border-transparent hover:text-blue-500 hover:border-blue-500 duration-500'
+                onClick={() => {
+                  handleAddFieldsBtn('brandlogo');
+                }}
+              >
+                Add Brand Logo
+              </button>
             </div>
           </div>
           <button

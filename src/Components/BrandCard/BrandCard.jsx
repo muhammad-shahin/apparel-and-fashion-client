@@ -4,13 +4,13 @@ import GlassedLogo from '../GlassedLogo/GlassedLogo';
 import { useNavigate } from 'react-router-dom';
 
 const BrandCard = ({ brand }) => {
-  const { brandName, brandLogo, brandImage, tagLine } = brand;
+  const { brandName, brandId, brandLogo, brandImage, tagLine } = brand;
   const navigate = useNavigate();
   return (
     <div
       className='w-96 rounded-lg'
       onClick={() => {
-        navigate(`/brand/${brandName}`);
+        navigate(`/brand/${brandId}`);
       }}
     >
       <Tilt

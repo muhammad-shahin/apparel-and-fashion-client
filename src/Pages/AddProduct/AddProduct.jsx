@@ -105,7 +105,7 @@ const AddProduct = () => {
     const newField = [...addProductFields];
     if (btnId === 'image') {
       const imageField = {
-        name: 'productImage',
+        name: 'productImages',
         type: 'text',
         placeholder: 'A New Image Link',
         labelText: 'Image Link',
@@ -136,10 +136,33 @@ const AddProduct = () => {
       newField.push(colorField);
       setAddProductFields(newField);
       setButtonModalStatus(false);
+    } else if (btnId === 'advertisement') {
+      const colorField = {
+        name: 'advertisementImages',
+        type: 'text',
+        placeholder: 'Add Advertisement Image for Slider',
+        labelText: 'Advertisement Image',
+        onBlur: handleFieldBlur,
+      };
+      newField.push(colorField);
+      setAddProductFields(newField);
+      setButtonModalStatus(false);
+    } else if (btnId === 'brandlogo') {
+      const colorField = {
+        name: 'brandLogo',
+        type: 'text',
+        placeholder: 'Add Brand Logo Image ',
+        labelText: 'Brand Logo',
+        onChange: handleFieldValueChange,
+      };
+      newField.push(colorField);
+      setAddProductFields(newField);
+      setButtonModalStatus(false);
     }
   };
 
-  const handleAdditionInfo = () => {
+  const handleAdditionInfo = (e) => {
+    e.preventDefault();
     setButtonModalStatus(true);
   };
 
@@ -194,8 +217,7 @@ const AddProduct = () => {
           extraButtonText={'Add More INFO'}
           extraButtonOnClick={handleAdditionInfo}
         />
-        <div className='absolute bottom-0'>
-        </div>
+        <div className='absolute bottom-0'></div>
       </div>
       {/* additional info */}
       <Modal

@@ -45,12 +45,14 @@ const Form = ({
               />
             ))}
 
-            <button
-              className='px-5 py-2 bg-gray-500 backdrop-blur-[25px] bg-opacity-[0.69] font-medium text-[18px] text-white uppercase w-full h-full cursor-pointer rounded hover:bg-transparent border-2 border-transparent hover:text-gray-500 hover:border-gray-500 duration-500'
-              onClick={extraButtonOnClick}
-            >
-              {extraButtonText}
-            </button>
+            {extraButtonText && (
+              <button
+                className='px-5 py-2 bg-gray-500 backdrop-blur-[25px] bg-opacity-[0.69] font-medium text-[18px] text-white uppercase w-full h-full cursor-pointer rounded hover:bg-transparent border-2 border-transparent hover:text-gray-500 hover:border-gray-500 duration-500'
+                onClick={extraButtonOnClick}
+              >
+                {extraButtonText}
+              </button>
+            )}
             <input
               className='px-5 py-2 bg-blue-500 backdrop-blur-[25px] bg-opacity-[0.69] font-medium text-[18px] text-white uppercase w-full h-full cursor-pointer rounded hover:bg-transparent border-2 border-transparent hover:text-blue-500 hover:border-blue-500 duration-500'
               type='submit'

@@ -1,36 +1,42 @@
 [
   {
     "brandName": "Zara",
+    "brandId": "zara",
     "brandImage": "https://i.ibb.co/yPnyzLq/brand-zara.jpg",
     "brandLogo": "https://i.ibb.co/GTf7b7h/zara-logo.png",
     "tagLine": "Fashion for Everyone"
   },
   {
     "brandName": "Adidas",
+    "brandId": "adidas",
     "brandImage": "https://i.ibb.co/S5QmzDV/brand-adidas.jpg",
     "brandLogo": "https://i.ibb.co/XSccpC8/Adidas-logo.png",
     "tagLine": "Sportswear and More"
   },
   {
     "brandName": "Gucci",
+    "brandId": "gucci",
     "brandImage": "https://i.ibb.co/rwy7Nd3/brand-gucci.jpg",
     "brandLogo": "https://i.ibb.co/h9s85mT/gucci-logo.png",
     "tagLine": "Luxury Redefined"
   },
   {
     "brandName": "H&M",
+    "brandId": "hm",
     "brandImage": "https://i.ibb.co/cvmkx1Z/brand-h-m.jpg",
     "brandLogo": "https://i.ibb.co/SPvTcFM/H-M-Logo.png",
     "tagLine": "Fashion for All"
   },
   {
     "brandName": "J. Junaid Jamshed",
+    "brandId": "junaidjamshed",
     "brandImage": "https://i.ibb.co/1XxND14/brand-j-junaid-Jamshed.jpg",
     "brandLogo": "https://i.ibb.co/kS0Fzc5/j-logo.webp",
     "tagLine": "Elegance in Tradition"
   },
   {
     "brandName": "Nike",
+    "brandId": "nike",
     "brandImage": "https://i.ibb.co/sqfpQyj/brand-nike.jpg",
     "brandLogo": "https://i.ibb.co/NjQ168n/Nike-Logo.png",
     "tagLine": "Just Do It"
