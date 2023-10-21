@@ -14,7 +14,7 @@ const SizeDropdown = ({ sizes }) => {
   return (
     <div className='size-dropdown relative'>
       <div
-        className={`selected-size cursor-pointer bg-gray-300 px-4 rounded border border-transparent ${
+        className={`selected-size cursor-pointer bg-gray-300 dark:bg-black border-2 px-4 rounded border-transparent ${
           isDropdownOpen ? 'border-gray-400' : ''
         }`}
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -27,7 +27,7 @@ const SizeDropdown = ({ sizes }) => {
         />
       </div>
       {isDropdownOpen && (
-        <ul className='size-options absolute mt-2 py-2 bg-white rounded border shadow-md'>
+        <ul className='size-options absolute mt-2 py-2 bg-white dark:bg-black rounded border shadow-md'>
           {sizes.map((size) => (
             <li
               key={size}

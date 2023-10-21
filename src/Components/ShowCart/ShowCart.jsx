@@ -41,7 +41,7 @@ const ShowCart = ({ cartData, handleDeleteCart, cartId }) => {
           <p className='text-[18px] font-medium capitalize text-gray-500 mt-2 mb-4'>
             {productType}
           </p>
-          <div className='flex justify-center lg:justify-start items-center lg:items-start lg:flex-row gap-4 mb-3 '>
+          <div className='flex justify-center lg:justify-start items-center lg:items-start lg:flex-col gap-4 mb-3 '>
             {/* size  */}
             <div className='flex justify-start items-center gap-3'>
               <p className='text-[18px] font-medium capitalize text-gray-500'>
@@ -56,7 +56,7 @@ const ShowCart = ({ cartData, handleDeleteCart, cartId }) => {
               </p>
               <input
                 ref={quantityRef}
-                className='border border-gray-300 w-[60px] outline-none rounded text-center font-medium'
+                className='border border-gray-300 dark:bg-black w-[60px] outline-none rounded text-center font-medium'
                 defaultValue={1}
                 type='number'
                 onChange={() => {
