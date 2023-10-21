@@ -22,26 +22,26 @@ const ShowCart = ({ cartData, handleDeleteCart, cartId }) => {
   }, [quantity]);
 
   return (
-    <div className='border-2 rounded border-blue-500 border-opacity-[0.49] backdrop-blur-[5px] flex lg:justify-between justify-center items-center lg:items-start gap-10 w-fit lg:flex-row flex-col'>
+    <div className='border-2 rounded border-blue-500 border-opacity-[0.49] backdrop-blur-[5px] flex lg:justify-between justify-center items-center lg:items-start lg:gap-10 w-fit lg:flex-row flex-col'>
       {/* left side */}
-      <div className='flex justify-start items-start gap-4 lg:min-w-[70%]'>
+      <div className='flex lg:flex-row flex-col lg:justify-start justify-center lg:items-start items-center gap-4 lg:min-w-[70%]'>
         <div className=''>
           <img
-            className='max-w-[250px] min-h-[250px] object-cover rounded-l'
+            className='lg:max-w-[250px] lg:min-h-[250px] object-cover rounded-l'
             src={productImages[0]}
           />
         </div>
-        <div className=' py-4'>
+        <div className='text-center lg:text-left py-4'>
           <p
             style={{ fontFamily: 'Quicksand' }}
-            className='text-[22px] font-bold uppercase max-w-[250px]'
+            className='text-[22px] font-bold uppercase lg:max-w-[250px] '
           >
             {productName}
           </p>
           <p className='text-[18px] font-medium capitalize text-gray-500 mt-2 mb-4'>
             {productType}
           </p>
-          <div className='flex justify-start items-start lg:flex-row gap-4 mb-3 flex-col'>
+          <div className='flex justify-center lg:justify-start items-center lg:items-start lg:flex-row gap-4 mb-3 '>
             {/* size  */}
             <div className='flex justify-start items-center gap-3'>
               <p className='text-[18px] font-medium capitalize text-gray-500'>
@@ -65,7 +65,7 @@ const ShowCart = ({ cartData, handleDeleteCart, cartId }) => {
               />
             </div>
           </div>
-          <div className='flex justify-start items-center gap-4'>
+          <div className='flex justify-center lg:justify-start items-center gap-4 my-1'>
             <AiOutlineHeart className='text-[28px] text-black cursor-pointer' />
             <RiDeleteBin6Line
               onClick={() => {
@@ -81,7 +81,7 @@ const ShowCart = ({ cartData, handleDeleteCart, cartId }) => {
       <div className='pr-6 py-4 lg:min-w-[200px] w-[90%] '>
         <p
           style={{ fontFamily: 'Quicksand' }}
-          className='text-[22px] font-bold uppercase mb-3 text-right'
+          className='text-[22px] font-bold uppercase mb-3 lg:text-right text-center'
         >
           Summery
         </p>

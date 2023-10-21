@@ -82,7 +82,7 @@ const MyCart = () => {
     calculateTotals();
   }, [cartData]);
   return (
-    <section className='container mx-auto px-[5%] my-10 flex justify-between gap-10 lg:flex-row flex-col-reverse'>
+    <section className='container mx-auto px-[5%] my-10 flex lg:justify-between gap-10 lg:flex-row flex-col-reverse'>
       <div className='w-full space-y-6'>
         <h1
           style={{ fontFamily: 'Quicksand' }}
@@ -111,7 +111,7 @@ const MyCart = () => {
             style={{ fontFamily: 'Quicksand' }}
             className='text-[22px] font-bold uppercase mb-3 text-center'
           >
-            ALL PRODUCT PRICE
+            TOTal cart PRICE
           </p>
           <div className='space-y-6'>
             <div className='flex justify-between items-center'>
