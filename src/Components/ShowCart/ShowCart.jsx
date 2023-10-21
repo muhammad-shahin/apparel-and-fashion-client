@@ -22,12 +22,12 @@ const ShowCart = ({ cartData, handleDeleteCart, cartId }) => {
   }, [quantity]);
 
   return (
-    <div className='border-2 rounded border-blue-500 border-opacity-[0.49] backdrop-blur-[5px] flex lg:justify-between justify-center items-center lg:items-start lg:gap-10 w-fit lg:flex-row flex-col'>
+    <div className='border-2 rounded border-blue-500 border-opacity-[0.49] backdrop-blur-[5px] flex lg:justify-between justify-center items-center lg:items-start lg:gap-5 w-fit lg:flex-row flex-col pr-3'>
       {/* left side */}
       <div className='flex lg:flex-row flex-col lg:justify-start justify-center lg:items-start items-center gap-4 lg:min-w-[70%]'>
         <div className=''>
           <img
-            className='lg:max-w-[250px] lg:min-h-[250px] object-cover rounded-l'
+            className='lg:max-w-[250px] lg:min-h-[320px] object-cover rounded-l'
             src={productImages[0]}
           />
         </div>
