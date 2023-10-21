@@ -1,11 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useNavigate, useParams } from 'react-router-dom';
 import AdsSlider from '../AdsSlider/AdsSlider';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Card from '../Card/Card';
 import Lottie from 'lottie-react';
 import notAvailableAnim from '../../assets/Animation/notAvailable.json';
+import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
 
 const BrandProducts = () => {
+  const { user } = useContext(AuthContext);
   const [adsData, setAdsData] = useState([]);
   const [productData, setProductData] = useState([]);
   const { brandName } = useParams();
@@ -17,7 +20,9 @@ const BrandProducts = () => {
     navigate(`/updateProduct/${brandName}/${id}`);
   };
   useEffect(() => {
-    fetch(`https://apparel-and-fashion-server.vercel.app/brandAdvertisement/${brandName}`)
+    fetch(
+      `https://apparel-and-fashion-server.vercel.app/brandAdvertisement/${brandName}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setAdsData(data);

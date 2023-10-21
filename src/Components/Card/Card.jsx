@@ -58,9 +58,9 @@ const Card = ({
             {productSize?.map((size, index) => (
               <p
                 key={index}
-                className='text-[14px] font-medium text-white bg-gray-500 bg-opacity-[0.49] backdrop-blur-[25px] rounded-full p-2 w-[22px] h-[22px] flex justify-center items-center'
+                className='text-[14px] font-medium text-white bg-gray-500 bg-opacity-[0.49] backdrop-blur-[25px] rounded-full p-2 w-[48px] h-[48px] flex justify-center items-center'
               >
-                {size}
+                {size.slice(0, 3)}
               </p>
             ))}
           </div>

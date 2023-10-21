@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Fade as Hamburger } from 'hamburger-react';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './Navbar.css';
 import UserProfile from '../../Components/UserProfile/UserProfile';
 import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
@@ -8,9 +9,23 @@ import { AiOutlineShoppingCart, AiOutlineFolderAdd } from 'react-icons/ai';
 import { VscAccount } from 'react-icons/vsc';
 
 const Navbar = () => {
-  const { user, showProfile, setShowProfile } = useContext(AuthContext);
+  const { user, showProfile, setShowProfile} =
+    useContext(AuthContext);
   const [isOpen, setOpen] = useState(false);
   const navigate = useNavigate();
+
+  const [cartCount, setCartCount] = useState(0);
+
+useEffect(() => {
+  if (user) {
+    fetch(`https://apparel-and-fashion-server.vercel.app/addedCart/${user.uid}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCartCount(data.length);
+      });
+  }
+}, [user]);
+
 
   return (
     <header className=''>
@@ -104,7 +119,7 @@ const Navbar = () => {
             />
             {user && (
               <p className='bg-red-600 rounded-full text-[8px] p-1 flex justify-center items-center absolute top-0 right-0 w-[15px] h-[15px] text-white'>
-                0
+                {cartCount ? cartCount : 0}
               </p>
             )}
           </div>

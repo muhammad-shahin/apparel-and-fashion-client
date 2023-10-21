@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { SlArrowDown } from 'react-icons/sl';
 
 const SizeDropdown = ({ sizes }) => {
-  const [selectedSize, setSelectedSize] = useState(sizes[0]);
+  const [selectedSize, setSelectedSize] = useState(sizes?.[0]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleSizeChange = (size) => {

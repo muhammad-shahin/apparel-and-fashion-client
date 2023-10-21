@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
 import ShowCart from '../../Components/ShowCart/ShowCart';

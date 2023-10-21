@@ -100,10 +100,10 @@ const ProductDetails = () => {
           {/* size */}
           <p className='text-[18px] uppercase mt-4 mb-4'>Select Size</p>
           <div className='flex justify-start items-center gap-3'>
-            {product.productSize.map((size, index) => (
+            {product?.productSize?.map((size, index) => (
               <div
                 key={index}
-                className='rounded-lg flex justify-center items-center border-2 w-[48px] h-[48px] border-gray-300'
+                className='rounded-lg flex justify-center items-center border-2 px-3 py-1 border-gray-300 hover:bg-gray-300 duration-500 cursor-pointer'
               >
                 <p className='text-[18px] font-medium uppercase'>{size}</p>
               </div>

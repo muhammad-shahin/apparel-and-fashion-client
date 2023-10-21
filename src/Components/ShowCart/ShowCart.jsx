@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
 import SizeDropdown from '../../Components/SizeDropdown/SizeDropdown';
 import { AiOutlineHeart } from 'react-icons/ai';
@@ -23,10 +24,10 @@ const ShowCart = ({ cartData, handleDeleteCart, cartId }) => {
   return (
     <div className='border-2 rounded border-blue-500 border-opacity-[0.49] backdrop-blur-[5px] flex lg:justify-between justify-center items-center lg:items-start gap-10 w-fit lg:flex-row flex-col'>
       {/* left side */}
-      <div className='flex justify-start items-start gap-4'>
+      <div className='flex justify-start items-start gap-4 lg:min-w-[70%]'>
         <div className=''>
           <img
-            className='max-w-[250px] min-h-[280px] object-cover rounded-l'
+            className='max-w-[250px] min-h-[250px] object-cover rounded-l'
             src={productImages[0]}
           />
         </div>
@@ -40,7 +41,7 @@ const ShowCart = ({ cartData, handleDeleteCart, cartId }) => {
           <p className='text-[18px] font-medium capitalize text-gray-500 mt-2 mb-4'>
             {productType}
           </p>
-          <div className='flex justify-start items-start gap-4 mb-3 flex-col'>
+          <div className='flex justify-start items-start lg:flex-row gap-4 mb-3 flex-col'>
             {/* size  */}
             <div className='flex justify-start items-center gap-3'>
               <p className='text-[18px] font-medium capitalize text-gray-500'>
