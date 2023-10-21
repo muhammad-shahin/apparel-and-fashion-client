@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useNavigate, useParams } from 'react-router-dom';
 import AdsSlider from '../AdsSlider/AdsSlider';
@@ -10,7 +11,7 @@ import Modal from '../../Services/Utility/Modal';
 import Heading from '../Heading/Heading';
 
 const BrandProducts = () => {
-  const { user, loading, setLoading } = useContext(AuthContext);
+  const { loading, setLoading } = useContext(AuthContext);
   const [modalStatus, setModalStatus] = useState(false);
   const [adsData, setAdsData] = useState([]);
   const [productData, setProductData] = useState([]);
