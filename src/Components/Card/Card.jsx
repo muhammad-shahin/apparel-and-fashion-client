@@ -35,7 +35,7 @@ const Card = ({
       {/* image */}
       <div className='overflow-hidden relative'>
         <img
-          className={`card-image w-full h-[280px] object-top object-cover ${
+          className={`card-image w-full h-[19rem] object-cover ${
             visibleButtons ? 'zoom-in' : 'zoom-out'
           } `}
           src={visibleButtons ? `${image2}` : `${image1}`}
@@ -67,7 +67,7 @@ const Card = ({
         </div>
       </div>
       {/* text content */}
-      <div className='px-4 py-3  space-y-2'>
+      <div className='px-4 py-3 space-y-2 flex-grow'>
         {/* product name */}
         <p
           className='md:text-[20px] text-[18px] font-medium uppercase'
@@ -98,7 +98,8 @@ const Card = ({
             className='text-[14px] font-medium uppercase text-blue-500'
             style={{ fontFamily: 'Quicksand' }}
           >
-            <span className='text-black dark:text-white'>Type ~</span> {productType}
+            <span className='text-black dark:text-white'>Type ~</span>{' '}
+            {productType}
           </p>
         </div>
         {/* product color */}
@@ -115,7 +116,7 @@ const Card = ({
           <StarRating initialRating={product?.productRating} />
         </div>
         {/* details & update buttons */}
-        <div className='text-[16px] flex justify-center items-center gap-2 scale-[0.8]'>
+        <div className='absolute bottom-0 left-[50%] translate-x-[-50%] translate-y-[-5%] text-[16px] flex justify-center items-center gap-2 scale-[0.65]'>
           <GlassButton
             text='Details'
             icon={<AiOutlineShoppingCart className='text-[24px]' />}

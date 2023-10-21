@@ -6,7 +6,8 @@ import GlassButton from '../../Components/GlassButton/GlassButton';
 import Swal from 'sweetalert2';
 
 const MyCart = () => {
-  const { user } = useContext(AuthContext);
+  const { user, setUpdatedCartCount, updatedCartCount } =
+    useContext(AuthContext);
   const [cartData, setCartData] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalDeliveryCharge, setTotalDeliveryCharge] = useState(0);
@@ -44,6 +45,7 @@ const MyCart = () => {
               setCartData((prevCartData) =>
                 prevCartData.filter((cartItem) => cartItem._id !== cartId)
               );
+              setUpdatedCartCount(updatedCartCount - 1);
               Swal.fire({
                 position: 'center',
                 icon: 'success',

@@ -7,6 +7,7 @@ import Lottie from 'lottie-react';
 import notAvailableAnim from '../../assets/Animation/notAvailable.json';
 import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
 import Modal from '../../Services/Utility/Modal';
+import Heading from '../Heading/Heading';
 
 const BrandProducts = () => {
   const { user, loading, setLoading } = useContext(AuthContext);
@@ -15,6 +16,7 @@ const BrandProducts = () => {
   const [productData, setProductData] = useState([]);
   const { brandName } = useParams();
   const navigate = useNavigate();
+  console.log(brandName);
   const handleProductDetailsClick = (id) => {
     navigate(`/productDetails/${brandName}/${id}`);
   };
@@ -51,8 +53,13 @@ const BrandProducts = () => {
       <section>
         <AdsSlider sliderData={adsData} />
 
+        <Heading
+          title={`${brandName}`}
+          subTitle='Latest Collections'
+          titleColor={true}
+        />
         {/* card section */}
-        <div className='flex flex-wrap justify-center items-center gap-8 text-center py-28'>
+        <div className='flex flex-wrap justify-center items-center gap-8 text-center pb-20'>
           {productData.map((product) => (
             <Card
               key={product._id}

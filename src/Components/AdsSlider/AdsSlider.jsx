@@ -62,7 +62,7 @@ const AdsSlider = ({ sliderData }) => {
                 {/* left side content */}
                 <div className='text-white pl-[5%] flex justify-center items-start flex-col h-full gap-6 py-4'>
                   <h2
-                    className='text-[22px] lg:text-[48px] font-medium lg:max-w-[500px] md:max-w-[50%] max-w-[80%] uppercase'
+                    className='text-[22px] lg:text-[48px] font-medium lg:max-w-[650px] md:max-w-[50%] max-w-[80%] uppercase'
                     style={{ fontFamily: 'Quicksand' }}
                   >
                     {ads.title}

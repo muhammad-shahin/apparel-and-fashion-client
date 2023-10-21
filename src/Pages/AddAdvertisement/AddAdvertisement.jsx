@@ -23,7 +23,7 @@ const AddAdvertisement = () => {
       if (fieldName === 'brandName') {
         return {
           ...prevData,
-          [fieldName]: value.toLowerCase(),
+          [fieldName]: value,
         };
       } else {
         return {
@@ -53,7 +53,7 @@ const AddAdvertisement = () => {
     {
       name: 'brandName',
       type: 'text',
-      placeholder: 'Enter Brand Name (small letter)',
+      placeholder: 'Enter Brand Name',
       labelText: 'Brand Name',
       onChange: handleFieldValueChange,
     },

@@ -10,7 +10,7 @@ const BrandCard = ({ brand }) => {
     <div
       className='w-96 rounded-lg'
       onClick={() => {
-        navigate(`/brand/${brandId}`);
+        navigate(`/brand/${brandName}`);
       }}
     >
       <Tilt
