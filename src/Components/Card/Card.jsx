@@ -35,7 +35,7 @@ const Card = ({
       {/* image */}
       <div className='overflow-hidden relative'>
         <img
-          className={`card-image w-full h-[250px] object-top object-cover ${
+          className={`card-image w-full h-[300px] object-top object-cover ${
             visibleButtons ? 'zoom-in' : 'zoom-out'
           } `}
           src={visibleButtons ? `${image2}` : `${image1}`}

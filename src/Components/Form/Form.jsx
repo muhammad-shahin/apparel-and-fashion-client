@@ -84,7 +84,10 @@ const Form = ({
 
         {/* right side content */}
         <div className='max-w-[650px]  px-14 py-10 bg-blue-400 rounded-r hidden lg:flex justify-center items-center'>
-          <Lottie animationData={lottieAnimation} />
+          <Lottie
+            loop
+            animationData={lottieAnimation}
+          />
         </div>
       </div>
     </div>

@@ -45,7 +45,9 @@ const routes = [
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/brandAdvertisement/${params.brandName}`),
+          fetch(
+            `https://apparel-and-fashion-server.vercel.app/brandAdvertisement/${params.brandName}`
+          ),
       },
       {
         path: '/addAdvertisement',
@@ -64,7 +66,7 @@ const routes = [
         ),
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/products/${params.brandName}/${params.productId}`
+            `https://apparel-and-fashion-server.vercel.app/products/${params.brandName}/${params.productId}`
           ),
       },
       {
@@ -76,7 +78,7 @@ const routes = [
         ),
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/products/${params.brandName}/${params.productId}`
+            `https://apparel-and-fashion-server.vercel.app/products/${params.brandName}/${params.productId}`
           ),
       },
       {

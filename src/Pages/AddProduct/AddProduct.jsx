@@ -173,7 +173,7 @@ const AddProduct = () => {
     const newProduct = { ...formData };
     console.log(newProduct);
     setShowModal(true);
-    fetch('http://localhost:5000/products', {
+    fetch('https://apparel-and-fashion-server.vercel.app/products', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
