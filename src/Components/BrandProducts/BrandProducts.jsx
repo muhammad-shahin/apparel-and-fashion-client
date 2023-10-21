@@ -6,9 +6,11 @@ import Card from '../Card/Card';
 import Lottie from 'lottie-react';
 import notAvailableAnim from '../../assets/Animation/notAvailable.json';
 import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
+import Modal from '../../Services/Utility/Modal';
 
 const BrandProducts = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading, setLoading } = useContext(AuthContext);
+  const [modalStatus, setModalStatus] = useState(false);
   const [adsData, setAdsData] = useState([]);
   const [productData, setProductData] = useState([]);
   const { brandName } = useParams();
@@ -33,9 +35,20 @@ const BrandProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         setProductData(data);
+        setLoading(false);
+        setModalStatus(false);
       });
   }, []);
-  if (productData.length > 0) {
+  if (loading) {
+    return (
+      <Modal
+        title='Please Wait'
+        message='Fetching Data From Server.'
+      />
+    );
+  } else if (user === '') {
+    return '';
+  } else if (productData.length > 0) {
     return (
       <section>
         <AdsSlider sliderData={adsData} />

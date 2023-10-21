@@ -9,23 +9,30 @@ import { AiOutlineShoppingCart, AiOutlineFolderAdd } from 'react-icons/ai';
 import { VscAccount } from 'react-icons/vsc';
 
 const Navbar = () => {
-  const { user, showProfile, setShowProfile} =
-    useContext(AuthContext);
+  const {
+    user,
+    showProfile,
+    setShowProfile,
+    updatedCartCount,
+    setUpdatedCartCount,
+  } = useContext(AuthContext);
   const [isOpen, setOpen] = useState(false);
   const navigate = useNavigate();
 
   const [cartCount, setCartCount] = useState(0);
 
-useEffect(() => {
-  if (user) {
-    fetch(`https://apparel-and-fashion-server.vercel.app/addedCart/${user.uid}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCartCount(data.length);
-      });
-  }
-}, [user]);
-
+  useEffect(() => {
+    if (user) {
+      fetch(
+        `https://apparel-and-fashion-server.vercel.app/addedCart/${user.uid}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setCartCount(data.length);
+          setUpdatedCartCount(data.length);
+        });
+    }
+  }, [user, updatedCartCount]);
 
   return (
     <header className=''>

@@ -10,7 +10,8 @@ import Modal from '../../Services/Utility/Modal';
 const ProductDetails = () => {
   const product = useLoaderData();
   const [showModal, setShowModal] = useState(false);
-  const { user } = useContext(AuthContext);
+  const { user, setUpdatedCartCount, updatedCartCount } =
+    useContext(AuthContext);
   const userId = user?.uid;
 
   const handleAddToCartClick = () => {
@@ -34,6 +35,7 @@ const ProductDetails = () => {
             timer: 1500,
           });
           setShowModal(false);
+          setUpdatedCartCount(updatedCartCount + 1);
         } else {
           Swal.fire({
             position: 'error',

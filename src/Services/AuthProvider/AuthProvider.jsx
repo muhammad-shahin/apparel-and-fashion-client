@@ -16,6 +16,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState('');
   const [loading, setLoading] = useState(true);
+  const [updatedCartCount, setUpdatedCartCount] = useState(0);
   const googleProvider = new GoogleAuthProvider();
 
   // email & password sign up
@@ -78,6 +79,8 @@ const AuthProvider = ({ children }) => {
     setShowProfile,
     loading,
     setLoading,
+    updatedCartCount,
+    setUpdatedCartCount,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

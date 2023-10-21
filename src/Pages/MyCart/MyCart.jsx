@@ -6,7 +6,7 @@ import GlassButton from '../../Components/GlassButton/GlassButton';
 import Swal from 'sweetalert2';
 
 const MyCart = () => {
-  const { user, setCartCount } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [cartData, setCartData] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalDeliveryCharge, setTotalDeliveryCharge] = useState(0);
@@ -18,7 +18,6 @@ const MyCart = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setCartCount(data.length);
         setCartData(data);
       });
   }, [user]);
