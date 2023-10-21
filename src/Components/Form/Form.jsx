@@ -19,12 +19,12 @@ const Form = ({
 }) => {
   return (
     <div
-      className=' bg-blue-300 backdrop-blur-[50px] bg-opacity-[0.49] font-medium text-[18px] text- uppercase w-[100%] min-h-[90vh] flex justify-center items-center px-[5%] rounded'
+      className=' bg-blue-300 dark:bg-[#07031d] backdrop-blur-[50px] bg-opacity-[0.49] font-medium text-[18px] text- uppercase w-[100%] min-h-[90vh] flex justify-center items-center px-[5%] rounded'
       style={{ fontFamily: 'Quicksand' }}
     >
       <div className=' container mx-auto w-fit grid lg:grid-cols-2 grid-cols-1 shadow-sm shadow-blue-500 my-8'>
         {/* left side content */}
-        <div className='w-full lg: px-8 lg:px-28 py-10 bg-white rounded lg:rounded-l'>
+        <div className='w-full lg: px-8 lg:px-28 py-10 bg-white dark:bg-gray-400 rounded lg:rounded-l'>
           <h1 className='lg:text-[32px] text-[24px] font-medium uppercase lg:mb-10 mb-3'>
             {title}
           </h1>

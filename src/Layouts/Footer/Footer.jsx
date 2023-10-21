@@ -70,7 +70,7 @@ const Footer = () => {
       </div>
 
       {/* Have a question */}
-      <div className='w-full lg:h-[650px] bg-black bg-opacity-[0.79] backdrop-blur-[25px] text-center px-6 py-8 text-white space-y-6 xl:col-span-1 col-span-2'>
+      <div className='w-full lg:h-[650px] bg-gray-400  backdrop-blur-[25px] text-center px-6 py-8 text-white space-y-6 xl:col-span-1 col-span-2'>
         <h2
           className='md:text-[48px] text-[32px] font-medium uppercase'
           style={{ fontFamily: 'DreamAvenue' }}
@@ -101,7 +101,7 @@ const Footer = () => {
             rows='4'
           ></textarea>
           <input
-            className='max-w-[350px] px-5 py-2 bg-blue-500 backdrop-blur-[25px] bg-opacity-[0.49] font-medium text-[18px] text-white uppercase w-full h-full cursor-pointer hover:bg-transparent hover:border-blue-500 duration-500'
+            className='max-w-[350px] px-5 py-2 bg-blue-500 backdrop-blur-[25px] bg-opacity-[0.49] font-medium text-[18px] text-white uppercase w-full h-full cursor-pointer hover:bg-transparent hover:border-blue-500 duration-500 dark:hover:bg-blue-500'
             type='submit'
             value='Send Message'
           />

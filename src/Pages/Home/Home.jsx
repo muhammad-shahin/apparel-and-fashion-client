@@ -1,13 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Banner from '../../Components/Banner/Banner';
 import BrandCard from '../../Components/BrandCard/BrandCard';
 import Heading from '../../Components/Heading/Heading';
 import FeaturedProducts from '../../Components/FeaturedProducts/FeaturedProducts';
 import Footer from '../../Layouts/Footer/Footer';
+import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
 
 const Home = () => {
+  const { setLoading } = useContext(AuthContext);
   const [cardData, setCardData] = useState([]);
   const [featuredProduct, setFeaturedProduct] = useState([]);
+  setLoading(true);
   useEffect(() => {
     fetch('/brandCard.json')
       .then((res) => res.json())

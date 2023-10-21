@@ -46,15 +46,13 @@ const BrandProducts = () => {
         message='Fetching Data From Server.'
       />
     );
-  } else if (user === '') {
-    return '';
   } else if (productData.length > 0) {
     return (
       <section>
         <AdsSlider sliderData={adsData} />
 
         {/* card section */}
-        <div className='flex flex-wrap justify-center items-center gap-8 text-center my-10'>
+        <div className='flex flex-wrap justify-center items-center gap-8 text-center py-28'>
           {productData.map((product) => (
             <Card
               key={product._id}

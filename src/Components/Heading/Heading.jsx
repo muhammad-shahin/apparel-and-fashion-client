@@ -1,11 +1,10 @@
-
 import PropTypes from 'prop-types';
 
 const Heading = ({ title, subTitle }) => {
   return (
-    <div className='my-10'>
+    <div className='my-10 text-black dark:text-white'>
       <h1
-        className='title-bar md:text-[48px] text-[20px] uppercase text-center font-bold'
+        className='title-bar md:text-[48px] text-[20px] uppercase text-center font-bold before:bg-black after:bg-black dark:after:bg-white dark:before:bg-white'
         style={{ fontFamily: 'DreamAvenue' }}
       >
         {title}

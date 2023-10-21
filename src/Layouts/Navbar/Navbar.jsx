@@ -5,8 +5,9 @@ import { useContext, useEffect, useState } from 'react';
 import './Navbar.css';
 import UserProfile from '../../Components/UserProfile/UserProfile';
 import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
-import { AiOutlineShoppingCart, AiOutlineFolderAdd } from 'react-icons/ai';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { VscAccount } from 'react-icons/vsc';
+import DarkTheme from '../../Components/DarkTheme/DarkTheme';
 
 const Navbar = () => {
   const {
@@ -20,7 +21,6 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const [cartCount, setCartCount] = useState(0);
-
   useEffect(() => {
     if (user) {
       fetch(
@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <header className=''>
-      <nav className='py-3 container mx-auto flex justify-between items-center w-[90%] xl:w-auto relative'>
+      <nav className='py-3 container mx-auto flex justify-between items-center w-[90%] xl:w-auto relative text-black dark:text-white'>
         {/* text logo */}
         <div
           className='text-center cursor-pointer'
@@ -45,13 +45,13 @@ const Navbar = () => {
           }}
         >
           <p
-            className='lg:text-[58px] text-[38px] leading-none font- text-black'
+            className='lg:text-[58px] text-[38px] leading-none font- '
             style={{ fontFamily: 'DreamAvenue' }}
           >
             F&A
           </p>
           <p
-            className='lg:text-[18px] text-[12px] leading-none font- text-black'
+            className='lg:text-[18px] text-[12px] leading-none font- '
             style={{ fontFamily: 'Quicksand, sans-serif' }}
           >
             FASHION & APPAREL
@@ -61,10 +61,10 @@ const Navbar = () => {
         <ul
           className={` xl:static fixed top-[75px] ${
             isOpen ? 'right-0' : 'right-[-100%]'
-          } xl:h-auto h-screen xl:w-auto w-[50%] flex xl:flex-row flex-col bg-gray-200 xl:opacity-[0.7] backdrop-blur-[25px] xl:px-5 py-2 justify-start xl:justify-center items-center xl:gap-10 gap-8 duration-700 z-[100] xl:rounded-full xl:pt-2 pt-10`}
+          } xl:h-auto h-screen xl:w-auto w-[50%] flex xl:flex-row flex-col bg-gray-200 dark:bg-blue-500 xl:opacity-[0.7] backdrop-blur-[25px] xl:px-5 py-2 justify-start xl:justify-center items-center xl:gap-10 gap-8 duration-700 z-[100] xl:rounded-full xl:pt-2 pt-10`}
         >
           <li
-            className='text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
+            className='text-black dark:text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
             onClick={() => {
               setOpen(false);
             }}
@@ -72,7 +72,7 @@ const Navbar = () => {
             <NavLink to='/'>Home</NavLink>
           </li>
           <li
-            className='text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
+            className='text-black dark:text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
             onClick={() => {
               setOpen(false);
             }}
@@ -80,44 +80,36 @@ const Navbar = () => {
             <NavLink to='/myCart'>My Cart</NavLink>
           </li>
           <li
-            className='text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
+            className='text-black dark:text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
+            onClick={() => {
+              setOpen(false);
+            }}
+          >
+            <NavLink to='/brand/adidas'>Shop</NavLink>
+          </li>
+          <li
+            className='text-black dark:text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
             onClick={() => {
               setOpen(false);
             }}
           >
             <NavLink to='/addProduct'>Add Product</NavLink>
           </li>
-          <li
-            className='text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
-            onClick={() => {
-              setOpen(false);
-            }}
-          >
-            <NavLink to='/login'>Login</NavLink>
-          </li>
-          <li
-            className='text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
-            onClick={() => {
-              setOpen(false);
-            }}
-          >
-            <NavLink to='/a'>Home</NavLink>
-          </li>
+          {user === '' && (
+            <li
+              className='text-black dark:text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              <NavLink to='/login'>Login</NavLink>
+            </li>
+          )}
         </ul>
         {/* cart icons */}
         <div className='flex justify-center items-center gap-5'>
-          <div
-            title='Add New Product'
-            className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-blue-500 hover:bg-opacity-[0.39] hover:text-white'
-          >
-            <AiOutlineFolderAdd
-              onClick={() => {
-                navigate('/addProduct');
-              }}
-              className='text-[22px]'
-            />
-          </div>
-          <div className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-blue-500 hover:bg-opacity-[0.39] hover:text-white relative'>
+          <DarkTheme />
+          <div className='bg-gray-200 opacity-[0.7] backdrop-blur-lg rounded-full p-2 cursor-pointer hover:opacity-[1] duration-500 hover:bg-blue-500 hover:bg-opacity-[0.39] hover:text-white relative  dark:opacity-[1] dark:text-blue-500'>
             <AiOutlineShoppingCart
               onClick={() => {
                 navigate('/myCart');

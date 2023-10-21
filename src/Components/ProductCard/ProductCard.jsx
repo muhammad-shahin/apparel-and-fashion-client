@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
   const [visibleButtons, setVisibleButtons] = useState(false);
   return (
     <div
-      className='w-[18.75rem] h-[36rem] overflow-hidden relative border-[4px] border-blue-200 border-opacity-[1.50] rounded-lg'
+      className='w-[18.75rem] h-[36rem] overflow-hidden relative border-[4px] border-blue-200 border-opacity-[1.50] rounded-lg dark:text-white'
       onMouseEnter={() => {
         setVisibleButtons(true);
       }}
