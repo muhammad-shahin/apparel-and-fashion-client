@@ -1,30 +1,35 @@
 import PropTypes from 'prop-types';
 import Heading from '../Heading/Heading';
-import ProductCard from '../ProductCard/ProductCard';
 import { useEffect, useState } from 'react';
+import Card from '../Card/Card';
 
-const FeaturedProducts = ({ products }) => {
-  const [womenProducts, setWomenProducts] = useState([]);
+const FeaturedProducts = () => {
+  const [featuredProduct, setFeaturedProduct] = useState([]);
+  // for featured products
   useEffect(() => {
-    fetch('/womenProducts.json')
+    fetch('https://apparel-and-fashion-server.vercel.app/products')
       .then((res) => res.json())
-      .then((data) => setWomenProducts(data));
+      .then((data) => {
+        setFeaturedProduct(data);
+      });
   }, []);
-
-  // Original JSON data with 20 products
-  const originalData = products;
-
   // Function to get a random subset of products
   function getRandomSubset(array, count) {
     const shuffled = array.sort(() => 0.5 - Math.random());
     return shuffled.slice(0, count);
   }
 
-  // Randomly select 8 products for "Best Seller Products"
-  const bestSellers = getRandomSubset(originalData, 4);
+  // Randomly select 4 products for "Best Seller Products"
+  const bestSellers = getRandomSubset(featuredProduct, 4);
 
-  // Randomly select 8 products for "Trending Products"
-  const trendingProducts = getRandomSubset(originalData, 4);
+  // Randomly select 4 products for "Trending Products"
+  const trendingProducts = getRandomSubset(featuredProduct, 4);
+
+  // sort women product from products data
+  const keyword = 'women';
+  const womenProducts = featuredProduct.filter((product) =>
+    product.productType.toLowerCase().includes(keyword)
+  );
 
   return (
     <div>
@@ -35,7 +40,7 @@ const FeaturedProducts = ({ products }) => {
       />
       <div className='flex flex-wrap justify-center items-center gap-8 duration-500 text-center'>
         {bestSellers.map((product) => (
-          <ProductCard
+          <Card
             key={product.productId}
             product={product}
           />
@@ -48,8 +53,8 @@ const FeaturedProducts = ({ products }) => {
       />
       <div className='flex flex-wrap justify-center items-center gap-8 duration-500 text-center'>
         {trendingProducts.map((product) => (
-          <ProductCard
-            key={product.productId}
+          <Card
+            key={product._id}
             product={product}
           />
         ))}
@@ -61,7 +66,7 @@ const FeaturedProducts = ({ products }) => {
       />
       <div className='flex flex-wrap justify-center items-center gap-8 duration-500 text-center'>
         {womenProducts.slice(0, 4).map((product) => (
-          <ProductCard
+          <Card
             key={product.productId}
             product={product}
           />

@@ -4,7 +4,7 @@ const Heading = ({ title, subTitle, titleColor }) => {
   return (
     <div className='my-10 text-black dark:text-white'>
       <h1
-        className={`title-bar md:text-[48px] text-[20px] uppercase text-center font-bold  dark:after:bg-white dark:before:bg-white ${
+        className={`title-bar md:text-[48px] text-[20px] uppercase text-center font-bold  dark:after:bg-white dark:before:bg-white dark:text-white ${
           titleColor
             ? 'text-blue-400 before:bg-blue-400 after:bg-blue-400'
             : 'before:bg-black after:bg-black text-black'

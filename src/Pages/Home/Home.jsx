@@ -9,7 +9,7 @@ import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
 const Home = () => {
   const { setLoading } = useContext(AuthContext);
   const [cardData, setCardData] = useState([]);
-  const [featuredProduct, setFeaturedProduct] = useState([]);
+
   setLoading(true);
   useEffect(() => {
     fetch('/brandCard.json')
@@ -19,14 +19,7 @@ const Home = () => {
       });
   }, []);
 
-  // for featured products
-  useEffect(() => {
-    fetch('/featuredProducts.json')
-      .then((res) => res.json())
-      .then((data) => {
-        setFeaturedProduct(data);
-      });
-  }, []);
+  
   return (
     <div>
       {/* banner section */}
@@ -49,7 +42,7 @@ const Home = () => {
 
       {/* featured Product section */}
       <div className='px-[5%] container mx-auto my-6'>
-        <FeaturedProducts products={featuredProduct} />
+        <FeaturedProducts />
       </div>
       <Footer />
     </div>

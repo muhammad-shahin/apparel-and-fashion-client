@@ -84,7 +84,7 @@ const MyCart = () => {
     calculateTotals();
   }, [cartData]);
   return (
-    <section className='container mx-auto px-[5%] py-10 flex lg:justify-between gap-10 lg:flex-row flex-col-reverse'>
+    <section className='container mx-auto px-[5%] py-10 flex lg:justify-between gap-10 lg:flex-row flex-col-reverse h-full'>
       <div className='w-full space-y-6 dark:text-white'>
         <h1
           style={{ fontFamily: 'Quicksand' }}
