@@ -16,7 +16,7 @@ const ProductDetails = () => {
 
   const handleAddToCartClick = () => {
     const addToCart = { userId, product };
-    fetch('https://apparel-and-fashion-server.vercel.app/addedCart', {
+    fetch('http://localhost:5000/addedCart', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

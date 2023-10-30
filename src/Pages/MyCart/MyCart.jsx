@@ -14,9 +14,7 @@ const MyCart = () => {
   const [totalDiscount, setTotalDiscount] = useState(0);
   const [totalTax, setTotalTax] = useState(0);
   useEffect(() => {
-    fetch(
-      `https://apparel-and-fashion-server.vercel.app/addedCart/${user?.uid}`
-    )
+    fetch(`http://localhost:5000/addedCart/${user?.uid}`)
       .then((res) => res.json())
       .then((data) => {
         setCartData(data);
@@ -32,12 +30,9 @@ const MyCart = () => {
       cancelButtonColor: '#f30101',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://apparel-and-fashion-server.vercel.app/addedCart/${user?.uid}/${cartId}`,
-          {
-            method: 'DELETE',
-          }
-        )
+        fetch(`http://localhost:5000/addedCart/${user?.uid}/${cartId}`, {
+          method: 'DELETE',
+        })
           .then((res) => res.json())
           .then((data) => {
             console.log(data.deletedCount);

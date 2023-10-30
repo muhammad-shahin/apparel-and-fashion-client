@@ -29,14 +29,14 @@ const Banner = () => {
   };
 
   // this code will slide the banner automatically after 10s
-  // useEffect(() => {
-  //   const slideTimer = setTimeout(moveToNextSlide, 10000);
+  useEffect(() => {
+    const slideTimer = setTimeout(moveToNextSlide, 10000);
 
-  //   return () => {
-  //     clearTimeout(slideTimer);
-  //   };
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [currentSlide, bannerData]);
+    return () => {
+      clearTimeout(slideTimer);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentSlide, bannerData]);
 
   return (
     <section className=''>

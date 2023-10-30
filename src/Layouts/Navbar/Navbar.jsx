@@ -24,7 +24,7 @@ const Navbar = () => {
   useEffect(() => {
     if (user) {
       fetch(
-        `https://apparel-and-fashion-server.vercel.app/addedCart/${user.uid}`
+        `http://localhost:5000/addedCart/${user.uid}`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -95,7 +95,9 @@ const Navbar = () => {
           >
             <NavLink to='/addProduct'>Add Product</NavLink>
           </li>
-          {user === '' && (
+          {user ? (
+            ''
+          ) : (
             <li
               className='text-black dark:text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
               onClick={() => {

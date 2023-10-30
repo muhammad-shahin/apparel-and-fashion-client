@@ -20,7 +20,6 @@ const SignUp = () => {
 
   // show password regular expression error
   const handlePasswordChange = (e) => {
-    console.log(e.target.name);
     if (e.target.name === 'password') {
       setPasswordErrorMessage(passwordErrorChecker(e));
     } else {

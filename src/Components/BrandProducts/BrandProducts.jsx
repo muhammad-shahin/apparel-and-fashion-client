@@ -26,7 +26,7 @@ const BrandProducts = () => {
   };
   useEffect(() => {
     fetch(
-      `https://apparel-and-fashion-server.vercel.app/brandAdvertisement/${brandName}`
+      `http://localhost:5000/brandAdvertisement/${brandName}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -34,7 +34,7 @@ const BrandProducts = () => {
       });
   }, []);
   useEffect(() => {
-    fetch(`https://apparel-and-fashion-server.vercel.app/products/${brandName}`)
+    fetch(`http://localhost:5000/products/${brandName}`)
       .then((res) => res.json())
       .then((data) => {
         setProductData(data);

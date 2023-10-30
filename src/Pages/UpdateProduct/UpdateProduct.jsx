@@ -97,16 +97,13 @@ const UpdateProduct = () => {
     const updatedProduct = { ...formData };
     console.log(updatedProduct);
     setShowModal(true);
-    fetch(
-      `https://apparel-and-fashion-server.vercel.app/products/${brandName}/${productId}`,
-      {
-        method: 'PUT',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify(updatedProduct),
-      }
-    )
+    fetch(`http://localhost:5000/products/${brandName}/${productId}`, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(updatedProduct),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

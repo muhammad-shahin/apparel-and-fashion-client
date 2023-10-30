@@ -94,7 +94,7 @@ const AddAdvertisement = () => {
     const newBrandAdvertisement = { ...formData };
     console.log(newBrandAdvertisement);
     setShowModal(true);
-    fetch('https://apparel-and-fashion-server.vercel.app/brandAdvertisement', {
+    fetch('http://localhost:5000/brandAdvertisement', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

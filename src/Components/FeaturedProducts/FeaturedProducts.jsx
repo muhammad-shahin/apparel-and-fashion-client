@@ -7,7 +7,7 @@ const FeaturedProducts = () => {
   const [featuredProduct, setFeaturedProduct] = useState([]);
   // for featured products
   useEffect(() => {
-    fetch('https://apparel-and-fashion-server.vercel.app/products')
+    fetch('http://localhost:5000/products')
       .then((res) => res.json())
       .then((data) => {
         setFeaturedProduct(data);
