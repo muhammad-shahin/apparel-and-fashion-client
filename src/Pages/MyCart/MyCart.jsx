@@ -23,7 +23,6 @@ const MyCart = () => {
       });
   }, [user]);
   const handleDeleteCart = (cartId) => {
-    console.log(user?.uid, cartId);
     Swal.fire({
       title: 'Are You Sure Want to Delete This Product From Cart?',
       showCancelButton: true,

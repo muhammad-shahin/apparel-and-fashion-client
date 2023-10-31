@@ -7,7 +7,7 @@ import { InfinitySpin } from 'react-loader-spinner';
 //   <div dangerouslySetInnerHTML={{ __html: html }} />
 // );
 
-const Modal = ({ modalStatus, title, message }) => {
+const Modal = ({ modalStatus, title, message = false }) => {
   const modal = useRef(null);
 
   useEffect(() => {
