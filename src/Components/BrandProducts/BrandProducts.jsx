@@ -17,7 +17,6 @@ const BrandProducts = () => {
   const [productData, setProductData] = useState([]);
   const { brandName } = useParams();
   const navigate = useNavigate();
-  console.log(brandName);
   const handleProductDetailsClick = (id) => {
     navigate(`/productDetails/${brandName}/${id}`);
   };
@@ -25,9 +24,7 @@ const BrandProducts = () => {
     navigate(`/updateProduct/${brandName}/${id}`);
   };
   useEffect(() => {
-    fetch(
-      `http://localhost:5000/brandAdvertisement/${brandName}`
-    )
+    fetch(`http://localhost:5000/brandAdvertisement/${brandName}`)
       .then((res) => res.json())
       .then((data) => {
         setAdsData(data);

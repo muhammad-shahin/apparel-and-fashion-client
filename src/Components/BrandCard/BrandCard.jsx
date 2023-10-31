@@ -4,7 +4,7 @@ import GlassedLogo from '../GlassedLogo/GlassedLogo';
 import { useNavigate } from 'react-router-dom';
 
 const BrandCard = ({ brand }) => {
-  const { brandName, brandId, brandLogo, brandImage, tagLine } = brand;
+  const { brandName, brandLogo, brandImage, tagLine } = brand;
   const navigate = useNavigate();
   return (
     <div

@@ -8,7 +8,7 @@ import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
 const PrivateRoute = ({ children }) => {
   const { user } = useContext(AuthContext);
   const location = useLocation();
-  if (user === '') {
+  if (user === null) {
     return (
       <Modal
         title='Please Wait'

@@ -14,7 +14,9 @@ const MyCart = () => {
   const [totalDiscount, setTotalDiscount] = useState(0);
   const [totalTax, setTotalTax] = useState(0);
   useEffect(() => {
-    fetch(`http://localhost:5000/addedCart/${user?.uid}`)
+    fetch(`http://localhost:5000/addedCart/${user?.uid}`, {
+      credentials: 'include',
+    })
       .then((res) => res.json())
       .then((data) => {
         setCartData(data);
@@ -87,7 +89,7 @@ const MyCart = () => {
         >
           Cart Items
         </h1>
-        {cartData.map((cart, index) => (
+        {cartData?.map((cart, index) => (
           <ShowCart
             key={index}
             cartData={cart.product}

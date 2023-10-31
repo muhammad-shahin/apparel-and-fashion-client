@@ -10,8 +10,8 @@ const Home = () => {
   const { setLoading } = useContext(AuthContext);
   const [cardData, setCardData] = useState([]);
 
-  setLoading(true);
   useEffect(() => {
+    setLoading(true);
     fetch('/brandCard.json')
       .then((res) => res.json())
       .then((data) => {
@@ -19,7 +19,6 @@ const Home = () => {
       });
   }, []);
 
-  
   return (
     <div>
       {/* banner section */}

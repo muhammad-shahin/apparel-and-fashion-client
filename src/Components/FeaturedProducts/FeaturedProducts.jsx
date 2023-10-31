@@ -39,9 +39,9 @@ const FeaturedProducts = () => {
         subTitle={'Best Seller Products Of This Week'}
       />
       <div className='flex flex-wrap justify-center items-center gap-8 duration-500 text-center'>
-        {bestSellers.map((product) => (
+        {bestSellers.map((product, index) => (
           <Card
-            key={product.productId}
+            key={index}
             product={product}
           />
         ))}
@@ -65,9 +65,9 @@ const FeaturedProducts = () => {
         subTitle={'Latest Girls Collections'}
       />
       <div className='flex flex-wrap justify-center items-center gap-8 duration-500 text-center'>
-        {womenProducts.slice(0, 4).map((product) => (
+        {womenProducts.slice(0, 4).map((product, index) => (
           <Card
-            key={product.productId}
+            key={index}
             product={product}
           />
         ))}

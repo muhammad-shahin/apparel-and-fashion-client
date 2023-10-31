@@ -10,11 +10,12 @@ import {
   signOut,
 } from 'firebase/auth';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [updatedCartCount, setUpdatedCartCount] = useState(0);
   const googleProvider = new GoogleAuthProvider();
@@ -60,6 +61,28 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      const userId = user?.uid || currentUser?.uid;
+      const id = { userId: userId };
+      if (currentUser) {
+        console.log(id);
+        axios
+          .post('http://localhost:5000/jwt', id, { withCredentials: true })
+          .then((res) => {
+            console.log('Response from token : ', res.data);
+          })
+          .catch((error) => {
+            console.log('Error from token : ', error);
+          });
+      } else {
+        axios
+          .post('http://localhost:5000/logout', id, { withCredentials: true })
+          .then((res) => {
+            console.log('Logout response: ', res.data);
+          })
+          .catch((error) => {
+            console.log(error.response.data);
+          });
+      }
     });
     return () => {
       unSubscribe();

@@ -23,9 +23,9 @@ const Navbar = () => {
   const [cartCount, setCartCount] = useState(0);
   useEffect(() => {
     if (user) {
-      fetch(
-        `http://localhost:5000/addedCart/${user.uid}`
-      )
+      fetch(`http://localhost:5000/addedCart/${user.uid}`, {
+        credentials: 'include',
+      })
         .then((res) => res.json())
         .then((data) => {
           setCartCount(data.length);
