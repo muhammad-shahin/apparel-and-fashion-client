@@ -6,7 +6,7 @@ import { auth } from '../../Configs/firebase.config';
 import firebaseAuthError from '../../Services/Utility/FirebaseAuthError';
 import passwordErrorChecker from '../../Services/Utility/PasswordErrorChecker';
 import Modal from '../../Services/Utility/Modal';
-import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Form from '../../Components/Form/Form';
 import signUpAnim from '../../assets/Animation/registration.json';
 

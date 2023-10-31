@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from 'react';
 import Card from '../Card/Card';
 import Lottie from 'lottie-react';
 import notAvailableAnim from '../../assets/Animation/notAvailable.json';
-import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Modal from '../../Services/Utility/Modal';
 import Heading from '../Heading/Heading';
 

@@ -3,7 +3,7 @@ import StarRating from '../../Components/StarRating/StarRating';
 import GlassButton from '../../Components/GlassButton/GlassButton';
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 import { useContext, useState } from 'react';
-import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import Modal from '../../Services/Utility/Modal';
 

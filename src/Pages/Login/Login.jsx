@@ -4,13 +4,14 @@ import Swal from 'sweetalert2';
 import firebaseAuthError from '../../Services/Utility/FirebaseAuthError';
 import passwordErrorChecker from '../../Services/Utility/PasswordErrorChecker';
 import Modal from '../../Services/Utility/Modal';
-import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Form from '../../Components/Form/Form';
 import loginAnim from '../../assets/Animation/loginAnimation.json';
-import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useAxios from '../../AuthProvider/useAxios';
 
 const Login = () => {
-  const secureAxios = useAxiosSecure();
+  const secureAxios = useAxios();
+
   const { loginUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');

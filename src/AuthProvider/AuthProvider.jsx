@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-import { auth } from '../../Configs/firebase.config';
+import { auth } from '../Configs/firebase.config';
 import PropTypes from 'prop-types';
 import {
   GoogleAuthProvider,
@@ -10,12 +10,12 @@ import {
   signOut,
 } from 'firebase/auth';
 import Swal from 'sweetalert2';
-import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useAxios from '../AuthProvider/useAxios';
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext({});
 
 const AuthProvider = ({ children }) => {
-  const secureAxios = useAxiosSecure();
+  const secureAxios = useAxios();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [updatedCartCount, setUpdatedCartCount] = useState(0);
@@ -36,7 +36,7 @@ const AuthProvider = ({ children }) => {
   };
 
   // sign out function
-  const logoutUser = () => {
+  const logoutUser = async () => {
     return signOut(auth)
       .then(() => {
         Swal.fire({

@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 import firebaseAuthError from '../../Services/Utility/FirebaseAuthError';
-import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';

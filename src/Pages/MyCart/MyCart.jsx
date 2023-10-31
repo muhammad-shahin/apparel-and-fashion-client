@@ -1,11 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import ShowCart from '../../Components/ShowCart/ShowCart';
 import GlassButton from '../../Components/GlassButton/GlassButton';
 import Swal from 'sweetalert2';
+import useAxios from '../../AuthProvider/useAxios';
+import { useNavigate } from 'react-router-dom';
 
 const MyCart = () => {
+  const navigate = useNavigate();
+  const secureAxios = useAxios(navigate);
   const { user, setUpdatedCartCount, updatedCartCount } =
     useContext(AuthContext);
   const [cartData, setCartData] = useState([]);
@@ -14,12 +18,13 @@ const MyCart = () => {
   const [totalDiscount, setTotalDiscount] = useState(0);
   const [totalTax, setTotalTax] = useState(0);
   useEffect(() => {
-    fetch(`http://localhost:5000/addedCart/${user?.uid}`, {
-      credentials: 'include',
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setCartData(data);
+    secureAxios
+      .get(`/addedCart/${user?.uid}`)
+      .then((res) => {
+        setCartData(res?.data);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }, [user]);
   const handleDeleteCart = (cartId) => {
@@ -61,7 +66,7 @@ const MyCart = () => {
     let totalDiscount = 0;
     let totalTax = 0;
 
-    cartData.forEach((data) => {
+    cartData?.forEach((data) => {
       const productPrice = parseInt(data.product.productPrice);
 
       totalPrice += productPrice;
@@ -116,7 +121,7 @@ const MyCart = () => {
               <p className='text-[18px] font-medium'>
                 Total Product Quantity :{' '}
               </p>
-              <p className='text-[18px] font-medium'>{cartData.length}</p>
+              <p className='text-[18px] font-medium'>{cartData?.length}</p>
             </div>
             <div className='flex justify-between items-center'>
               <p className='text-[18px] font-medium'>

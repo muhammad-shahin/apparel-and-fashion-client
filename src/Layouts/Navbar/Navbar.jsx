@@ -4,7 +4,7 @@ import { Fade as Hamburger } from 'hamburger-react';
 import { useContext, useEffect, useState } from 'react';
 import './Navbar.css';
 import UserProfile from '../../Components/UserProfile/UserProfile';
-import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { VscAccount } from 'react-icons/vsc';
 import DarkTheme from '../../Components/DarkTheme/DarkTheme';

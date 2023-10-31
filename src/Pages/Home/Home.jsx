@@ -4,7 +4,7 @@ import BrandCard from '../../Components/BrandCard/BrandCard';
 import Heading from '../../Components/Heading/Heading';
 import FeaturedProducts from '../../Components/FeaturedProducts/FeaturedProducts';
 import Footer from '../../Layouts/Footer/Footer';
-import { AuthContext } from '../../Services/AuthProvider/AuthProvider';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Home = () => {
   const { setLoading } = useContext(AuthContext);
