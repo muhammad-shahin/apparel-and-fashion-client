@@ -54,6 +54,7 @@ const AdsSlider = ({ sliderData }) => {
                   <img
                     className='h-full object-cover w-full'
                     src={ads.advertisementImage}
+                    loading='lazy'
                   ></img>
                   {/* overlay effects */}
                   <div className='overlay'></div>
@@ -100,6 +101,7 @@ const AdsSlider = ({ sliderData }) => {
                   <img
                     className='lg:w-[150px] w-[60px]'
                     src={ads.brandLogo}
+                    loading='lazy'
                   />
                 </div>
               </div>
@@ -122,6 +124,7 @@ const AdsSlider = ({ sliderData }) => {
                 <img
                   className='w-full h-full object-cover'
                   src={ads.advertisementImage}
+                  loading='lazy'
                 />
               </div>
             ))}

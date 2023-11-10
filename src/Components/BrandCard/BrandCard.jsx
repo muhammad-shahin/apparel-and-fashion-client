@@ -28,6 +28,7 @@ const BrandCard = ({ brand }) => {
           <img
             src={brandImage}
             className='absolute top-0 left-0 w-full h-full object-cover rounded-lg z-[-100]'
+            loading='lazy'
           />
           <div className='overlay rounded'></div>
           <div className='flex justify-center items-center flex-col h-full'>

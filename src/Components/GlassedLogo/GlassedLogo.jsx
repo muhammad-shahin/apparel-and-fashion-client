@@ -6,6 +6,7 @@ const GlassedLogo = ({ logo }) => {
       <img
         className='w-[150px] mx-auto'
         src={logo}
+        loading='lazy'
       />
     </div>
   );

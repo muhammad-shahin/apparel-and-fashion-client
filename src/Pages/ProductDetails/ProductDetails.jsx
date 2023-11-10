@@ -57,7 +57,7 @@ const ProductDetails = () => {
             <img
               className='lg:max-w-[500px] rounded-lg'
               src={product.productImages[0]}
-              alt=''
+              loading='lazy'
             />
             {/* sub image */}
             <div className='flex justify-center items-center gap-3 my-5'>
@@ -66,6 +66,7 @@ const ProductDetails = () => {
                   <img
                     className='w-[60px] h-[60px] object-cover object-top rounded-lg'
                     src={image}
+                    loading='lazy'
                   />
                 </div>
               ))}

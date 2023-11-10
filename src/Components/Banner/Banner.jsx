@@ -99,6 +99,7 @@ const Banner = () => {
                 <img
                   className='lg:w-[150px] w-[60px]'
                   src='https://i.ibb.co/h9s85mT/gucci-logo.png'
+                  loading='lazy'
                 />
               </div>
             </div>
@@ -113,6 +114,7 @@ const Banner = () => {
                   <img
                     className='w-full h-full object-cover'
                     src={banner.bannerImage}
+                    loading='lazy'
                   ></img>
                   {/* overlay effects */}
                   <div className='overlay'></div>
@@ -153,6 +155,7 @@ const Banner = () => {
                   <img
                     className='lg:w-[150px] w-[60px]'
                     src={banner.brandLogo}
+                    loading='lazy'
                   />
                 </div>
               </div>
@@ -170,7 +173,10 @@ const Banner = () => {
               }`}
               onClick={() => handleBrandBtnClick(0)}
             >
-              <img src={'https://i.ibb.co/h9s85mT/gucci-logo.png'} />
+              <img
+                src={'https://i.ibb.co/h9s85mT/gucci-logo.png'}
+                loading='lazy'
+              />
             </div>
             {bannerData.map((banner, index) => (
               <div
@@ -182,7 +188,10 @@ const Banner = () => {
                 } duration-500`}
                 onClick={() => handleBrandBtnClick(index + 1)}
               >
-                <img src={banner.brandLogo} />
+                <img
+                  src={banner.brandLogo}
+                  loading='lazy'
+                />
               </div>
             ))}
           </div>

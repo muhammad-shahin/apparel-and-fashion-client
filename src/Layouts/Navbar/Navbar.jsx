@@ -137,6 +137,7 @@ const Navbar = () => {
             <img
               src={user.photoURL}
               className='w-[48px] h-[48px] object-cover rounded-full cursor-pointer'
+              loading='lazy'
             />
           )}
           {user?.photoURL === null && (

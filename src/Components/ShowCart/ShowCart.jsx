@@ -29,6 +29,7 @@ const ShowCart = ({ cartData, handleDeleteCart, cartId }) => {
           <img
             className='lg:max-w-[250px] lg:min-h-[320px] object-cover rounded-l'
             src={productImages[0]}
+            loading='lazy'
           />
         </div>
         <div className='text-center lg:text-left py-4'>

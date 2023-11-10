@@ -40,6 +40,7 @@ const Card = ({
           } `}
           src={visibleButtons ? `${image2}` : `${image1}`}
           alt='Product Image'
+          loading='lazy'
         />
         {/* on mouse enter show add to cart buttons */}
         <div
