@@ -4,26 +4,45 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useAxios from '../../AuthProvider/useAxios';
 
 const GoogleSignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { signInWithGoogle } = useContext(AuthContext);
+  const secureAxios = useAxios();
   // handle google sign in
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
-        console.log(user);
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Successfully Signed In With Google',
-          showConfirmButton: false,
-          timer: 2000,
-        });
-        // navigate after login
-        navigate(location?.state ? location.state : '/');
+        const id = { userId: user.uid };
+        secureAxios
+          .post('/jwt', id)
+          .then((res) => {
+            console.log(res.data);
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Logged In Successfully',
+              text: 'Redirecting Home Page...',
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            // navigate after login
+            navigate(location?.state ? location?.state : '/');
+          })
+          .catch((error) => {
+            console.log(error.response);
+            Swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: 'Failed To Generate Token',
+              text: `Failed To Generate Token. Please Try Again. Error Message: ${error.response.data.message}`,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          });
       })
       .catch((error) => {
         firebaseAuthError(error.message);

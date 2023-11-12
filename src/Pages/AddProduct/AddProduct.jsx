@@ -4,7 +4,9 @@ import addProductAnim from '../../assets/Animation/addProductAnimation.json';
 import Modal from '../../Services/Utility/Modal';
 import Swal from 'sweetalert2';
 import ButtonModal from '../../Components/ButtonModal/ButtonModal';
+import useAxios from '../../AuthProvider/useAxios';
 const AddProduct = () => {
+  const secureAxios = useAxios();
   const [showModal, setShowModal] = useState(false);
   const [buttonModalStatus, setButtonModalStatus] = useState(false);
   const [formData, setFormData] = useState({
@@ -173,17 +175,10 @@ const AddProduct = () => {
     const newProduct = { ...formData };
     console.log(newProduct);
     setShowModal(true);
-    fetch('http://localhost:5000/products', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(newProduct),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
+    secureAxios
+      .post('/products', newProduct)
+      .then((res) => {
+        if (res.data.insertedId) {
           Swal.fire({
             position: 'center',
             icon: 'success',
@@ -195,13 +190,16 @@ const AddProduct = () => {
           setShowModal(false);
         } else {
           Swal.fire({
-            position: 'error',
-            icon: 'success',
+            position: 'center',
+            icon: 'error',
             title: 'Failed To Add New Product',
             showConfirmButton: false,
             timer: 1500,
           });
         }
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
   return (

@@ -39,6 +39,14 @@ const AuthProvider = ({ children }) => {
   const logoutUser = async () => {
     return signOut(auth)
       .then(() => {
+        secureAxios
+          .post('/logout')
+          .then((res) => {
+            console.log('Logout success response: ', res.data);
+          })
+          .catch((error) => {
+            console.log('Logout error response : ', error.response);
+          });
         Swal.fire({
           position: 'center',
           icon: 'success',

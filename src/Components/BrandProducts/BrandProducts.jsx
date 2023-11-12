@@ -9,8 +9,10 @@ import notAvailableAnim from '../../assets/Animation/notAvailable.json';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Modal from '../../Services/Utility/Modal';
 import Heading from '../Heading/Heading';
+import useAxios from '../../AuthProvider/useAxios';
 
 const BrandProducts = () => {
+  const secureAxios = useAxios();
   const { loading, setLoading } = useContext(AuthContext);
   const [modalStatus, setModalStatus] = useState(false);
   const [adsData, setAdsData] = useState([]);
@@ -24,19 +26,25 @@ const BrandProducts = () => {
     navigate(`/updateProduct/${brandName}/${id}`);
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/brandAdvertisement/${brandName}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setAdsData(data);
+    secureAxios
+      .get(`/brandAdvertisement/${brandName}`)
+      .then((res) => {
+        setAdsData(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, []);
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${brandName}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProductData(data);
+    secureAxios
+      .get(`/brandAdvertisement/products/${brandName}`)
+      .then((res) => {
+        setProductData(res.data);
         setLoading(false);
         setModalStatus(false);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, []);
   if (loading) {

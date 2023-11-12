@@ -104,7 +104,7 @@ const Banner = () => {
               </div>
             </div>
             {/* other slide */}
-            {bannerData.map((banner, index) => (
+            {bannerData?.map((banner, index) => (
               <div
                 key={index}
                 className='slide-item w-full h-[60vh] lg:h-[70vh] relative'

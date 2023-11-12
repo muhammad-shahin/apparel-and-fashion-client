@@ -5,8 +5,10 @@ import Heading from '../../Components/Heading/Heading';
 import FeaturedProducts from '../../Components/FeaturedProducts/FeaturedProducts';
 import Footer from '../../Layouts/Footer/Footer';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import PageTitle from '../../Components/PageTitle/PageTitle';
 
 const Home = () => {
+  PageTitle('Home - Fashion & Apparel');
   const { setLoading } = useContext(AuthContext);
   const [cardData, setCardData] = useState([]);
 

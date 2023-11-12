@@ -8,8 +8,10 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { VscAccount } from 'react-icons/vsc';
 import DarkTheme from '../../Components/DarkTheme/DarkTheme';
+import useAxios from '../../AuthProvider/useAxios';
 
 const Navbar = () => {
+  const secureAxios = useAxios();
   const {
     user,
     showProfile,
@@ -23,14 +25,17 @@ const Navbar = () => {
   const [cartCount, setCartCount] = useState(0);
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/addedCart/${user.uid}`, {
-        credentials: 'include',
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setCartCount(data.length);
-          setUpdatedCartCount(data.length);
-        });
+      setTimeout(() => {
+        secureAxios
+          .get(`/addedCart/${user.uid}`)
+          .then((res) => {
+            setCartCount(res?.data?.length);
+            setUpdatedCartCount(res?.data?.length);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }, 1500);
     }
   }, [user, updatedCartCount]);
 

@@ -2,15 +2,20 @@ import PropTypes from 'prop-types';
 import Heading from '../Heading/Heading';
 import { useEffect, useState } from 'react';
 import Card from '../Card/Card';
+import useAxios from '../../AuthProvider/useAxios';
 
 const FeaturedProducts = () => {
+  const secureAxios = useAxios();
   const [featuredProduct, setFeaturedProduct] = useState([]);
   // for featured products
   useEffect(() => {
-    fetch('http://localhost:5000/products')
-      .then((res) => res.json())
-      .then((data) => {
-        setFeaturedProduct(data);
+    secureAxios
+      .get(`/products`)
+      .then((res) => {
+        setFeaturedProduct(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, []);
   // Function to get a random subset of products

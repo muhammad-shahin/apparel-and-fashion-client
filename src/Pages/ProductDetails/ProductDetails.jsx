@@ -6,8 +6,10 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import Modal from '../../Services/Utility/Modal';
+import useAxios from '../../AuthProvider/useAxios';
 
 const ProductDetails = () => {
+  const secureAxios = useAxios();
   const product = useLoaderData();
   const [showModal, setShowModal] = useState(false);
   const { user, setUpdatedCartCount, updatedCartCount } =
@@ -16,17 +18,12 @@ const ProductDetails = () => {
 
   const handleAddToCartClick = () => {
     const addToCart = { userId, product };
-    fetch('http://localhost:5000/addedCart', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(addToCart),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
+    secureAxios
+      .post('/addedCart', addToCart)
+      .then((res) => {
+        if (res.data.insertedId) {
+          setShowModal(false);
+          setUpdatedCartCount(updatedCartCount + 1);
           Swal.fire({
             position: 'center',
             icon: 'success',
@@ -34,17 +31,18 @@ const ProductDetails = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          setShowModal(false);
-          setUpdatedCartCount(updatedCartCount + 1);
         } else {
           Swal.fire({
-            position: 'error',
-            icon: 'success',
-            title: 'Failed To Add New In Cart',
+            position: 'center',
+            icon: 'error',
+            title: 'Failed To Add On Cart',
             showConfirmButton: false,
             timer: 1500,
           });
         }
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
   return (

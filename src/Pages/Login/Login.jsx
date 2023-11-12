@@ -14,13 +14,13 @@ const Login = () => {
 
   const { loginUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
+  // const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
   const [showModal, setShowModal] = useState(false);
 
   // show password regular expression error
-  const handlePasswordChange = (e) => {
-    setPasswordErrorMessage(passwordErrorChecker(e));
-  };
+  // const handlePasswordChange = (e) => {
+  //   setPasswordErrorMessage(passwordErrorChecker(e));
+  // };
 
   // handle sign up
   const handleLogin = (e) => {
@@ -78,8 +78,6 @@ const Login = () => {
       name: 'password',
       type: 'password',
       placeholder: 'Enter Password',
-      onChange: handlePasswordChange,
-      errorMessage: passwordErrorMessage,
       labelText: 'Password',
     },
   ];

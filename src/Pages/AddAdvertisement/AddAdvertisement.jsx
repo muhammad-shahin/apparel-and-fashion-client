@@ -3,7 +3,9 @@ import Form from '../../Components/Form/Form';
 import addProductAnim from '../../assets/Animation/addProductAnimation.json';
 import Modal from '../../Services/Utility/Modal';
 import Swal from 'sweetalert2';
+import useAxios from '../../AuthProvider/useAxios';
 const AddAdvertisement = () => {
+  const secureAxios = useAxios();
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
@@ -94,17 +96,10 @@ const AddAdvertisement = () => {
     const newBrandAdvertisement = { ...formData };
     console.log(newBrandAdvertisement);
     setShowModal(true);
-    fetch('http://localhost:5000/brandAdvertisement', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(newBrandAdvertisement),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
+    secureAxios
+      .post('/brandAdvertisement', newBrandAdvertisement)
+      .then((res) => {
+        if (res.data.insertedId) {
           Swal.fire({
             position: 'center',
             icon: 'success',
@@ -116,13 +111,16 @@ const AddAdvertisement = () => {
           setShowModal(false);
         } else {
           Swal.fire({
-            position: 'error',
-            icon: 'success',
+            position: 'center',
+            icon: 'error',
             title: 'Failed To Add New Advertisement',
             showConfirmButton: false,
             timer: 1500,
           });
         }
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
   return (

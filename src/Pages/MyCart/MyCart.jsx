@@ -36,13 +36,10 @@ const MyCart = () => {
       cancelButtonColor: '#f30101',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/addedCart/${user?.uid}/${cartId}`, {
-          method: 'DELETE',
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data.deletedCount);
-            if (data.deletedCount > 0) {
+        secureAxios
+          .post(`/addedCart/${user?.uid}/${cartId}`)
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
               setCartData((prevCartData) =>
                 prevCartData.filter((cartItem) => cartItem._id !== cartId)
               );
@@ -54,7 +51,18 @@ const MyCart = () => {
                 showConfirmButton: false,
                 timer: 1500,
               });
+            } else {
+              Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Failed To Delete',
+                showConfirmButton: false,
+                timer: 1500,
+              });
             }
+          })
+          .catch((error) => {
+            console.log(error);
           });
       }
     });

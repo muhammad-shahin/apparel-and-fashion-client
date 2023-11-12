@@ -4,7 +4,9 @@ import updateProductAnim from '../../assets/Animation/updateAnimation.json';
 import Modal from '../../Services/Utility/Modal';
 import Swal from 'sweetalert2';
 import { useParams } from 'react-router-dom';
+import useAxios from '../../AuthProvider/useAxios';
 const UpdateProduct = () => {
+  const secureAxios = useAxios();
   const { brandName, productId } = useParams();
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
@@ -97,17 +99,10 @@ const UpdateProduct = () => {
     const updatedProduct = { ...formData };
     console.log(updatedProduct);
     setShowModal(true);
-    fetch(`http://localhost:5000/products/${brandName}/${productId}`, {
-      method: 'PUT',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(updatedProduct),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount) {
+    secureAxios
+      .post(`/products/${brandName}/${productId}`, updatedProduct)
+      .then((res) => {
+        if (res.data.modifiedCount) {
           Swal.fire({
             position: 'center',
             icon: 'success',
@@ -127,6 +122,9 @@ const UpdateProduct = () => {
           });
           setShowModal(false);
         }
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
   return (
