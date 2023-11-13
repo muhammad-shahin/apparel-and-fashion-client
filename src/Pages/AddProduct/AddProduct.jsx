@@ -5,7 +5,9 @@ import Modal from '../../Services/Utility/Modal';
 import Swal from 'sweetalert2';
 import ButtonModal from '../../Components/ButtonModal/ButtonModal';
 import useAxios from '../../AuthProvider/useAxios';
+import PageTitle from '../../Components/PageTitle/PageTitle';
 const AddProduct = () => {
+  PageTitle('Add New Product - Fashion & Apparel');
   const secureAxios = useAxios();
   const [showModal, setShowModal] = useState(false);
   const [buttonModalStatus, setButtonModalStatus] = useState(false);

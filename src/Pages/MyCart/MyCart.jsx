@@ -6,8 +6,10 @@ import GlassButton from '../../Components/GlassButton/GlassButton';
 import Swal from 'sweetalert2';
 import useAxios from '../../AuthProvider/useAxios';
 import { useNavigate } from 'react-router-dom';
+import PageTitle from '../../Components/PageTitle/PageTitle';
 
 const MyCart = () => {
+  PageTitle('My Cart - Fashion & Apparel');
   const navigate = useNavigate();
   const secureAxios = useAxios(navigate);
   const { user, setUpdatedCartCount, updatedCartCount } =

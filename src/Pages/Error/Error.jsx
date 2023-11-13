@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
+import PageTitle from '../../Components/PageTitle/PageTitle';
 const Error = () => {
+  PageTitle('404 Page Not Found - Fashion & Apparel');
   return (
     <div className='w-full h-screen flex flex-col justify-center items-center space-y-4'>
       <h1 className='text-[#ff7373] font-bold text-[52px]'>Oops!</h1>

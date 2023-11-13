@@ -5,7 +5,9 @@ import Modal from '../../Services/Utility/Modal';
 import Swal from 'sweetalert2';
 import { useParams } from 'react-router-dom';
 import useAxios from '../../AuthProvider/useAxios';
+import PageTitle from '../../Components/PageTitle/PageTitle';
 const UpdateProduct = () => {
+  PageTitle('Update Product - Fashion & Apparel');
   const secureAxios = useAxios();
   const { brandName, productId } = useParams();
   const [showModal, setShowModal] = useState(false);

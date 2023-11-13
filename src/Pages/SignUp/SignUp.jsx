@@ -9,8 +9,10 @@ import Modal from '../../Services/Utility/Modal';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Form from '../../Components/Form/Form';
 import signUpAnim from '../../assets/Animation/registration.json';
+import PageTitle from '../../Components/PageTitle/PageTitle';
 
 const SignUp = () => {
+  PageTitle('Sign Up - Fashion & Apparel');
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');

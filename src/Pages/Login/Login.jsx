@@ -8,8 +8,10 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Form from '../../Components/Form/Form';
 import loginAnim from '../../assets/Animation/loginAnimation.json';
 import useAxios from '../../AuthProvider/useAxios';
+import PageTitle from '../../Components/PageTitle/PageTitle';
 
 const Login = () => {
+  PageTitle('Login - Fashion & Apparel');
   const secureAxios = useAxios();
 
   const { loginUser } = useContext(AuthContext);

@@ -4,7 +4,9 @@ import addProductAnim from '../../assets/Animation/addProductAnimation.json';
 import Modal from '../../Services/Utility/Modal';
 import Swal from 'sweetalert2';
 import useAxios from '../../AuthProvider/useAxios';
+import PageTitle from '../../Components/PageTitle/PageTitle';
 const AddAdvertisement = () => {
+  PageTitle('Add New Advertisement - Fashion & Apparel');
   const secureAxios = useAxios();
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({

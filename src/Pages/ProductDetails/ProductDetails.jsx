@@ -7,8 +7,10 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import Modal from '../../Services/Utility/Modal';
 import useAxios from '../../AuthProvider/useAxios';
+import PageTitle from '../../Components/PageTitle/PageTitle';
 
 const ProductDetails = () => {
+  PageTitle('Product Details - Fashion & Apparel');
   const secureAxios = useAxios();
   const product = useLoaderData();
   const [showModal, setShowModal] = useState(false);
