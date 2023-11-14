@@ -7,28 +7,19 @@ import Swal from 'sweetalert2';
 import useAxios from '../../Hooks/useAxios';
 import { useNavigate } from 'react-router-dom';
 import PageTitle from '../../Components/PageTitle/PageTitle';
+import useCart from '../../Hooks/useCart';
 
 const MyCart = () => {
   PageTitle('My Cart - Fashion & Apparel');
   const navigate = useNavigate();
   const secureAxios = useAxios(navigate);
-  const { user, setUpdatedCartCount, updatedCartCount } =
+  const { user } =
     useContext(AuthContext);
-  const [cartData, setCartData] = useState([]);
+  const [cartData, refetch] = useCart();
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalDeliveryCharge, setTotalDeliveryCharge] = useState(0);
   const [totalDiscount, setTotalDiscount] = useState(0);
   const [totalTax, setTotalTax] = useState(0);
-  useEffect(() => {
-    secureAxios
-      .get(`/addedCart/${user?.uid}`)
-      .then((res) => {
-        setCartData(res?.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [user]);
   const handleDeleteCart = (cartId) => {
     Swal.fire({
       title: 'Are You Sure Want to Delete This Product From Cart?',
@@ -39,13 +30,12 @@ const MyCart = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         secureAxios
-          .post(`/addedCart/${user?.uid}/${cartId}`)
+          .delete(`/addedCart/${user?.uid}/${cartId}`)
           .then((res) => {
+            console.log(res);
             if (res.data.deletedCount > 0) {
-              setCartData((prevCartData) =>
-                prevCartData.filter((cartItem) => cartItem._id !== cartId)
-              );
-              setUpdatedCartCount(updatedCartCount - 1);
+              refetch();
+              // setUpdatedCartCount(updatedCartCount - 1);
               Swal.fire({
                 position: 'center',
                 icon: 'success',

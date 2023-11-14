@@ -69,17 +69,12 @@ const AuthProvider = ({ children }) => {
   // onAuth state change
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      localStorage.setItem('userData', JSON.stringify(currentUser));
       setUser(currentUser);
       setLoading(false);
       if (!currentUser) {
-        secureAxios
-          .post('/logout')
-          .then((res) => {
-            console.log('Logout success response: ', res.data);
-          })
-          .catch((error) => {
-            console.log('Logout error response : ', error.response);
-          });
+        localStorage.setItem('userData', null);
+        // loginUser();
       }
     });
     return () => {

@@ -9,35 +9,14 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { VscAccount } from 'react-icons/vsc';
 import DarkTheme from '../../Components/DarkTheme/DarkTheme';
 import useAxios from '../../Hooks/useAxios';
+import useCart from '../../Hooks/useCart';
 
 const Navbar = () => {
   const secureAxios = useAxios();
-  const {
-    user,
-    showProfile,
-    setShowProfile,
-    updatedCartCount,
-    setUpdatedCartCount,
-  } = useContext(AuthContext);
+  const { user, showProfile, setShowProfile } = useContext(AuthContext);
   const [isOpen, setOpen] = useState(false);
   const navigate = useNavigate();
-
-  const [cartCount, setCartCount] = useState(0);
-  useEffect(() => {
-    if (user) {
-      setTimeout(() => {
-        secureAxios
-          .get(`/addedCart/${user.uid}`)
-          .then((res) => {
-            setCartCount(res?.data?.length);
-            setUpdatedCartCount(res?.data?.length);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }, 1500);
-    }
-  }, [user, updatedCartCount]);
+  const [cartData] = useCart();
 
   return (
     <header className=''>
@@ -125,7 +104,7 @@ const Navbar = () => {
             />
             {user && (
               <p className='bg-red-600 rounded-full text-[8px] p-1 flex justify-center items-center absolute top-0 right-0 w-[15px] h-[15px] text-white'>
-                {cartCount ? cartCount : 0}
+                {cartData ? cartData.length : 0}
               </p>
             )}
           </div>

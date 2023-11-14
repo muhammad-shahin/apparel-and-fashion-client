@@ -22,8 +22,7 @@ const FeaturedProducts = () => {
   }, []);
 
   const handleProductDetailsClick = (id, brandName) => {
-    // navigate(`/productDetails/${brandName}/${id}`);
-    console.log(id, brandName);
+    navigate(`/productDetails/${brandName}/${id}`);
   };
 
   // Function to get a random subset of products
