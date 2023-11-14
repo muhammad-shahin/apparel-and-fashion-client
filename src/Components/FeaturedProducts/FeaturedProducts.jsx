@@ -3,10 +3,12 @@ import Heading from '../Heading/Heading';
 import { useEffect, useState } from 'react';
 import Card from '../Card/Card';
 import useAxios from '../../AuthProvider/useAxios';
+import { useNavigate } from 'react-router-dom';
 
 const FeaturedProducts = () => {
   const secureAxios = useAxios();
   const [featuredProduct, setFeaturedProduct] = useState([]);
+  const navigate = useNavigate();
   // for featured products
   useEffect(() => {
     secureAxios
@@ -18,6 +20,12 @@ const FeaturedProducts = () => {
         console.log(error);
       });
   }, []);
+
+  const handleProductDetailsClick = (id, brandName) => {
+    // navigate(`/productDetails/${brandName}/${id}`);
+    console.log(id, brandName);
+  };
+
   // Function to get a random subset of products
   function getRandomSubset(array, count) {
     const shuffled = array.sort(() => 0.5 - Math.random());
@@ -43,11 +51,12 @@ const FeaturedProducts = () => {
         title={'Best Seller'}
         subTitle={'Best Seller Products Of This Week'}
       />
-      <div className='flex flex-wrap justify-center items-center gap-8 duration-500 text-center'>
+      <div className='flex flex-wrap justify-center items- gap-8 duration-500 text-center'>
         {bestSellers.map((product, index) => (
           <Card
             key={index}
             product={product}
+            handleProductDetailsClick={handleProductDetailsClick}
           />
         ))}
       </div>
@@ -61,6 +70,7 @@ const FeaturedProducts = () => {
           <Card
             key={product._id}
             product={product}
+            handleProductDetailsClick={handleProductDetailsClick}
           />
         ))}
       </div>
@@ -74,6 +84,7 @@ const FeaturedProducts = () => {
           <Card
             key={index}
             product={product}
+            handleProductDetailsClick={handleProductDetailsClick}
           />
         ))}
       </div>

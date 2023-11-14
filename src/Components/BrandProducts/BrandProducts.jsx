@@ -37,7 +37,7 @@ const BrandProducts = () => {
   }, []);
   useEffect(() => {
     secureAxios
-      .get(`/brandAdvertisement/products/${brandName}`)
+      .get(`/products/${brandName}`)
       .then((res) => {
         setProductData(res.data);
         setLoading(false);
@@ -65,7 +65,7 @@ const BrandProducts = () => {
           titleColor={true}
         />
         {/* card section */}
-        <div className='flex flex-wrap justify-center items-center gap-8 text-center pb-20'>
+        <div className='flex flex-wrap justify-center items- gap-8 text-center pb-20'>
           {productData.map((product) => (
             <Card
               key={product._id}

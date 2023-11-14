@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { AiOutlineShoppingCart, AiOutlineEdit } from 'react-icons/ai';
+import { RiPagesLine } from 'react-icons/ri';
 import GlassButton from '../GlassButton/GlassButton';
 import StarRating from '../StarRating/StarRating';
 
@@ -21,10 +22,12 @@ const Card = ({
   } = product;
   const image1 = productImages?.[0];
   const image2 = productImages?.[1];
+  // adding 30% discount on main price
+  const offerPrice = productPrice - (productPrice * 30) / 100;
   const [visibleButtons, setVisibleButtons] = useState(false);
   return (
     <div
-      className='w-[18.75rem] h-[36rem] overflow-hidden relative border-[4px] border-blue-200 border-opacity-[1.50] rounded-lg dark:text-white'
+      className='w-[18.75rem] overflow-hidden relative border-[4px] border-blue-200 border-opacity-[1.50] rounded-lg dark:text-white'
       onMouseEnter={() => {
         setVisibleButtons(true);
       }}
@@ -44,16 +47,12 @@ const Card = ({
         />
         {/* on mouse enter show add to cart buttons */}
         <div
-          className={`absolute top-0 left-0 w-full h-full opacity-0 flex justify-center items-center flex-col gap-4 ${
+          className={`absolute top-[30%] left-0 w-full h-full opacity-0 flex justify-center items-center flex-col gap-4 px-[5%] ${
             visibleButtons
               ? 'appearStyle appeared'
               : 'disappearStyle disappeared'
           } `}
         >
-          <GlassButton
-            text='Add To Cart'
-            icon={<AiOutlineShoppingCart className='text-[24px]' />}
-          />
           <GlassButton text='Buy Now' />
           <div className='flex gap-4 justify-center items-center'>
             {productSize?.map((size, index) => (
@@ -71,7 +70,7 @@ const Card = ({
       <div className='px-4 py-3 space-y-2 flex-grow'>
         {/* product name */}
         <p
-          className='md:text-[20px] text-[18px] font-medium uppercase'
+          className='md:text-[20px] text-[18px] min-h-[60px] font-medium uppercase'
           style={{ fontFamily: 'Quicksand' }}
         >
           {productName}
@@ -82,9 +81,7 @@ const Card = ({
           style={{ fontFamily: 'Quicksand' }}
         >
           <p className='line-through'>${productPrice}.00</p>
-          <p className='text-red-600'>
-            ${productPrice - (productPrice * 30) / 100}.00
-          </p>
+          <p className='text-red-600'>${offerPrice.toFixed(2)}</p>
         </div>
         {/* product brand and type */}
         <div className='text-[16px]'>
@@ -99,7 +96,7 @@ const Card = ({
             className='text-[14px] font-medium uppercase text-blue-500'
             style={{ fontFamily: 'Quicksand' }}
           >
-            <span className='text-black dark:text-white'>Type ~</span>{' '}
+            <span className='text-black dark:text-white'>Category ~</span>{' '}
             {productType}
           </p>
         </div>
@@ -116,20 +113,20 @@ const Card = ({
         <div>
           <StarRating initialRating={product?.productRating} />
         </div>
-        {/* details & update buttons */}
-        <div className='absolute bottom-0 left-[50%] translate-x-[-50%] translate-y-[-5%] text-[16px] flex justify-center items-center gap-2 scale-[0.65]'>
+        {/* details & add cart buttons */}
+        <div className='flex justify-center items-center gap-2 flex-wrap'>
           <GlassButton
-            text='Details'
-            icon={<AiOutlineShoppingCart className='text-[24px]' />}
+            text='Add To Cart'
+            icon={<AiOutlineShoppingCart className='text-[22px]' />}
             handleOnClick={() => {
               handleProductDetailsClick(_id);
             }}
           />
           <GlassButton
-            icon={<AiOutlineEdit className='text-[24px]' />}
-            text='Update'
+            icon={<RiPagesLine className='text-[22px]' />}
+            text='View Details'
             handleOnClick={() => {
-              handleProductUpdateClick(_id);
+              handleProductDetailsClick(_id, brandName);
             }}
           />
         </div>
