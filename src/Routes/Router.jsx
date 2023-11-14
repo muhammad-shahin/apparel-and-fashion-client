@@ -62,10 +62,6 @@ const routes = [
             <ProductDetails />
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(
-            `http://localhost:5000/products/${params.brandName}/${params.productId}`
-          ),
       },
       {
         path: `/updateProduct/:brandName/:productId`,

@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 import StarRating from '../../Components/StarRating/StarRating';
 import GlassButton from '../../Components/GlassButton/GlassButton';
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
@@ -8,44 +8,61 @@ import Swal from 'sweetalert2';
 import Modal from '../../Services/Utility/Modal';
 import useAxios from '../../Hooks/useAxios';
 import PageTitle from '../../Components/PageTitle/PageTitle';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import useCart from '../../Hooks/useCart';
 
 const ProductDetails = () => {
   PageTitle('Product Details - Fashion & Apparel');
   const secureAxios = useAxios();
-  const product = useLoaderData();
+  const [,refetch] = useCart();
+  const { brandName, productId } = useParams();
   const [showModal, setShowModal] = useState(false);
   const { user, setUpdatedCartCount, updatedCartCount } =
     useContext(AuthContext);
   const userId = user?.uid;
 
+  // get the product data
+  const { data: product } = useQuery({
+    queryKey: ['productDetails', user],
+    queryFn: async () => {
+      const response = await secureAxios.get(
+        `/products/${brandName}/${productId}`
+      );
+      return response.data;
+    },
+  });
+
+  // post add to cart data usign useMutation
+  const addToCartMutation = useMutation({
+    mutationFn: async (addToCartData) => {
+      const response = await secureAxios.post('/addedCart', addToCartData);
+      return response.data;
+    },
+    onSuccess: (data) => {
+      if (data.insertedId) {
+        refetch();
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Cart Added Successfully',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } else {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Failed To Add On Cart',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    },
+  });
+
   const handleAddToCartClick = () => {
     const addToCart = { userId, product };
-    secureAxios
-      .post('/addedCart', addToCart)
-      .then((res) => {
-        if (res.data.insertedId) {
-          setShowModal(false);
-          setUpdatedCartCount(updatedCartCount + 1);
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Cart Added Successfully',
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        } else {
-          Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Failed To Add On Cart',
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    addToCartMutation.mutate(addToCart);
   };
   return (
     <section className='container mx-auto my-12 px-[5%]'>
@@ -56,12 +73,12 @@ const ProductDetails = () => {
           <div className='max-w-[500px]'>
             <img
               className='lg:max-w-[500px] rounded-lg'
-              src={product.productImages[0]}
+              src={product?.productImages[0]}
               loading='lazy'
             />
             {/* sub image */}
             <div className='flex justify-center items-center gap-3 my-5'>
-              {product.productImages.map((image, index) => (
+              {product?.productImages.map((image, index) => (
                 <div key={index}>
                   <img
                     className='w-[60px] h-[60px] object-cover object-top rounded-lg'
@@ -82,22 +99,23 @@ const ProductDetails = () => {
             style={{ fontFamily: 'Quicksand' }}
           >
             <h1 className='text-[32px] font-bold uppercase'>
-              {product.productName}
+              {product?.productName}
             </h1>
             <p className='text-[18px] font-medium uppercase'>
-              Brand ~ <span className='text-blue-400'>{product.brandName}</span>
+              Brand ~{' '}
+              <span className='text-blue-400'>{product?.brandName}</span>
             </p>
             <div
               className='text-[18px] font-medium flex justify-start items-center gap-3'
               style={{ fontFamily: 'Quicksand' }}
             >
-              <p className='line-through'>${product.productPrice}.00</p>
+              <p className='line-through'>${product?.productPrice}.00</p>
               <p className='text-red-600'>
-                ${product.productPrice - (product.productPrice * 30) / 100}.00
+                ${product?.productPrice - (product?.productPrice * 30) / 100}.00
               </p>
             </div>
             <div className='flex justify-start'>
-              <StarRating initialRating={product.productRating} />
+              <StarRating initialRating={product?.productRating} />
             </div>
           </div>
           {/* size */}
@@ -127,7 +145,7 @@ const ProductDetails = () => {
           {/* description */}
           <div>
             <p className='text-[16px] uppercase lg:max-w-[450px] leading-8'>
-              {product.productDescription}
+              {product?.productDescription}
             </p>
           </div>
         </div>
