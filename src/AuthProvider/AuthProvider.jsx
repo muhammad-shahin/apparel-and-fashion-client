@@ -10,7 +10,7 @@ import {
   signOut,
 } from 'firebase/auth';
 import Swal from 'sweetalert2';
-import useAxios from '../AuthProvider/useAxios';
+import useAxios from '../Hooks/useAxios';
 
 export const AuthContext = createContext({});
 

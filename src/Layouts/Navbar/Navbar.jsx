@@ -8,7 +8,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { VscAccount } from 'react-icons/vsc';
 import DarkTheme from '../../Components/DarkTheme/DarkTheme';
-import useAxios from '../../AuthProvider/useAxios';
+import useAxios from '../../Hooks/useAxios';
 
 const Navbar = () => {
   const secureAxios = useAxios();

@@ -6,7 +6,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import Modal from '../../Services/Utility/Modal';
-import useAxios from '../../AuthProvider/useAxios';
+import useAxios from '../../Hooks/useAxios';
 import PageTitle from '../../Components/PageTitle/PageTitle';
 
 const ProductDetails = () => {

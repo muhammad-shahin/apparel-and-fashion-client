@@ -4,7 +4,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import ShowCart from '../../Components/ShowCart/ShowCart';
 import GlassButton from '../../Components/GlassButton/GlassButton';
 import Swal from 'sweetalert2';
-import useAxios from '../../AuthProvider/useAxios';
+import useAxios from '../../Hooks/useAxios';
 import { useNavigate } from 'react-router-dom';
 import PageTitle from '../../Components/PageTitle/PageTitle';
 
@@ -112,6 +112,8 @@ const MyCart = () => {
           />
         ))}
       </div>
+
+      {/* right side Total Cart */}
       <div className='min-w-[35%] space-y-6'>
         <h1
           style={{ fontFamily: 'Quicksand' }}
@@ -137,25 +139,25 @@ const MyCart = () => {
               <p className='text-[18px] font-medium'>
                 Total Delivery Charge :{' '}
               </p>
-              <p className='text-[18px] font-medium'>${totalDeliveryCharge}</p>
+              <p className='text-[18px] font-medium'>
+                ${totalDeliveryCharge.toFixed(2)}
+              </p>
             </div>
             <div className='flex justify-between items-center'>
               <p className='text-[18px] font-medium'>Total Discount : </p>
-              <p className='text-[18px] font-medium'>${totalDiscount}</p>
+              <p className='text-[18px] font-medium'>
+                ${totalDiscount.toFixed(2)}
+              </p>
             </div>
             <div className='flex justify-between items-center'>
               <p className='text-[18px] font-medium'>Total Tax : </p>
-              <p className='text-[18px] font-medium'>${totalTax}</p>
+              <p className='text-[18px] font-medium'>${totalTax.toFixed(2)}</p>
             </div>
             <hr className='w-full h-[2px] bg-gray-300' />
             <div className='flex justify-between items-center'>
               <p className='text-[18px] font-medium'>Total Price : </p>
               <p className='text-[18px] font-medium'>
-                $
-                {totalPrice +
-                  totalDeliveryCharge +
-                  totalTax -
-                  totalDiscount.toFixed(2)}
+                ${totalPrice + totalDeliveryCharge + totalTax - totalDiscount}
               </p>
             </div>
             <hr className='w-full h-[2px] bg-gray-300' />

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Heading from '../Heading/Heading';
 import { useEffect, useState } from 'react';
 import Card from '../Card/Card';
-import useAxios from '../../AuthProvider/useAxios';
+import useAxios from '../../Hooks/useAxios';
 import { useNavigate } from 'react-router-dom';
 
 const FeaturedProducts = () => {

@@ -4,7 +4,7 @@ import addProductAnim from '../../assets/Animation/addProductAnimation.json';
 import Modal from '../../Services/Utility/Modal';
 import Swal from 'sweetalert2';
 import ButtonModal from '../../Components/ButtonModal/ButtonModal';
-import useAxios from '../../AuthProvider/useAxios';
+import useAxios from '../../Hooks/useAxios';
 import PageTitle from '../../Components/PageTitle/PageTitle';
 const AddProduct = () => {
   PageTitle('Add New Product - Fashion & Apparel');

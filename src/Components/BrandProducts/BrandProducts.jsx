@@ -9,7 +9,7 @@ import notAvailableAnim from '../../assets/Animation/notAvailable.json';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Modal from '../../Services/Utility/Modal';
 import Heading from '../Heading/Heading';
-import useAxios from '../../AuthProvider/useAxios';
+import useAxios from '../../Hooks/useAxios';
 
 const BrandProducts = () => {
   const secureAxios = useAxios();

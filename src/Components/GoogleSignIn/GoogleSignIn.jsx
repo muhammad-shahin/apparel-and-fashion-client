@@ -4,7 +4,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import useAxios from '../../AuthProvider/useAxios';
+import useAxios from '../../Hooks/useAxios';
 
 const GoogleSignIn = () => {
   const navigate = useNavigate();

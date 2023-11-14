@@ -2,12 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
 import firebaseAuthError from '../../Services/Utility/FirebaseAuthError';
-import passwordErrorChecker from '../../Services/Utility/PasswordErrorChecker';
 import Modal from '../../Services/Utility/Modal';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Form from '../../Components/Form/Form';
 import loginAnim from '../../assets/Animation/loginAnimation.json';
-import useAxios from '../../AuthProvider/useAxios';
+import useAxios from '../../Hooks/useAxios';
 import PageTitle from '../../Components/PageTitle/PageTitle';
 
 const Login = () => {
