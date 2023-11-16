@@ -74,7 +74,6 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
       if (!currentUser) {
         localStorage.setItem('userData', null);
-        // loginUser();
       }
     });
     return () => {

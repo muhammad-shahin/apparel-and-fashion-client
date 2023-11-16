@@ -4,45 +4,37 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import useAxios from '../../Hooks/useAxios';
+import CreateToken from '../../api/CreateToken';
+import RegisterUserInDatabase from '../../api/RegisterUserInDatabase';
 
 const GoogleSignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { signInWithGoogle } = useContext(AuthContext);
-  const secureAxios = useAxios();
   // handle google sign in
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
+        const userData = {
+          userName: user?.displayName,
+          userEmail: user?.email,
+          userId: user?.uid,
+          role: 'Site User',
+        };
         const id = { userId: user.uid };
-        secureAxios
-          .post('/jwt', id)
-          .then((res) => {
-            console.log(res.data);
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'Logged In Successfully',
-              text: 'Redirecting Home Page...',
-              showConfirmButton: false,
-              timer: 1500,
-            });
-            // navigate after login
-            navigate(location?.state ? location?.state : '/');
-          })
-          .catch((error) => {
-            console.log(error.response);
-            Swal.fire({
-              position: 'center',
-              icon: 'error',
-              title: 'Failed To Generate Token',
-              text: `Failed To Generate Token. Please Try Again. Error Message: ${error.response.data.message}`,
-              showConfirmButton: false,
-              timer: 1500,
-            });
-          });
+        CreateToken(id);
+        RegisterUserInDatabase(userData);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Logged In Successfully',
+          text: 'Redirecting Home Page...',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        // navigate after login
+        navigate(location?.state ? location?.state : '/');
       })
       .catch((error) => {
         firebaseAuthError(error.message);

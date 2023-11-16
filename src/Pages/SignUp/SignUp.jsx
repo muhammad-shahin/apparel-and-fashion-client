@@ -10,6 +10,8 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Form from '../../Components/Form/Form';
 import signUpAnim from '../../assets/Animation/registration.json';
 import PageTitle from '../../Components/PageTitle/PageTitle';
+import CreateToken from '../../api/CreateToken';
+import RegisterUserInDatabase from '../../api/RegisterUserInDatabase';
 
 const SignUp = () => {
   PageTitle('Sign Up - Fashion & Apparel');
@@ -42,11 +44,20 @@ const SignUp = () => {
       createUser(email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
+          const userData = {
+            userName: user?.displayName,
+            userEmail: user?.email,
+            userId: user?.uid,
+            role: 'Site User',
+          };
+          const id = { userId: user.uid };
           updateProfile(auth.currentUser, {
             displayName: name,
           })
-            .then(() => {})
+            .then(() => {
+              CreateToken(id);
+              RegisterUserInDatabase(userData);
+            })
             .catch((error) => {
               console.log(error.message);
             });
@@ -55,11 +66,11 @@ const SignUp = () => {
             position: 'center',
             icon: 'success',
             title: 'Account Created Successfully',
-            text: 'Redirecting Login Page...',
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate('/login');
+          // navigate after signup
+          navigate(location?.state ? location?.state : '/');
         })
         .catch((error) => {
           firebaseAuthError(error.code);

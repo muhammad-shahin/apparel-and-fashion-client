@@ -8,10 +8,10 @@ import Form from '../../Components/Form/Form';
 import loginAnim from '../../assets/Animation/loginAnimation.json';
 import useAxios from '../../Hooks/useAxios';
 import PageTitle from '../../Components/PageTitle/PageTitle';
+import CreateToken from '../../api/CreateToken';
 
 const Login = () => {
   PageTitle('Login - Fashion & Apparel');
-  const secureAxios = useAxios();
 
   const { loginUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -34,34 +34,17 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         const id = { userId: user.uid };
-        secureAxios
-          .post('/jwt', id)
-          .then((res) => {
-            console.log(res.data);
-            setShowModal(false);
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'Logged In Successfully',
-              text: 'Redirecting Home Page...',
-              showConfirmButton: false,
-              timer: 1500,
-            });
-            // navigate after login
-            navigate(location?.state ? location?.state : '/');
-          })
-          .catch((error) => {
-            console.log(error.response);
-            setShowModal(false);
-            Swal.fire({
-              position: 'center',
-              icon: 'error',
-              title: 'Failed To Generate Token',
-              text: `Failed To Generate Token. Please Try Again. Error Message: ${error.response.data.message}`,
-              showConfirmButton: false,
-              timer: 1500,
-            });
-          });
+        CreateToken(id);
+        setShowModal(false);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Logged In Successfully',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        // navigate after login
+        navigate(location?.state ? location?.state : '/');
       })
       .catch((error) => {
         firebaseAuthError(error.code);

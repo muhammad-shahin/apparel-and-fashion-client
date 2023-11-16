@@ -2,7 +2,6 @@ import { useQuery } from '@tanstack/react-query';
 import useAxios from './useAxios';
 
 const userData = JSON.parse(localStorage.getItem('userData'));
-console.log(userData);
 const useCart = () => {
   const secureAxios = useAxios();
   const { data: cartData, refetch } = useQuery({
