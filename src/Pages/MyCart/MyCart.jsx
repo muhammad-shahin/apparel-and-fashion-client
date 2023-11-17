@@ -13,8 +13,7 @@ const MyCart = () => {
   PageTitle('My Cart - Fashion & Apparel');
   const navigate = useNavigate();
   const secureAxios = useAxios(navigate);
-  const { user } =
-    useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [cartData, refetch] = useCart();
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalDeliveryCharge, setTotalDeliveryCharge] = useState(0);
@@ -147,7 +146,11 @@ const MyCart = () => {
             <div className='flex justify-between items-center'>
               <p className='text-[18px] font-medium'>Total Price : </p>
               <p className='text-[18px] font-medium'>
-                ${totalPrice + totalDeliveryCharge + totalTax - totalDiscount}
+                $
+                {totalPrice.toFixed(2) +
+                  totalDeliveryCharge +
+                  totalTax -
+                  totalDiscount}
               </p>
             </div>
             <hr className='w-full h-[2px] bg-gray-300' />

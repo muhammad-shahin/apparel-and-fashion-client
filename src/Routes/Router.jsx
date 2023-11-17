@@ -11,6 +11,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import UpdateProduct from '../Pages/UpdateProduct/UpdateProduct';
 import MyCart from '../Pages/MyCart/MyCart';
 import Admin from '../Pages/Admin/Admin';
+import AdminRoute from './AdminRoute/AdminRoute';
 
 const routes = [
   {
@@ -87,9 +88,9 @@ const routes = [
       {
         path: `/admin`,
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <Admin />
-          </PrivateRoute>
+          </AdminRoute>
         ),
       },
     ],

@@ -1,19 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
 import useAxios from './useAxios';
-import { useContext } from 'react';
-import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const useAdmin = () => {
+  const userData = JSON.parse(localStorage.getItem('userData'));
   const secureAxios = useAxios();
-  const { user } = useContext(AuthContext);
   const { data: isAdmin } = useQuery({
-    queryKey: ['getAdmin', user],
+    queryKey: ['getAdmin', userData?.uid],
     queryFn: async () => {
-      const res = await secureAxios.get(`/users/:${user?.uid}`);
+      const res = await secureAxios.get(`/users/${userData?.uid}`);
       const role = res?.data?.role;
       return role;
     },
-    initialData: { isAdmin: null },
+    initialData: null,
   });
   return [isAdmin];
 };
