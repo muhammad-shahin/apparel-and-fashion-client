@@ -43,6 +43,8 @@ const AuthProvider = ({ children }) => {
           .post('/logout')
           .then((res) => {
             console.log('Logout success response: ', res.data);
+            localStorage.removeItem('access-token');
+            localStorage.removeItem('userData');
           })
           .catch((error) => {
             console.log('Logout error response : ', error.response);

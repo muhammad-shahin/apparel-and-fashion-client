@@ -10,6 +10,7 @@ import ProductDetails from '../Pages/ProductDetails/ProductDetails';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import UpdateProduct from '../Pages/UpdateProduct/UpdateProduct';
 import MyCart from '../Pages/MyCart/MyCart';
+import Admin from '../Pages/Admin/Admin';
 
 const routes = [
   {
@@ -80,6 +81,14 @@ const routes = [
         element: (
           <PrivateRoute>
             <MyCart />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: `/admin`,
+        element: (
+          <PrivateRoute>
+            <Admin />
           </PrivateRoute>
         ),
       },

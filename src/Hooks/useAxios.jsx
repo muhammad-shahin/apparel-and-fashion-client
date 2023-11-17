@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios';
 import { useEffect } from 'react';
 import Swal from 'sweetalert2';
@@ -11,6 +12,19 @@ const secureAxios = axios.create({
 
 const useAxios = (navigate) => {
   useEffect(() => {
+    secureAxios.interceptors.request.use(
+      (config) => {
+        console.log('request Stopped By interceptors');
+        const accessToken = JSON.parse(localStorage.getItem('access-token'));
+        console.log(accessToken);
+        config.headers.authorization = accessToken.token;
+        return config;
+      },
+      (error) => {
+        console.log('interceptor request error : ', error);
+        return Promise.reject(error);
+      }
+    );
     secureAxios.interceptors.response.use(
       (res) => {
         return res;
@@ -22,36 +36,30 @@ const useAxios = (navigate) => {
           error.request.status
         );
         if (error.request.status === 401 || error.request.status === 403) {
+          localStorage.removeItem('access-token');
+          localStorage.removeItem('userData');
           Swal.fire({
             position: 'center',
             icon: 'error',
             title: 'Season Expired',
             text: `Please login again. Your season has been expired.`,
             showConfirmButton: false,
-            timer: 2500,
+            timer: 1500,
           });
-          setTimeout(() => {
-            signOut(auth)
-              .then(() => {
-                Swal.fire({
-                  position: 'center',
-                  icon: 'success',
-                  title: 'Successfully Logout',
-                  showConfirmButton: false,
-                  timer: 2000,
-                });
-                navigate('/login');
-              })
-              .catch((error) => {
-                Swal.fire({
-                  position: 'center',
-                  icon: 'error',
-                  title: `Failed To Logout. Please Try Again. ${error.message}`,
-                  showConfirmButton: false,
-                  timer: 3500,
-                });
+          signOut(auth)
+            .then(() => {
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Successfully Logout',
+                showConfirmButton: false,
+                timer: 2000,
               });
-          }, 2500);
+              navigate('/login');
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         }
       }
     );

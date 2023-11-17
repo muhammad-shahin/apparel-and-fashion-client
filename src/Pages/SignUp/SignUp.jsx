@@ -48,7 +48,6 @@ const SignUp = () => {
             userName: user?.displayName,
             userEmail: user?.email,
             userId: user?.uid,
-            role: 'Site User',
           };
           const id = { userId: user.uid };
           updateProfile(auth.currentUser, {

@@ -5,7 +5,10 @@ const CreateToken = (id) => {
   publicAxios
     .post('/jwt', id)
     .then((res) => {
-      console.log(res.data);
+      console.log('Token created : ', res.data);
+      const token = JSON.stringify(res.data);
+      console.log(token);
+      localStorage.setItem('access-token', token);
     })
     .catch((error) => {
       console.log(error.response);
