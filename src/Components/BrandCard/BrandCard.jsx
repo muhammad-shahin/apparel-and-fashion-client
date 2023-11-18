@@ -1,16 +1,14 @@
 import Tilt from 'react-parallax-tilt';
 import PropTypes from 'prop-types';
 import GlassedLogo from '../GlassedLogo/GlassedLogo';
-import { useNavigate } from 'react-router-dom';
 
-const BrandCard = ({ brand }) => {
-  const { brandName, brandLogo, brandImage, tagLine } = brand;
-  const navigate = useNavigate();
+const BrandCard = ({ brand, handleCardClick }) => {
+  const { brandName, brandId, brandLogo, brandImage, tagLine } = brand;
   return (
     <div
       className='w-96 rounded-lg'
       onClick={() => {
-        navigate(`/brand/${brandName}`);
+        handleCardClick(brandName, brandId);
       }}
     >
       <Tilt
@@ -56,6 +54,7 @@ const BrandCard = ({ brand }) => {
 
 BrandCard.propTypes = {
   brand: PropTypes.object,
+  handleCardClick: PropTypes.func,
 };
 
 export default BrandCard;

@@ -35,6 +35,8 @@ const BrandProducts = () => {
         console.log(error);
       });
   }, []);
+
+  // get products by brand id
   useEffect(() => {
     secureAxios
       .get(`/products/${brandName}`)

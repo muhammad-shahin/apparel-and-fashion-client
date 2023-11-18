@@ -1,18 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Fade as Hamburger } from 'hamburger-react';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import './Navbar.css';
 import UserProfile from '../../Components/UserProfile/UserProfile';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { VscAccount } from 'react-icons/vsc';
 import DarkTheme from '../../Components/DarkTheme/DarkTheme';
-import useAxios from '../../Hooks/useAxios';
 import useCart from '../../Hooks/useCart';
 
 const Navbar = () => {
-  const secureAxios = useAxios();
   const { user, showProfile, setShowProfile } = useContext(AuthContext);
   const [isOpen, setOpen] = useState(false);
   const navigate = useNavigate();
@@ -77,7 +75,7 @@ const Navbar = () => {
               setOpen(false);
             }}
           >
-            <NavLink to='/addProduct'>Add Product</NavLink>
+            <NavLink to='/admin'>Add Product</NavLink>
           </li>
           {user ? (
             ''

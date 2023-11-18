@@ -1,0 +1,23 @@
+[
+  {
+    "brandName": "Add Product",
+    "brandId": "addProduct",
+    "brandImage": "https://railsware.com/blog/wp-content/uploads/2020/12/new-product-development-process.jpg",
+    "brandLogo": "https://i.ibb.co/D1CQ9kW/add.png",
+    "tagLine": "Add New Product In Database"
+  },
+  {
+    "brandName": "Update Product",
+    "brandId": "updateProduct",
+    "brandImage": "https://cdn.dribbble.com/users/3584909/screenshots/6533886/10__1_.png",
+    "brandLogo": "https://i.ibb.co/mtSYNXB/update.png",
+    "tagLine": "Update Existing Product"
+  },
+  {
+    "brandName": "Add Caurosol",
+    "brandId": "advertise",
+    "brandImage": "https://cdn-cnfpn.nitrocdn.com/afeBSwwZQwLisqnFfqxurJoKJulPdqwF/assets/images/optimized/rev-4294470/wow-how.com/wp-content/uploads/2018/05/Why-is-Illustration-so-Important-in-Advertising.png",
+    "brandLogo": "https://i.ibb.co/4JNQ3tz/social-media.png",
+    "tagLine": "Add New Caurosol Ads"
+  }
+]

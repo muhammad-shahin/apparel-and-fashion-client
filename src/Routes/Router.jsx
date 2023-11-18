@@ -12,6 +12,7 @@ import UpdateProduct from '../Pages/UpdateProduct/UpdateProduct';
 import MyCart from '../Pages/MyCart/MyCart';
 import Admin from '../Pages/Admin/Admin';
 import AdminRoute from './AdminRoute/AdminRoute';
+import AdminRoot from '../Pages/Admin/AdminRoot';
 
 const routes = [
   {
@@ -32,14 +33,6 @@ const routes = [
         element: <Login />,
       },
       {
-        path: '/addProduct',
-        element: (
-          <PrivateRoute>
-            <AddProduct />
-          </PrivateRoute>
-        ),
-      },
-      {
         path: '/brand/:brandName',
         element: (
           <PrivateRoute>
@@ -52,9 +45,9 @@ const routes = [
       {
         path: '/addAdvertisement',
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <AddAdvertisement />
-          </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
@@ -68,9 +61,9 @@ const routes = [
       {
         path: `/updateProduct/:brandName/:productId`,
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <UpdateProduct />
-          </PrivateRoute>
+          </AdminRoute>
         ),
         loader: ({ params }) =>
           fetch(
@@ -89,9 +82,19 @@ const routes = [
         path: `/admin`,
         element: (
           <AdminRoute>
-            <Admin />
+            <AdminRoot />
           </AdminRoute>
         ),
+        children: [
+          {
+            path: '/admin',
+            element: <Admin />,
+          },
+          {
+            path: 'addProduct',
+            element: <AddProduct />,
+          },
+        ],
       },
     ],
   },
