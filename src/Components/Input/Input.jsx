@@ -9,6 +9,8 @@ const Input = ({
   errorMessage,
   labelText,
   onBlur,
+  required = true,
+  defaultValue,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   return (
@@ -24,7 +26,8 @@ const Input = ({
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}
-        required
+        required={required}
+        defaultValue={defaultValue}
       />
       {type === 'password' && (
         <AiFillEye
@@ -52,6 +55,8 @@ Input.propTypes = {
   labelText: PropTypes.string,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
+  required: PropTypes.bool,
+  defaultValue: PropTypes.any,
 };
 
 export default Input;

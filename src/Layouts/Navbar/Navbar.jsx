@@ -14,7 +14,7 @@ const Navbar = () => {
   const { user, showProfile, setShowProfile } = useContext(AuthContext);
   const [isOpen, setOpen] = useState(false);
   const navigate = useNavigate();
-  const [cartData] = useCart();
+  const [cartData] = useCart('Navbar');
 
   return (
     <header className=''>
@@ -76,6 +76,14 @@ const Navbar = () => {
             }}
           >
             <NavLink to='/admin'>Add Product</NavLink>
+          </li>
+          <li
+            className='text-black dark:text-black font-medium text-[16px] hover:scale-[1.1] duration-500'
+            onClick={() => {
+              setOpen(false);
+            }}
+          >
+            <NavLink to='/checkout'>Checkout</NavLink>
           </li>
           {user ? (
             ''

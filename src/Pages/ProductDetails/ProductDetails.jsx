@@ -14,7 +14,7 @@ import useCart from '../../Hooks/useCart';
 const ProductDetails = () => {
   PageTitle('Product Details - Fashion & Apparel');
   const secureAxios = useAxios();
-  const [,refetch] = useCart();
+  const [, refetch] = useCart('Product Details');
   const { brandName, productId } = useParams();
   const [showModal, setShowModal] = useState(false);
   const { user, setUpdatedCartCount, updatedCartCount } =

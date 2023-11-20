@@ -8,11 +8,13 @@ import Login from '../Pages/Login/Login';
 import SignUp from '../Pages/SignUp/SignUp';
 import ProductDetails from '../Pages/ProductDetails/ProductDetails';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
-import UpdateProduct from '../Pages/UpdateProduct/UpdateProduct';
+import UpdateProduct from '../Pages/Admin/UpdateProduct/UpdateProduct';
 import MyCart from '../Pages/MyCart/MyCart';
 import Admin from '../Pages/Admin/Admin';
 import AdminRoute from './AdminRoute/AdminRoute';
 import AdminRoot from '../Pages/Admin/AdminRoot';
+import AllProducts from '../Pages/Admin/AllProducts/AllProducts';
+import Checkout from '../Pages/Checkout/Checkout';
 
 const routes = [
   {
@@ -79,6 +81,14 @@ const routes = [
         ),
       },
       {
+        path: `/checkout`,
+        element: (
+          <PrivateRoute>
+            <Checkout />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: `/admin`,
         element: (
           <AdminRoute>
@@ -88,11 +98,27 @@ const routes = [
         children: [
           {
             path: '/admin',
-            element: <Admin />,
+            element: (
+              <AdminRoute>
+                <Admin />
+              </AdminRoute>
+            ),
           },
           {
             path: 'addProduct',
-            element: <AddProduct />,
+            element: (
+              <AdminRoute>
+                <AddProduct />
+              </AdminRoute>
+            ),
+          },
+          {
+            path: 'allProducts',
+            element: (
+              <AdminRoute>
+                <AllProducts />
+              </AdminRoute>
+            ),
           },
         ],
       },

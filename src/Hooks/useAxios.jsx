@@ -14,7 +14,6 @@ const useAxios = (navigate) => {
   useEffect(() => {
     secureAxios.interceptors.request.use(
       (config) => {
-        console.log('request Stopped By interceptors');
         const accessToken = JSON.parse(localStorage.getItem('access-token'));
         config.headers.authorization = accessToken.token;
         return config;

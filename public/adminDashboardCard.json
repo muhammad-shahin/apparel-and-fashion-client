@@ -7,8 +7,8 @@
     "tagLine": "Add New Product In Database"
   },
   {
-    "brandName": "Update Product",
-    "brandId": "updateProduct",
+    "brandName": "All Products",
+    "brandId": "allProducts",
     "brandImage": "https://cdn.dribbble.com/users/3584909/screenshots/6533886/10__1_.png",
     "brandLogo": "https://i.ibb.co/mtSYNXB/update.png",
     "tagLine": "Update Existing Product"
