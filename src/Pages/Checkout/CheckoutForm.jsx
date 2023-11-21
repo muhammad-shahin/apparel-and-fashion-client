@@ -21,7 +21,6 @@ const CheckoutForm = ({ billingInfo }) => {
       .post('/create-payment-intent', { price: totals.totalCartPrice })
       .then((res) => {
         setClientSecret(res?.data?.clientSecret);
-        console.log(res?.data?.clientSecret);
       });
   }, []);
 

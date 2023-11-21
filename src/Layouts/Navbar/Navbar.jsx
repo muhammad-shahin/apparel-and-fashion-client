@@ -8,13 +8,12 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { VscAccount } from 'react-icons/vsc';
 import DarkTheme from '../../Components/DarkTheme/DarkTheme';
-import useCart from '../../Hooks/useCart';
 
 const Navbar = () => {
   const { user, showProfile, setShowProfile } = useContext(AuthContext);
   const [isOpen, setOpen] = useState(false);
   const navigate = useNavigate();
-  const [cartData] = useCart('Navbar');
+  const [cartData] = JSON.parse(localStorage.getItem('cartData'));
 
   return (
     <header className=''>
