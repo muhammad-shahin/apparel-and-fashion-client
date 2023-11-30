@@ -42,7 +42,7 @@ const routes = [
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/brandAdvertisement/${params.brandName}`),
+          fetch(`http://localhost:3000/brandAdvertisement/${params.brandName}`),
       },
       {
         path: '/addAdvertisement',
@@ -69,7 +69,7 @@ const routes = [
         ),
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/products/${params.brandName}/${params.productId}`
+            `http://localhost:3000/products/${params.brandName}/${params.productId}`
           ),
       },
       {

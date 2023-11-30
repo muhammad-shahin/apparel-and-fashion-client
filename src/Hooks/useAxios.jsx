@@ -6,7 +6,7 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../Configs/firebase.config';
 
 const secureAxios = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'http://localhost:3000',
   withCredentials: true,
 });
 

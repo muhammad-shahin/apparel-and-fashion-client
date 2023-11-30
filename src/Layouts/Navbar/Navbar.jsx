@@ -13,7 +13,7 @@ const Navbar = () => {
   const { user, showProfile, setShowProfile } = useContext(AuthContext);
   const [isOpen, setOpen] = useState(false);
   const navigate = useNavigate();
-  const [cartData] = JSON.parse(localStorage.getItem('cartData'));
+  // const [cartData] = JSON.parse(localStorage.getItem('cartData'));
 
   return (
     <header className=''>
@@ -109,7 +109,8 @@ const Navbar = () => {
             />
             {user && (
               <p className='bg-red-600 rounded-full text-[8px] p-1 flex justify-center items-center absolute top-0 right-0 w-[15px] h-[15px] text-white'>
-                {cartData ? cartData.length : 0}
+                {/* {cartData ? cartData.length : 0} */}
+                {0}
               </p>
             )}
           </div>

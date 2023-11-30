@@ -1,7 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useEffect, useState } from 'react';
 import GlassButton from '../../Components/GlassButton/GlassButton';
-import useCart from '../../Hooks/useCart';
 import useAxios from '../../Hooks/useAxios';
 import PropTypes from 'prop-types';
 import Swal from 'sweetalert2';

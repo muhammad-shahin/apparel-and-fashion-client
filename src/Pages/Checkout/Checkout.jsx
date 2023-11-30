@@ -3,7 +3,6 @@ import Heading from '../../Components/Heading/Heading';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
 import Input from '../../Components/Input/Input';
-import useCart from '../../Hooks/useCart';
 import { useState } from 'react';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISH_KEY);

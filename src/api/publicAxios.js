@@ -3,7 +3,7 @@ import axios from 'axios';
 // const userData = JSON.parse(localStorage.getItem('userData'));
 
 const publicAxios = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'http://localhost:3000',
   withCredentials: true,
 });
 
