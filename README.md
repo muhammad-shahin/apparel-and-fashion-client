@@ -1,5 +1,5 @@
 # Fashion & Apparel House - React Web App 👗
-
+![Site Showcase](https://i.ibb.co/PFZK1Q8/assignment-10-project-showcase.png)
 ## Live Site 🌐
 [Visit the live site here](https://fashion-and-apparel-house.web.app)
 
