@@ -2,6 +2,7 @@
 
 ## Live Site 🌐
 [Visit the live site here](https://fashion-and-apparel-house.web.app)
+
 Fashion & Apparel House is a cutting-edge e-commerce web application that brings together the finest fashion brands in one convenient place. With a responsive design for mobile, tablet, and desktop users, it offers a seamless shopping experience. This README provides an overview of the project from a developer's perspective.
 
 ## Table of Contents
